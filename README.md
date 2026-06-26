@@ -1,4 +1,4 @@
-# wport-agents
+# wport-ai-starter-kit
 
 **開源 AI Skills 工具包** — 搭配 [wport 職航站](https://www.wport.me) 與常用 MCP，讓 **任何新手小白** 都能用自然語言完成履歷、求職、簡報與品牌頁操作。
 
@@ -51,19 +51,19 @@
 
 ### 1. Fork 本 repo
 
-到 [contactwport/wport-agents](https://github.com/contactwport/wport-agents) 點 **Fork**，複製一份到你自己的 GitHub 帳號。
+到 [contactwport/wport-ai-starter-kit](https://github.com/contactwport/wport-ai-starter-kit) 點 **Fork**，複製一份到你自己的 GitHub 帳號。
 
 或用 GitHub CLI（會 fork 並 clone 到本機）：
 
 ```bash
-gh repo fork contactwport/wport-agents --clone
-cd wport-agents
+gh repo fork contactwport/wport-ai-starter-kit --clone
+cd wport-ai-starter-kit
 ```
 
 之後請在自己的 fork 上改履歷、簡報與輸出；需要同步上游更新時：
 
 ```bash
-git remote add upstream https://github.com/contactwport/wport-agents.git
+git remote add upstream https://github.com/contactwport/wport-ai-starter-kit.git
 git fetch upstream && git merge upstream/main
 ```
 
@@ -72,18 +72,18 @@ git fetch upstream && git merge upstream/main
 ```bash
 # 建議：整包連結
 mkdir -p .cursor/skills
-ln -s /path/to/wport-agents/skills/gen-resume            .cursor/skills/gen-resume
-ln -s /path/to/wport-agents/skills/exec-wport-cli        .cursor/skills/exec-wport-cli
-ln -s /path/to/wport-agents/skills/gen-resume-optimizer  .cursor/skills/gen-resume-optimizer
-ln -s /path/to/wport-agents/skills/gen-career-mentor     .cursor/skills/gen-career-mentor
-ln -s /path/to/wport-agents/skills/interviewer-ai        .cursor/skills/interviewer-ai
-ln -s /path/to/wport-agents/skills/exec-vercel-cli       .cursor/skills/exec-vercel-cli
-ln -s /path/to/wport-agents/skills/exec-analytics-mcp    .cursor/skills/exec-analytics-mcp
-ln -s /path/to/wport-agents/skills/hypelink-brand-page-mcp .cursor/skills/hypelink-brand-page-mcp
-ln -s /path/to/wport-agents/skills/hypelink-event-mcp    .cursor/skills/hypelink-event-mcp
+ln -s /path/to/wport-ai-starter-kit/skills/gen-resume            .cursor/skills/gen-resume
+ln -s /path/to/wport-ai-starter-kit/skills/exec-wport-cli        .cursor/skills/exec-wport-cli
+ln -s /path/to/wport-ai-starter-kit/skills/gen-resume-optimizer  .cursor/skills/gen-resume-optimizer
+ln -s /path/to/wport-ai-starter-kit/skills/gen-career-mentor     .cursor/skills/gen-career-mentor
+ln -s /path/to/wport-ai-starter-kit/skills/interviewer-ai        .cursor/skills/interviewer-ai
+ln -s /path/to/wport-ai-starter-kit/skills/exec-vercel-cli       .cursor/skills/exec-vercel-cli
+ln -s /path/to/wport-ai-starter-kit/skills/exec-analytics-mcp    .cursor/skills/exec-analytics-mcp
+ln -s /path/to/wport-ai-starter-kit/skills/hypelink-brand-page-mcp .cursor/skills/hypelink-brand-page-mcp
+ln -s /path/to/wport-ai-starter-kit/skills/hypelink-event-mcp    .cursor/skills/hypelink-event-mcp
 # open-slide skills（需先有 open-slide workspace）
-ln -s /path/to/wport-agents/skills/create-slide          .cursor/skills/create-slide
-ln -s /path/to/wport-agents/skills/slide-authoring       .cursor/skills/slide-authoring
+ln -s /path/to/wport-ai-starter-kit/skills/create-slide          .cursor/skills/create-slide
+ln -s /path/to/wport-ai-starter-kit/skills/slide-authoring       .cursor/skills/slide-authoring
 ```
 
 人類快查：[`skills/INDEX.md`](skills/INDEX.md)
@@ -165,7 +165,7 @@ my-workspace/
 ## 目錄結構
 
 ```
-wport-agents/
+wport-ai-starter-kit/
 ├── README.md
 ├── docs/
 │   └── dual-site-layout.md   # 履歷 + open-slide 同 repo 契約

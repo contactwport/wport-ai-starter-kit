@@ -71,15 +71,15 @@
 
 ## 安裝方式（Cursor）
 
-1. **Fork** [contactwport/wport-agents](https://github.com/contactwport/wport-agents) 到你的帳號。
-2. 在本機 clone **你自己的 fork**（或 `gh repo fork contactwport/wport-agents --clone`）。
+1. **Fork** [contactwport/wport-ai-starter-kit](https://github.com/contactwport/wport-ai-starter-kit) 到你的帳號。
+2. 在本機 clone **你自己的 fork**（或 `gh repo fork contactwport/wport-ai-starter-kit --clone`）。
 
 ```bash
 # 單一 skill（路徑改成你的 fork 本機位置）
-ln -s /path/to/wport-agents/skills/gen-resume .cursor/skills/gen-resume
+ln -s /path/to/wport-ai-starter-kit/skills/gen-resume .cursor/skills/gen-resume
 
 # 或整包
-ln -s /path/to/wport-agents/skills .cursor/skills/wport-agents
+ln -s /path/to/wport-ai-starter-kit/skills .cursor/skills/wport-ai-starter-kit
 ```
 
 ---

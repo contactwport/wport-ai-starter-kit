@@ -1,6 +1,6 @@
 # wport Resume Template
 
-**Single resume template** for wport-agents — schema, layout CSS, icons, and render rules in one folder.
+**Single resume template** for wport-ai-starter-kit — schema, layout CSS, icons, and render rules in one folder.
 
 | Asset | Purpose |
 |-------|---------|
@@ -249,7 +249,7 @@ Timeline typography (work & education): bold title → teal subtitle (`#56C7BB`)
 
 ## Differences from wport web editor
 
-| wport web editor | wport-agents |
+| wport web editor | wport-ai-starter-kit |
 |------------------|--------------|
 | Required fields for publish | **No required fields** |
 | Raw codes in edit form | Preview `*_display` strings |
