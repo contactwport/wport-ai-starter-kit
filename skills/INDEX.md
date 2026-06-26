@@ -71,11 +71,11 @@
 
 ## 安裝方式（Cursor）
 
-```bash
-git clone https://github.com/contactwport/wport-agents.git
-cd your-project
+1. **Fork** [contactwport/wport-agents](https://github.com/contactwport/wport-agents) 到你的帳號。
+2. 在本機 clone **你自己的 fork**（或 `gh repo fork contactwport/wport-agents --clone`）。
 
-# 單一 skill
+```bash
+# 單一 skill（路徑改成你的 fork 本機位置）
 ln -s /path/to/wport-agents/skills/gen-resume .cursor/skills/gen-resume
 
 # 或整包

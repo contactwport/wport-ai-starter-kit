@@ -49,11 +49,22 @@
 
 ## 快速開始（3 步）
 
-### 1. Clone 本 repo
+### 1. Fork 本 repo
+
+到 [contactwport/wport-agents](https://github.com/contactwport/wport-agents) 點 **Fork**，複製一份到你自己的 GitHub 帳號。
+
+或用 GitHub CLI（會 fork 並 clone 到本機）：
 
 ```bash
-git clone https://github.com/contactwport/wport-agents.git
-cd your-project
+gh repo fork contactwport/wport-agents --clone
+cd wport-agents
+```
+
+之後請在自己的 fork 上改履歷、簡報與輸出；需要同步上游更新時：
+
+```bash
+git remote add upstream https://github.com/contactwport/wport-agents.git
+git fetch upstream && git merge upstream/main
 ```
 
 ### 2. 連結 Skills 到 Cursor
