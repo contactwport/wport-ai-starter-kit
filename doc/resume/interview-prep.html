@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>wport 面試官模擬 - 10 道必考魔鬼題</title>
+  <link rel="icon" type="image/x-icon" href="https://wport.me/favicon.ico">
+  <style>/**
+ * Source: W101-Web apps/user preview-resume + ResumeSections preview-mode.vue
+ * Sync with: W101-Web/apps/user/src/assets/styles/rich-text.scss
+ */
+:root {
+  --wport-primary: #56c7bb;
+  --wport-primary-hover: #4ebcb1;
+  --wport-title: #5d5d5d;
+  --wport-label: #9a9a9a;
+  --wport-text: #000000;
+  --wport-border: #d7d7d7;
+  --wport-page-bg: #fafafa;
+  --wport-icon-bg: #f5f5f5;
+  --wport-empty: #c0c0c0;
+  --wport-card-shadow: 0px 1px 10px #00000021;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, "Arial Rounded MT", sans-serif;
+  line-height: 1.5;
+  color: var(--wport-text);
+  background-color: var(--wport-page-bg);
+}
+
+.wport-preview-page {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 16px 40px;
+  width: 100%;
+  min-width: 0;
+}
+
+.wport-preview-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex: 1;
+  min-width: 0;
+}
+
+.wport-card {
+  position: relative;
+  height: 100%;
+  border-radius: 8px;
+  background: #fff;
+  width: 100%;
+  box-shadow: var(--wport-card-shadow);
+  break-inside: avoid;
+}
+
+.wport-card--collapse {
+  border-radius: 16px;
+}
+
+.wport-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 0.5px solid var(--wport-border);
+}
+
+.wport-card-title {
+  margin: 0;
+  font-weight: 700;
+  color: var(--wport-title);
+  font-size: 20px;
+  padding: 7px 24px 6px;
+}
+
+.wport-card-title--simple {
+  padding-top: 7px;
+  padding-bottom: 6px;
+}
+
+.wport-display-section {
+  padding: 16px;
+  max-width: 932px;
+}
+
+@media (min-width: 768px) {
+  .wport-display-section {
+    padding: 37px 46px;
+  }
+}
+
+.wport-member-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+}
+
+@media (min-width: 768px) {
+  .wport-member-layout {
+    flex-direction: row;
+  }
+}
+
+.wport-avatar-wrap {
+  flex: 0 0 auto;
+  padding-bottom: 14px;
+}
+
+@media (min-width: 768px) {
+  .wport-avatar-wrap {
+    padding-bottom: 0;
+  }
+}
+
+.wport-avatar {
+  display: block;
+  object-fit: contain;
+  margin: 0 auto;
+  border-radius: 9999px;
+  border: 1px solid var(--wport-border);
+  width: 86px;
+  height: 86px;
+  background: var(--wport-icon-bg);
+}
+
+@media (min-width: 1024px) {
+  .wport-avatar {
+    width: 140px;
+    height: 140px;
+  }
+}
+
+.wport-member-info {
+  flex: 1;
+  padding-bottom: 32px;
+}
+
+.wport-member-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.wport-member-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+@media (min-width: 768px) {
+  .wport-member-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.wport-info-row {
+  display: flex;
+  align-items: center;
+}
+
+.wport-info-icon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--wport-icon-bg);
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.wport-info-icon img {
+  width: 15px;
+  height: 15px;
+}
+
+.wport-info-value {
+  margin-left: 12px;
+}
+
+.wport-label-value-rows {
+  padding: 16px 16px;
+}
+
+@media (min-width: 768px) {
+  .wport-label-value-rows {
+    padding: 37px 46px;
+  }
+}
+
+.wport-label-value-rows > * + * {
+  margin-top: 18px;
+}
+
+.wport-label-value-row {
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .wport-label-value-row {
+    display: flex;
+    gap: 16px;
+  }
+}
+
+.wport-label {
+  color: var(--wport-label);
+  white-space: nowrap;
+}
+
+.wport-value {
+  color: var(--wport-text);
+}
+
+.wport-total-years {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.wport-total-years-label {
+  width: 94px;
+  color: var(--wport-label);
+}
+
+.wport-timeline-item {
+  display: flex;
+  gap: 14px;
+  padding-bottom: 24px;
+}
+
+.wport-timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+.wport-timeline-marker-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 15px;
+  flex-shrink: 0;
+}
+
+.wport-timeline-marker {
+  margin-top: 3px;
+  display: block;
+  border-radius: 9999px;
+  width: 15px;
+  height: 15px;
+  background: var(--wport-primary);
+  flex-shrink: 0;
+}
+
+.wport-timeline-marker--gray {
+  background: #bebebe;
+  border: 1px solid #bebebe;
+}
+
+.wport-timeline-connector {
+  margin-top: 4px;
+  flex: 1;
+  width: 2px;
+  background: var(--wport-primary);
+  min-height: 12px;
+}
+
+.wport-timeline-item:last-child .wport-timeline-connector {
+  display: none;
+}
+
+.wport-timeline-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.wport-timeline-content > * + * {
+  margin-top: 4px;
+}
+
+.wport-entry-title {
+  color: var(--wport-text);
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.wport-entry-subtitle {
+  color: var(--wport-primary);
+  margin: 0;
+}
+
+.wport-entry-duration {
+  color: var(--wport-label);
+  margin: 0;
+}
+
+.wport-skill-block + .wport-skill-block {
+  margin-top: 16px;
+}
+
+.wport-skill-label {
+  color: var(--wport-label);
+  margin: 0 0 4px;
+}
+
+.wport-language-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.wport-language-list > li + li {
+  margin-top: 16px;
+}
+
+.wport-language-name {
+  font-weight: 700;
+  margin: 0;
+}
+
+.wport-language-level {
+  color: var(--wport-label);
+}
+
+.wport-cert-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.wport-cert-name {
+  font-weight: 500;
+  color: #1f2937;
+  margin: 0;
+}
+
+.wport-cert-duration {
+  color: var(--wport-label);
+  margin: 0;
+}
+
+.wport-link-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.wport-link-list > li + li {
+  margin-top: 16px;
+}
+
+.wport-link-list a {
+  color: var(--wport-label);
+  text-decoration: none;
+  word-break: break-all;
+}
+
+.wport-link-list a:hover {
+  color: var(--wport-primary);
+  text-decoration: underline;
+}
+
+.wport-job-pref-inner {
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.wport-job-pref-inner > * + * {
+  margin-top: 18px;
+}
+
+.wport-empty {
+  color: var(--wport-empty);
+  text-align: center;
+}
+
+/* rich-text.scss — CSS vars mapped to wport tokens */
+.rich-content {
+  white-space: pre-wrap;
+  padding: 0;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  min-width: 0;
+  color: black;
+  font-size: 1rem;
+  background-color: #fff;
+}
+
+.rich-content h2 {
+  font-size: 1.5rem;
+}
+
+.rich-content .ql-editor {
+  padding: 0;
+  min-width: 0;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+.rich-content ul li[data-list='bullet'] {
+  list-style-type: disc !important;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+.rich-content ul li::before {
+  content: '\2022';
+  margin-inline-start: -1.5rem;
+  margin-inline-end: 0.3rem;
+  text-align: right;
+}
+
+.rich-content ol li[data-list='ordered'] {
+  list-style-type: decimal !important;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+.rich-content ol li {
+  counter-reset: list-1 list-2 list-3 list-4 list-5 list-6 list-7 list-8 list-9;
+  counter-increment: list-0;
+}
+
+.rich-content .ql-editor li:not(.ql-direction-rtl)::before {
+  margin-inline-start: -1.5rem;
+  margin-inline-end: 0.3rem;
+  text-align: right;
+}
+
+.rich-content .ql-editor ol li:before {
+  content: counter(list-0, decimal) '. ';
+}
+
+.rich-content li[data-list]::marker {
+  color: black;
+}
+
+.rich-content ul,
+.rich-content ol,
+.rich-content li {
+  padding-inline-start: 1.5em;
+}
+
+.rich-content img,
+.rich-content iframe,
+.rich-content video {
+  max-width: 100%;
+}
+
+.rich-content blockquote {
+  padding: 0.75rem;
+  margin: 0.5rem 0;
+  border-radius: 0.375rem;
+  background-color: #fafafa;
+  border-left: 4px solid #9de0d9;
+  color: var(--wport-label);
+}
+
+.rich-content pre {
+  white-space: unset !important;
+  background: transparent !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.rich-content code {
+  padding: 0 0.25rem;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  background-color: var(--wport-icon-bg);
+  color: var(--wport-primary);
+}
+
+.rich-content a {
+  color: var(--wport-primary) !important;
+  text-decoration: underline;
+  text-decoration-color: #9de0d9;
+}
+
+.rich-content a:hover {
+  color: var(--wport-primary-hover);
+}
+
+.rich-content hr {
+  border-color: var(--wport-border);
+  margin: 1rem 0;
+}
+
+@media print {
+  body {
+    background: #fff;
+  }
+
+  .wport-preview-page {
+    padding: 0;
+  }
+}
+
+/**
+ * Report layout — extends templates/resume/resume.css (loaded together in render.mjs)
+ */
+
+.wport-report-header {
+  padding: 24px 24px 16px;
+  border-bottom: 0.5px solid var(--wport-border);
+}
+
+.wport-report-title {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--wport-title);
+}
+
+.wport-report-subtitle {
+  margin: 8px 0 0;
+  color: var(--wport-label);
+  font-size: 0.95rem;
+}
+
+.wport-report-body {
+  padding: 16px;
+}
+
+@media (min-width: 768px) {
+  .wport-report-body {
+    padding: 28px 46px 36px;
+  }
+}
+
+.wport-report-section + .wport-report-section {
+  margin-top: 28px;
+}
+
+.wport-report-section-title {
+  margin: 0 0 12px;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--wport-title);
+}
+
+.wport-report-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.wport-report-table th,
+.wport-report-table td {
+  border: 0.5px solid var(--wport-border);
+  padding: 10px 12px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.wport-report-table th {
+  background: var(--wport-icon-bg);
+  color: var(--wport-title);
+  font-weight: 700;
+}
+
+.wport-report-list {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.wport-report-list > li + li {
+  margin-top: 8px;
+}
+
+.wport-report-kv {
+  display: grid;
+  gap: 10px;
+}
+
+.wport-report-kv-row {
+  display: grid;
+  gap: 4px;
+}
+
+@media (min-width: 768px) {
+  .wport-report-kv-row {
+    grid-template-columns: 140px 1fr;
+    gap: 16px;
+  }
+}
+
+.wport-report-kv-label {
+  color: var(--wport-label);
+  font-weight: 700;
+}
+
+.wport-report-kv-value {
+  color: var(--wport-text);
+}
+
+.wport-status-ready {
+  color: #059669;
+}
+
+.wport-status-partial {
+  color: #d97706;
+}
+
+.wport-status-missing {
+  color: #dc2626;
+}
+
+.wport-question-item {
+  padding: 16px 0;
+  border-bottom: 0.5px solid var(--wport-border);
+}
+
+.wport-question-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.wport-question-item:first-child {
+  padding-top: 0;
+}
+
+.wport-question-title {
+  margin: 0 0 10px;
+  font-weight: 700;
+  color: var(--wport-text);
+  line-height: 1.5;
+}
+
+.wport-question-meta {
+  margin: 0;
+  color: var(--wport-label);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.wport-question-meta + .wport-question-meta {
+  margin-top: 6px;
+}
+
+.wport-question-meta strong {
+  color: var(--wport-title);
+}
+
+.wport-callout {
+  margin-top: 24px;
+  padding: 16px 18px;
+  border-radius: 8px;
+  background: #f0faf9;
+  border-left: 4px solid var(--wport-primary);
+  color: var(--wport-text);
+  line-height: 1.6;
+}
+
+.wport-callout-label {
+  display: block;
+  font-weight: 700;
+  color: var(--wport-title);
+  margin-bottom: 6px;
+}
+
+.wport-gap-item + .wport-gap-item {
+  margin-top: 12px;
+}
+
+.wport-gap-name {
+  margin: 0;
+  font-weight: 700;
+  color: var(--wport-text);
+}
+
+.wport-gap-why {
+  margin: 4px 0 0;
+  color: var(--wport-label);
+}
+
+.wport-milestone-list {
+  margin: 8px 0 0;
+  padding-left: 1.25rem;
+}
+
+.wport-milestone-list > li + li {
+  margin-top: 6px;
+}
+
+.wport-score {
+  max-width: 420px;
+}
+
+.wport-score-header {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.wport-score-value {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.wport-score-scale {
+  font-size: 0.9rem;
+  color: var(--wport-label);
+}
+
+.wport-score-sublabel {
+  margin-left: auto;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.wport-score-track {
+  height: 8px;
+  border-radius: 9999px;
+  background: var(--wport-icon-bg);
+  overflow: hidden;
+}
+
+.wport-score-fill {
+  height: 100%;
+  border-radius: 9999px;
+  transition: width 0.2s ease;
+}
+
+.wport-score-note {
+  margin: 10px 0 0;
+  color: var(--wport-label);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.wport-report-kv-row--score {
+  align-items: start;
+}
+
+@media (min-width: 768px) {
+  .wport-report-kv-row--score {
+    grid-template-columns: 140px 1fr;
+  }
+}
+</style>
+</head>
+<body>
+  <main class="wport-preview-page">
+    <div class="wport-preview-stack">
+      <article class="wport-card wport-card--collapse">
+        <header class="wport-report-header">
+          <h1 class="wport-report-title">wport 面試官模擬 - 10 道必考魔鬼題</h1>
+          <p class="wport-report-subtitle">範例科技股份有限公司 — Senior Backend Engineer</p>
+        </header>
+      </article>
+      
+<article class="wport-card wport-card--collapse">
+  <div class="wport-card-header">
+    <h3 class="wport-card-title">一、技術與實戰情境題 (3題)</h3>
+  </div>
+  <div><div class="wport-display-section">
+<div class="wport-question-item">
+  <p class="wport-question-title">1. 你在上一份工作將 API latency P99 從 800ms 降到 200ms，具體改了哪些瓶頸？如果流量再漲 10 倍你會先動哪一層？</p>
+  <p class="wport-question-meta"><strong>面試官背後意圖：</strong>驗證是否真的做過效能優化，而非只背 buzzword</p>
+  <p class="wport-question-meta"><strong>黃金回答策略建議：</strong>用 STAR 描述瓶頸定位 → 改動 → 量化結果；擴展時先講瓶頸假設與監控指標</p>
+</div>
+<div class="wport-question-item">
+  <p class="wport-question-title">2. 履歷提到 PostgreSQL 索引調校，請 walk through 一次你如何用 EXPLAIN ANALYZE 找到慢查詢根因。</p>
+  <p class="wport-question-meta"><strong>面試官背後意圖：</strong>確認資料庫深度，不是只會 ORM</p>
+  <p class="wport-question-meta"><strong>黃金回答策略建議：</strong>描述具體 query、before/after plan、取捨（index 維護成本）</p>
+</div>
+<div class="wport-question-item">
+  <p class="wport-question-title">3. 若要在現有 monolith 上拆出 payment service，你會如何切邊界與處理 distributed transaction？</p>
+  <p class="wport-question-meta"><strong>面試官背後意圖：</strong>測系統設計與 trade-off 能力</p>
+  <p class="wport-question-meta"><strong>黃金回答策略建議：</strong>先定 bounded context，再講 saga/outbox 等模式，避免一次全拆</p>
+</div></div></div>
+</article>
+
+<article class="wport-card wport-card--collapse">
+  <div class="wport-card-header">
+    <h3 class="wport-card-title">二、行為面試與團隊協作 (3題)</h3>
+  </div>
+  <div><div class="wport-display-section">
+<div class="wport-question-item">
+  <p class="wport-question-title">1. 描述一次你與 PM 對需求 scope 有嚴重分歧的經驗，最後如何收斂？</p>
+  <p class="wport-question-meta"><strong>面試官背後意圖：</strong>評估溝通與 stakeholder 管理</p>
+  <p class="wport-question-meta"><strong>黃金回答策略建議：</strong>強調 data/user impact、替代方案、書面共識</p>
+</div>
+<div class="wport-question-item">
+  <p class="wport-question-title">2. 上線後出現 P0，你當值班 lead 的第一 30 分鐘會做什麼？</p>
+  <p class="wport-question-meta"><strong>面試官背後意圖：</strong>壓力下 prioritization 與 incident 流程</p>
+  <p class="wport-question-meta"><strong>黃金回答策略建議：</strong>止血 → 溝通 → root cause 時間盒，不要先 blame</p>
+</div>
+<div class="wport-question-item">
+  <p class="wport-question-title">3. 你 mentoring junior 時，如何讓對方在 deadline 前交付但又不 micromanage？</p>
+  <p class="wport-question-meta"><strong>面試官背後意圖：</strong>senior 角色的 people skill</p>
+  <p class="wport-question-meta"><strong>黃金回答策略建議：</strong>拆 milestone、定義 done、定期 checkpoint</p>
+</div></div></div>
+</article>
+
+<article class="wport-card wport-card--collapse">
+  <div class="wport-card-header">
+    <h3 class="wport-card-title">三、履歷痛點與痛擊題 (2題)</h3>
+  </div>
+  <div><div class="wport-display-section">
+<div class="wport-question-item">
+  <p class="wport-question-title">1. 你 2022 年有 8 個月空檔，這段時間在做什麼？為何現在要轉回 full-time backend？</p>
+  <p class="wport-question-meta"><strong>面試官背後意圖：</strong>釐清空檔是否隱藏 red flag</p>
+  <p class="wport-question-meta"><strong>黃金回答策略建議：</strong>誠實說明（進修/家庭/創業），連結到現在職缺的動機</p>
+</div>
+<div class="wport-question-item">
+  <p class="wport-question-title">2. 履歷寫「熟悉 Kubernetes」，但專案描述都是 Docker Compose — 你的 K8s 實務深度到哪？</p>
+  <p class="wport-question-meta"><strong>面試官背後意圖：</strong>抓履歷膨脹</p>
+  <p class="wport-question-meta"><strong>黃金回答策略建議：</strong>區分「學習/實驗」vs「production」；若不足，說明補強計畫</p>
+</div></div></div>
+</article>
+
+<article class="wport-card wport-card--collapse">
+  <div class="wport-card-header">
+    <h3 class="wport-card-title">四、商業突發狀況情境題 (2題)</h3>
+  </div>
+  <div><div class="wport-display-section">
+<div class="wport-question-item">
+  <p class="wport-question-title">1. 黑五流量是平日 20 倍，checkout API 開始 503，老闆要求 1 小時內恢復，你怎麼排 priority？</p>
+  <p class="wport-question-meta"><strong>面試官背後意圖：</strong>商業壓力下的技術決策</p>
+  <p class="wport-question-meta"><strong>黃金回答策略建議：</strong>先恢復 SLA（限流/降級/擴容），再 parallel RCA</p>
+</div>
+<div class="wport-question-item">
+  <p class="wport-question-title">2. 競品今天上線免運，轉換率掉 15%，產品要你 48 小時內上 A/B pricing feature，你會 push back 嗎？</p>
+  <p class="wport-question-meta"><strong>面試官背後意圖：</strong>平衡 speed vs 技術債</p>
+  <p class="wport-question-meta"><strong>黃金回答策略建議：</strong>提出 MVP scope、風險、需要的最小監控</p>
+</div></div></div>
+</article>
+<div class="wport-callout">
+  <span class="wport-callout-label">面試官的小叮嚀</span>
+  此公司高度重視可量化的 impact 與 incident 成熟度。回答技術題時避免只講工具名稱；第 7 題空檔務必具體，不要模糊帶過。
+</div>
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,81 @@
+{
+  "type": "interview-prep",
+  "title": "wport 面試官模擬 - 10 道必考魔鬼題",
+  "target_job": {
+    "company": "範例科技股份有限公司",
+    "title": "Senior Backend Engineer"
+  },
+  "categories": [
+    {
+      "title": "一、技術與實戰情境題 (3題)",
+      "questions": [
+        {
+          "question": "你在上一份工作將 API latency P99 從 800ms 降到 200ms，具體改了哪些瓶頸？如果流量再漲 10 倍你會先動哪一層？",
+          "intent": "驗證是否真的做過效能優化，而非只背 buzzword",
+          "strategy": "用 STAR 描述瓶頸定位 → 改動 → 量化結果；擴展時先講瓶頸假設與監控指標"
+        },
+        {
+          "question": "履歷提到 PostgreSQL 索引調校，請 walk through 一次你如何用 EXPLAIN ANALYZE 找到慢查詢根因。",
+          "intent": "確認資料庫深度，不是只會 ORM",
+          "strategy": "描述具體 query、before/after plan、取捨（index 維護成本）"
+        },
+        {
+          "question": "若要在現有 monolith 上拆出 payment service，你會如何切邊界與處理 distributed transaction？",
+          "intent": "測系統設計與 trade-off 能力",
+          "strategy": "先定 bounded context，再講 saga/outbox 等模式，避免一次全拆"
+        }
+      ]
+    },
+    {
+      "title": "二、行為面試與團隊協作 (3題)",
+      "questions": [
+        {
+          "question": "描述一次你與 PM 對需求 scope 有嚴重分歧的經驗，最後如何收斂？",
+          "intent": "評估溝通與 stakeholder 管理",
+          "strategy": "強調 data/user impact、替代方案、書面共識"
+        },
+        {
+          "question": "上線後出現 P0，你當值班 lead 的第一 30 分鐘會做什麼？",
+          "intent": "壓力下 prioritization 與 incident 流程",
+          "strategy": "止血 → 溝通 → root cause 時間盒，不要先 blame"
+        },
+        {
+          "question": "你 mentoring junior 時，如何讓對方在 deadline 前交付但又不 micromanage？",
+          "intent": "senior 角色的 people skill",
+          "strategy": "拆 milestone、定義 done、定期 checkpoint"
+        }
+      ]
+    },
+    {
+      "title": "三、履歷痛點與痛擊題 (2題)",
+      "questions": [
+        {
+          "question": "你 2022 年有 8 個月空檔，這段時間在做什麼？為何現在要轉回 full-time backend？",
+          "intent": "釐清空檔是否隱藏 red flag",
+          "strategy": "誠實說明（進修/家庭/創業），連結到現在職缺的動機"
+        },
+        {
+          "question": "履歷寫「熟悉 Kubernetes」，但專案描述都是 Docker Compose — 你的 K8s 實務深度到哪？",
+          "intent": "抓履歷膨脹",
+          "strategy": "區分「學習/實驗」vs「production」；若不足，說明補強計畫"
+        }
+      ]
+    },
+    {
+      "title": "四、商業突發狀況情境題 (2題)",
+      "questions": [
+        {
+          "question": "黑五流量是平日 20 倍，checkout API 開始 503，老闆要求 1 小時內恢復，你怎麼排 priority？",
+          "intent": "商業壓力下的技術決策",
+          "strategy": "先恢復 SLA（限流/降級/擴容），再 parallel RCA"
+        },
+        {
+          "question": "競品今天上線免運，轉換率掉 15%，產品要你 48 小時內上 A/B pricing feature，你會 push back 嗎？",
+          "intent": "平衡 speed vs 技術債",
+          "strategy": "提出 MVP scope、風險、需要的最小監控"
+        }
+      ]
+    }
+  ],
+  "interviewer_tip": "此公司高度重視可量化的 impact 與 incident 成熟度。回答技術題時避免只講工具名稱；第 7 題空檔務必具體，不要模糊帶過。"
+}

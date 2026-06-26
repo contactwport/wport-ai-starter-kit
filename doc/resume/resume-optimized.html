@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>林小範 - 後端工程師履歷（範例科技客製版）</title>
+  <link rel="icon" type="image/x-icon" href="https://wport.me/favicon.ico">
+  <style>/**
+ * Source: W101-Web apps/user preview-resume + ResumeSections preview-mode.vue
+ * Sync with: W101-Web/apps/user/src/assets/styles/rich-text.scss
+ */
+:root {
+  --wport-primary: #56c7bb;
+  --wport-primary-hover: #4ebcb1;
+  --wport-title: #5d5d5d;
+  --wport-label: #9a9a9a;
+  --wport-text: #000000;
+  --wport-border: #d7d7d7;
+  --wport-page-bg: #fafafa;
+  --wport-icon-bg: #f5f5f5;
+  --wport-empty: #c0c0c0;
+  --wport-card-shadow: 0px 1px 10px #00000021;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, "Arial Rounded MT", sans-serif;
+  line-height: 1.5;
+  color: var(--wport-text);
+  background-color: var(--wport-page-bg);
+}
+
+.wport-preview-page {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 16px 40px;
+  width: 100%;
+  min-width: 0;
+}
+
+.wport-preview-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex: 1;
+  min-width: 0;
+}
+
+.wport-card {
+  position: relative;
+  height: 100%;
+  border-radius: 8px;
+  background: #fff;
+  width: 100%;
+  box-shadow: var(--wport-card-shadow);
+  break-inside: avoid;
+}
+
+.wport-card--collapse {
+  border-radius: 16px;
+}
+
+.wport-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 0.5px solid var(--wport-border);
+}
+
+.wport-card-title {
+  margin: 0;
+  font-weight: 700;
+  color: var(--wport-title);
+  font-size: 20px;
+  padding: 7px 24px 6px;
+}
+
+.wport-card-title--simple {
+  padding-top: 7px;
+  padding-bottom: 6px;
+}
+
+.wport-display-section {
+  padding: 16px;
+  max-width: 932px;
+}
+
+@media (min-width: 768px) {
+  .wport-display-section {
+    padding: 37px 46px;
+  }
+}
+
+.wport-member-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+}
+
+@media (min-width: 768px) {
+  .wport-member-layout {
+    flex-direction: row;
+  }
+}
+
+.wport-avatar-wrap {
+  flex: 0 0 auto;
+  padding-bottom: 14px;
+}
+
+@media (min-width: 768px) {
+  .wport-avatar-wrap {
+    padding-bottom: 0;
+  }
+}
+
+.wport-avatar {
+  display: block;
+  object-fit: contain;
+  margin: 0 auto;
+  border-radius: 9999px;
+  border: 1px solid var(--wport-border);
+  width: 86px;
+  height: 86px;
+  background: var(--wport-icon-bg);
+}
+
+@media (min-width: 1024px) {
+  .wport-avatar {
+    width: 140px;
+    height: 140px;
+  }
+}
+
+.wport-member-info {
+  flex: 1;
+  padding-bottom: 32px;
+}
+
+.wport-member-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.wport-member-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+@media (min-width: 768px) {
+  .wport-member-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.wport-info-row {
+  display: flex;
+  align-items: center;
+}
+
+.wport-info-icon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--wport-icon-bg);
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.wport-info-icon img {
+  width: 15px;
+  height: 15px;
+}
+
+.wport-info-value {
+  margin-left: 12px;
+}
+
+.wport-label-value-rows {
+  padding: 16px 16px;
+}
+
+@media (min-width: 768px) {
+  .wport-label-value-rows {
+    padding: 37px 46px;
+  }
+}
+
+.wport-label-value-rows > * + * {
+  margin-top: 18px;
+}
+
+.wport-label-value-row {
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .wport-label-value-row {
+    display: flex;
+    gap: 16px;
+  }
+}
+
+.wport-label {
+  color: var(--wport-label);
+  white-space: nowrap;
+}
+
+.wport-value {
+  color: var(--wport-text);
+}
+
+.wport-total-years {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.wport-total-years-label {
+  width: 94px;
+  color: var(--wport-label);
+}
+
+.wport-timeline-item {
+  display: flex;
+  gap: 14px;
+  padding-bottom: 24px;
+}
+
+.wport-timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+.wport-timeline-marker-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 15px;
+  flex-shrink: 0;
+}
+
+.wport-timeline-marker {
+  margin-top: 3px;
+  display: block;
+  border-radius: 9999px;
+  width: 15px;
+  height: 15px;
+  background: var(--wport-primary);
+  flex-shrink: 0;
+}
+
+.wport-timeline-marker--gray {
+  background: #bebebe;
+  border: 1px solid #bebebe;
+}
+
+.wport-timeline-connector {
+  margin-top: 4px;
+  flex: 1;
+  width: 2px;
+  background: var(--wport-primary);
+  min-height: 12px;
+}
+
+.wport-timeline-item:last-child .wport-timeline-connector {
+  display: none;
+}
+
+.wport-timeline-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.wport-timeline-content > * + * {
+  margin-top: 4px;
+}
+
+.wport-entry-title {
+  color: var(--wport-text);
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.wport-entry-subtitle {
+  color: var(--wport-primary);
+  margin: 0;
+}
+
+.wport-entry-duration {
+  color: var(--wport-label);
+  margin: 0;
+}
+
+.wport-skill-block + .wport-skill-block {
+  margin-top: 16px;
+}
+
+.wport-skill-label {
+  color: var(--wport-label);
+  margin: 0 0 4px;
+}
+
+.wport-language-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.wport-language-list > li + li {
+  margin-top: 16px;
+}
+
+.wport-language-name {
+  font-weight: 700;
+  margin: 0;
+}
+
+.wport-language-level {
+  color: var(--wport-label);
+}
+
+.wport-cert-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.wport-cert-name {
+  font-weight: 500;
+  color: #1f2937;
+  margin: 0;
+}
+
+.wport-cert-duration {
+  color: var(--wport-label);
+  margin: 0;
+}
+
+.wport-link-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.wport-link-list > li + li {
+  margin-top: 16px;
+}
+
+.wport-link-list a {
+  color: var(--wport-label);
+  text-decoration: none;
+  word-break: break-all;
+}
+
+.wport-link-list a:hover {
+  color: var(--wport-primary);
+  text-decoration: underline;
+}
+
+.wport-job-pref-inner {
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.wport-job-pref-inner > * + * {
+  margin-top: 18px;
+}
+
+.wport-empty {
+  color: var(--wport-empty);
+  text-align: center;
+}
+
+/* rich-text.scss — CSS vars mapped to wport tokens */
+.rich-content {
+  white-space: pre-wrap;
+  padding: 0;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  min-width: 0;
+  color: black;
+  font-size: 1rem;
+  background-color: #fff;
+}
+
+.rich-content h2 {
+  font-size: 1.5rem;
+}
+
+.rich-content .ql-editor {
+  padding: 0;
+  min-width: 0;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+.rich-content ul li[data-list='bullet'] {
+  list-style-type: disc !important;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+.rich-content ul li::before {
+  content: '\2022';
+  margin-inline-start: -1.5rem;
+  margin-inline-end: 0.3rem;
+  text-align: right;
+}
+
+.rich-content ol li[data-list='ordered'] {
+  list-style-type: decimal !important;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+.rich-content ol li {
+  counter-reset: list-1 list-2 list-3 list-4 list-5 list-6 list-7 list-8 list-9;
+  counter-increment: list-0;
+}
+
+.rich-content .ql-editor li:not(.ql-direction-rtl)::before {
+  margin-inline-start: -1.5rem;
+  margin-inline-end: 0.3rem;
+  text-align: right;
+}
+
+.rich-content .ql-editor ol li:before {
+  content: counter(list-0, decimal) '. ';
+}
+
+.rich-content li[data-list]::marker {
+  color: black;
+}
+
+.rich-content ul,
+.rich-content ol,
+.rich-content li {
+  padding-inline-start: 1.5em;
+}
+
+.rich-content img,
+.rich-content iframe,
+.rich-content video {
+  max-width: 100%;
+}
+
+.rich-content blockquote {
+  padding: 0.75rem;
+  margin: 0.5rem 0;
+  border-radius: 0.375rem;
+  background-color: #fafafa;
+  border-left: 4px solid #9de0d9;
+  color: var(--wport-label);
+}
+
+.rich-content pre {
+  white-space: unset !important;
+  background: transparent !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.rich-content code {
+  padding: 0 0.25rem;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  background-color: var(--wport-icon-bg);
+  color: var(--wport-primary);
+}
+
+.rich-content a {
+  color: var(--wport-primary) !important;
+  text-decoration: underline;
+  text-decoration-color: #9de0d9;
+}
+
+.rich-content a:hover {
+  color: var(--wport-primary-hover);
+}
+
+.rich-content hr {
+  border-color: var(--wport-border);
+  margin: 1rem 0;
+}
+
+@media print {
+  body {
+    background: #fff;
+  }
+
+  .wport-preview-page {
+    padding: 0;
+  }
+}
+</style>
+</head>
+<body>
+  <main class="wport-preview-page">
+    <div class="wport-preview-stack">
+      
+<article class="wport-card">
+  <div class="wport-card-header">
+    <h3 class="wport-card-title wport-card-title--simple">會員資料</h3>
+  </div>
+  <div class="wport-display-section">
+    <div class="wport-member-layout">
+      <div class="wport-avatar-wrap"><div class="wport-avatar" aria-hidden="true"></div></div>
+      <div class="wport-member-info">
+        <div class="wport-member-name">林小範</div>
+        <div class="wport-member-grid">
+<div class="wport-info-row">
+  <div class="wport-info-icon"><img src="data:image/svg+xml,%3Csvg%20width%3D%2214%22%20height%3D%2214%22%20viewBox%3D%220%200%2014%2014%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d%3D%22M0.699219%2012.6136C0.798484%2012.4051%200.965028%2012.3324%201.19334%2012.3434C1.44922%2012.3566%201.70621%2012.3434%201.96209%2012.3489C2.04812%2012.3511%202.06908%2012.3279%202.06908%2012.243C2.06577%2011.5757%202.06687%2010.9073%202.06687%2010.2401V10.0978C2.454%2010.186%202.79702%2010.036%203.14665%209.93896C3.45106%209.85404%203.74886%209.74485%204.06651%209.70624C4.53526%209.64889%204.97974%209.75036%205.41982%209.89374C5.95144%2010.0658%206.49078%2010.1915%207.05769%2010.175C7.52644%2010.1618%207.98086%2010.0724%208.41652%209.91249C9.17976%209.63235%209.93196%209.62793%2010.6908%209.9158C10.8496%209.97646%2011.0173%2010.0151%2011.1805%2010.0636C11.3934%2010.1265%2011.6106%2010.1441%2011.8401%2010.1C11.8401%2010.164%2011.8401%2010.2202%2011.8401%2010.2765C11.8401%2010.9316%2011.8423%2011.5879%2011.8379%2012.243C11.8379%2012.3279%2011.8577%2012.3522%2011.9437%2012.35C12.2117%2012.3434%2012.4809%2012.3555%2012.75%2012.3456C12.9772%2012.3368%2013.1283%2012.4261%2013.2077%2012.639V12.7857C13.1338%2013.0118%2012.9728%2013.0835%2012.7423%2013.0835C8.88306%2013.0801%205.02386%2013.0801%201.16576%2013.0835C0.935249%2013.0835%200.774219%2013.0118%200.700322%2012.7857V12.6147L0.699219%2012.6136Z%22%20fill%3D%22%239A9A9A%22%2F%3E%0A%3Cpath%20d%3D%22M6.95266%207.39771C8.43502%207.39771%209.91628%207.39771%2011.3986%207.39771C11.5089%207.39771%2011.6181%207.40101%2011.724%207.43631C11.9931%207.52454%2012.1442%207.72749%2012.1464%208.01094C12.1486%208.28337%2012.1464%208.5569%2012.1464%208.82933C12.1464%209.21977%2011.8354%209.46903%2011.4527%209.37418C11.1736%209.3047%2010.8968%209.22197%2010.6222%209.13374C9.90194%208.90322%209.18502%208.90653%208.4648%209.13705C8.10965%209.25065%207.7545%209.36756%207.38171%209.4172C6.82583%209.48999%206.28979%209.40396%205.75928%209.23411C5.40744%209.12161%205.0545%209.01242%204.68391%208.97381C4.14236%208.91866%203.62398%209.01793%203.11332%209.18447C2.90155%209.25396%202.68648%209.31683%202.4703%209.36977C2.07103%209.46793%201.76221%209.22528%201.76221%208.8183C1.76221%208.54918%201.76111%208.28116%201.76221%208.01204C1.76441%207.69329%201.97287%207.45616%202.28831%207.41094C2.36442%207.39991%202.44273%207.39771%202.51993%207.39771C3.99788%207.39771%205.47582%207.39771%206.95377%207.39771H6.95266Z%22%20fill%3D%22%239A9A9A%22%2F%3E%0A%3Cpath%20d%3D%22M7.69062%205.16017C7.69062%205.58701%207.68841%206.01495%207.69282%206.44179C7.69282%206.5212%207.67297%206.54326%207.59246%206.54216C7.16562%206.53774%206.73767%206.53885%206.31083%206.54216C6.23914%206.54216%206.21378%206.52782%206.21488%206.44951C6.21819%205.59914%206.21488%204.74767%206.21819%203.8973C6.21819%203.68112%206.35275%203.55318%206.57223%203.55097C6.82812%203.54876%207.0851%203.54876%207.34098%203.55097C7.55826%203.55318%207.68951%203.68332%207.69062%203.90171C7.69282%204.32083%207.69062%204.73994%207.69062%205.15906V5.16017Z%22%20fill%3D%22%239A9A9A%22%2F%3E%0A%3Cpath%20d%3D%22M3.26283%205.16695C3.26283%204.75555%203.26283%204.34415%203.26283%203.93386C3.26283%203.67908%203.38856%203.55445%203.64665%203.55445C3.8904%203.55445%204.13526%203.55334%204.37901%203.55445C4.60621%203.55555%204.73746%203.68128%204.73857%203.90849C4.74188%204.75886%204.73857%205.61033%204.74077%206.4607C4.74077%206.52247%204.72533%206.54453%204.66026%206.54453C4.22018%206.54232%203.78121%206.54122%203.34114%206.54453C3.25952%206.54453%203.26172%206.50592%203.26172%206.44857C3.26283%206.02063%203.26172%205.59379%203.26172%205.16585L3.26283%205.16695Z%22%20fill%3D%22%239A9A9A%22%2F%3E%0A%3Cpath%20d%3D%22M10.6431%205.17501C10.6431%205.59854%2010.6409%206.02207%2010.6453%206.4456C10.6453%206.52722%2010.6222%206.54486%2010.5438%206.54486C10.117%206.54156%209.68906%206.54156%209.26112%206.54486C9.18943%206.54486%209.16406%206.53053%209.16406%206.45222C9.16737%205.60516%209.16406%204.7592%209.16737%203.91214C9.16737%203.67941%209.29972%203.55589%209.53575%203.55478C9.78392%203.55368%2010.0321%203.55368%2010.2802%203.55478C10.5119%203.55589%2010.642%203.68603%2010.6431%203.91875C10.6442%204.33787%2010.6431%204.75699%2010.6431%205.17721V5.17501Z%22%20fill%3D%22%239A9A9A%22%2F%3E%0A%3Cpath%20d%3D%22M3.26087%202.23886C3.25646%202.04916%203.31712%201.91018%203.37337%201.77121C3.49249%201.48114%203.64249%201.20761%203.80021%200.937388C3.89837%200.76974%204.098%200.76202%204.19396%200.925256C4.39028%201.25724%204.57889%201.59474%204.70021%201.96202C4.83477%202.37122%204.61087%202.79254%204.20719%202.90725C3.7958%203.02306%203.38109%202.78041%203.27741%202.36019C3.26528%202.30945%203.26197%202.25651%203.25977%202.23776L3.26087%202.23886Z%22%20fill%3D%22%239A9A9A%22%2F%3E%0A%3Cpath%20d%3D%22M10.6514%202.20947C10.6271%202.51609%2010.4892%202.7422%2010.2124%202.86793C9.93005%202.99477%209.65983%202.95727%209.426%202.75764C9.19439%202.558%209.10615%202.30212%209.1977%202.00102C9.31571%201.61389%209.51645%201.26425%209.71939%200.917927C9.80321%200.775648%2010.0017%200.767927%2010.0856%200.909104C10.3039%201.27528%2010.5146%201.64587%2010.6315%202.06058C10.6459%202.11021%2010.6459%202.16425%2010.6514%202.21168V2.20947Z%22%20fill%3D%22%239A9A9A%22%2F%3E%0A%3Cpath%20d%3D%22M6.211%202.20695C6.20879%202.05254%206.26725%201.91247%206.3246%201.7746C6.44372%201.48563%206.59372%201.21099%206.75254%200.941876C6.85181%200.774229%207.05034%200.766508%207.1474%200.930847C7.34262%201.26283%207.53122%201.60033%207.65365%201.96761C7.78049%202.34923%207.59409%202.74298%207.22791%202.88857C6.86394%203.03306%206.45034%202.86872%206.28048%202.51357C6.23416%202.41651%206.2121%202.31394%206.211%202.20695Z%22%20fill%3D%22%239A9A9A%22%2F%3E%0A%3C%2Fsvg%3E%0A" alt="" /></div>
+  <div class="wport-info-value">31</div>
+</div>
+<div class="wport-info-row">
+  <div class="wport-info-icon"><img src="data:image/svg+xml,%3Csvg%20width%3D%2214%22%20height%3D%2210%22%20viewBox%3D%220%200%2014%2010%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cg%20clip-path%3D%22url(%23clip0_13453_3444)%22%3E%0A%3Cpath%20d%3D%22M13.5203%202.91531V8.86914C13.5006%208.87218%2013.4961%208.88583%2013.4901%208.90252C13.2465%209.57164%2012.8925%209.81896%2012.1829%209.81896C8.78349%209.81896%205.38405%209.81896%201.9831%209.81896C1.93318%209.81896%201.88325%209.81896%201.83333%209.81896C1.29323%209.7962%200.871135%209.46695%200.715308%208.95259C0.706231%208.92376%200.712282%208.8828%200.669922%208.87066V2.91531C0.713795%202.86676%200.734976%202.92442%200.757669%202.93959C2.48538%204.08969%204.21157%205.24131%205.93777%206.39293C6.7048%206.90577%207.48393%206.90577%208.25247%206.39293C9.97867%205.24131%2011.7033%204.08969%2013.4311%202.93959C13.4553%202.9229%2013.4764%202.8698%2013.5203%202.9138V2.91531Z%22%20fill%3D%22%239A9A9A%22%2F%3E%0A%3Cpath%20d%3D%22M0.669922%201.58312C0.669922%201.43291%200.669922%201.28118%200.669922%201.13097C0.689589%201.12794%200.694128%201.11428%200.700179%201.09759C0.940727%200.434539%201.30079%200.181152%202.00731%200.181152C5.40977%200.181152%208.81375%200.181152%2012.2162%200.181152C12.2661%200.181152%2012.3161%200.181152%2012.366%200.18267C12.8546%200.214533%2013.2087%200.448195%2013.4174%200.892759C13.4598%200.983796%2013.4855%201.08394%2013.5188%201.18104V1.58312C13.4855%201.59071%2013.4916%201.62106%2013.4855%201.64382C13.4053%201.93969%2013.2329%202.16576%2012.9787%202.33418C11.2449%203.48883%209.51421%204.64804%207.77894%205.80118C7.32054%206.10615%206.85457%206.10008%206.39617%205.79511C4.71385%204.67232%203.03153%203.54497%201.34467%202.42673C1.02847%202.21735%200.774311%201.97914%200.689589%201.59526C0.689589%201.59071%200.677486%201.58768%200.669922%201.58312Z%22%20fill%3D%22%239A9A9A%22%2F%3E%0A%3C%2Fg%3E%0A%3Cdefs%3E%0A%3CclipPath%20id%3D%22clip0_13453_3444%22%3E%0A%3Crect%20width%3D%2212.8504%22%20height%3D%229.6378%22%20fill%3D%22white%22%20transform%3D%22translate(0.669922%200.181152)%22%2F%3E%0A%3C%2FclipPath%3E%0A%3C%2Fdefs%3E%0A%3C%2Fsvg%3E%0A" alt="" /></div>
+  <div class="wport-info-value">example@email.com</div>
+</div>
+<div class="wport-info-row">
+  <div class="wport-info-icon"><img src="data:image/svg+xml,%3Csvg%20width%3D%2210%22%20height%3D%2216%22%20viewBox%3D%220%200%2010%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d%3D%22M9.24177%200.703943C9.05711%200.470535%208.80483%200.364321%208.53304%200.285645H1.65376C1.64725%200.309248%201.62775%200.309248%201.60824%200.314493C1.03215%200.473158%200.714844%200.888834%200.714844%201.49727C0.714844%205.90449%200.714844%2010.313%200.714844%2014.7215C0.714844%2015.4441%201.196%2015.9279%201.91124%2015.9279C4.04135%2015.9292%206.17145%2015.9279%208.30286%2015.9279C8.4251%2015.9279%208.54604%2015.9187%208.66178%2015.8846C9.19626%2015.7299%209.50056%2015.2972%209.50056%2014.6901C9.50056%2011.3817%209.50056%208.07203%209.50056%204.76367C9.50056%203.674%209.50056%202.58432%209.50056%201.49596C9.50056%201.20223%209.42513%200.937351%209.24047%200.702632L9.24177%200.703943ZM3.58229%200.980624C4.09597%200.980624%204.61094%200.980624%205.12461%200.980624C5.62917%200.980624%206.13244%200.980624%206.63701%200.980624C6.80346%200.980624%206.86328%201.05274%206.86588%201.24419C6.86848%201.43826%206.79956%201.52743%206.63701%201.52874C5.61877%201.52874%204.60053%201.52874%203.58229%201.52874C3.41974%201.52874%203.34952%201.43695%203.35212%201.24419C3.35472%201.05799%203.42104%200.980624%203.58229%200.980624ZM5.1194%2014.8002C4.72147%2014.8042%204.39376%2014.4829%204.38726%2014.0829C4.38076%2013.6883%204.70847%2013.3565%205.1064%2013.3539C5.50433%2013.3526%205.83204%2013.6791%205.83074%2014.0764C5.83074%2014.4685%205.50693%2014.795%205.1194%2014.7989V14.8002ZM8.65398%207.26428C8.65398%208.89421%208.65268%2010.5228%208.65658%2012.1527C8.65658%2012.2839%208.63057%2012.3206%208.49402%2012.3206C6.23647%2012.3153%203.98023%2012.3153%201.72268%2012.3206C1.58743%2012.3206%201.55882%2012.2878%201.55882%2012.1541C1.56272%208.89027%201.56272%205.62649%201.55882%202.36271C1.55882%202.23552%201.58743%202.20667%201.71358%202.20667C3.97633%202.21061%206.23778%202.21061%208.50053%202.20667C8.62407%202.20667%208.65658%202.2329%208.65658%202.3614C8.65138%203.99526%208.65268%205.63043%208.65268%207.26428H8.65398Z%22%20fill%3D%22%239A9A9A%22%2F%3E%0A%3C%2Fsvg%3E%0A" alt="" /></div>
+  <div class="wport-info-value">0912-345-678</div>
+</div>
+<div class="wport-info-row">
+  <div class="wport-info-icon"><img src="data:image/svg+xml,%3Csvg%20width%3D%2214%22%20height%3D%2214%22%20viewBox%3D%220%200%2014%2014%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d%3D%22M10.4066%2013.6099C10.1319%2013.5498%209.85714%2013.5069%209.58243%2013.4382C8.88708%2013.2579%208.23465%2012.9575%207.61656%2012.5969C5.96831%2011.6526%204.56902%2010.4164%203.31566%208.99137C2.50871%208.07282%201.79619%207.077%201.25536%205.97817C0.920558%205.29999%200.654434%204.59605%200.568588%203.8406C0.508496%203.36845%200.525665%202.89629%200.75745%202.45848C0.834711%202.32112%200.929142%202.19235%201.03216%202.08075C1.40988%201.68586%201.80477%201.30814%202.19108%200.921832C2.71474%200.389585%203.53028%200.432509%204.02819%200.921832C4.62911%201.50559%205.22145%202.09792%205.81379%202.69885C6.32028%203.21392%206.32028%203.99512%205.81379%204.46728C5.70219%204.57029%205.56483%204.64755%205.42748%204.70765C5.06693%204.845%204.79222%205.05962%204.6377%205.42017C4.53468%205.66054%204.51751%205.90091%204.58619%206.15845C4.75788%206.81946%205.12702%207.36888%205.56483%207.87537C6.09708%208.48488%206.698%208.99137%207.4277%209.35192C7.69382%209.48069%207.96853%209.60088%208.26899%209.59229C8.84416%209.56654%209.23905%209.29183%209.44508%208.751C9.53951%208.50205%209.69403%208.29602%209.92582%208.15866C10.4151%207.8582%2011.0246%207.91829%2011.4539%208.33894C12.072%208.93986%2012.6729%209.54078%2013.2738%2010.1503C13.7631%2010.6568%2013.746%2011.4552%2013.2481%2011.9616C12.8532%2012.3565%2012.4583%2012.7514%2012.0634%2013.1463C11.7801%2013.4296%2011.4367%2013.567%2011.0504%2013.6185C11.0161%2013.6185%2010.9903%2013.6356%2010.956%2013.6442H10.4151L10.4066%2013.6099Z%22%20fill%3D%22%239A9A9A%22%2F%3E%0A%3C%2Fsvg%3E%0A" alt="" /></div>
+  <div class="wport-info-value">未填寫</div>
+</div>
+<div class="wport-info-row">
+  <div class="wport-info-icon"><img src="data:image/svg+xml,%3Csvg%20width%3D%2211%22%20height%3D%2216%22%20viewBox%3D%220%200%2011%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d%3D%22M5.38875%200.399902C5.7137%200.453717%206.04767%200.498563%206.37262%200.570317C7.27526%200.785577%208.0425%201.23404%208.6924%201.87982C9.43256%202.60632%209.90193%203.4853%2010.1005%204.49882C10.3352%205.70069%2010.1547%206.84874%209.55893%207.92504C8.18692%2010.4005%206.80589%2012.8671%205.42485%2015.3426C5.38875%2015.4053%205.35264%2015.4681%205.30751%2015.513C5.14503%2015.6654%204.91937%2015.6116%204.80203%2015.3964C4.47708%2014.8223%204.16116%2014.2483%203.83621%2013.6743C2.78915%2011.7908%201.73306%209.90723%200.686004%208.0237C0.252738%207.25235%200%206.42719%200%205.53924C0%204.45397%200.29787%203.44942%200.938743%202.56147C1.59767%201.64662%202.4642%201.00084%203.53834%200.660009C3.89939%200.543409%204.28753%200.507533%204.65761%200.435779C4.70274%200.42681%204.7569%200.417841%204.80203%200.408872C5.00061%200.408872%205.19919%200.408872%205.39777%200.408872L5.38875%200.399902ZM5.09088%202.92921C3.69179%202.92921%202.54544%204.0683%202.53641%205.45852C2.53641%206.84874%203.67373%207.98783%205.08185%207.9968C6.48996%207.9968%207.64534%206.85771%207.63631%205.45852C7.63631%204.05933%206.48996%202.92921%205.08185%202.92921H5.09088Z%22%20fill%3D%22%23A5A5A5%22%2F%3E%0A%3C%2Fsvg%3E%0A" alt="" /></div>
+  <div class="wport-info-value">台北市</div>
+</div>
+<div class="wport-info-row">
+  <div class="wport-info-icon"><img src="data:image/svg+xml,%3Csvg%20width%3D%2214%22%20height%3D%2212%22%20viewBox%3D%220%200%2014%2012%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d%3D%22M13.8233%202.04341V9.66008C13.8133%209.69008%2013.8033%209.71675%2013.7967%209.74675C13.6467%2010.4967%2013.0067%2011.0334%2012.2467%2011.0367C8.69%2011.0367%205.13333%2011.0367%201.57667%2011.0367C1.05333%2011.0367%200.633333%2010.8101%200.313333%2010.3967C0.143333%2010.1801%200.0666667%209.92341%200%209.66008C0%207.12008%200%204.58341%200%202.04341C0.01%202.01341%200.02%201.98675%200.0266666%201.95675C0.176667%201.21008%200.816667%200.670081%201.57667%200.666748C5.13333%200.666748%208.69%200.666748%2012.25%200.666748C12.7733%200.666748%2013.1933%200.893415%2013.5133%201.30675C13.6833%201.52675%2013.76%201.78008%2013.8267%202.04341H13.8233ZM4.30333%208.73341C4.43%208.73341%204.55667%208.73341%204.68%208.73341C5.25667%208.73341%205.83%208.73341%206.40667%208.73341C6.74%208.73341%206.90667%208.56341%206.91%208.23675C6.91%208.17008%206.91%208.10341%206.91%208.03341C6.90667%207.13675%206.22667%206.43675%205.33%206.42341C4.65667%206.41341%203.98%206.41675%203.30667%206.42341C2.81333%206.43008%202.4%206.62675%202.08333%207.01008C1.79667%207.35675%201.71%207.76675%201.72333%208.20675C1.73667%208.57008%201.88667%208.73008%202.25333%208.73008C2.93667%208.73008%203.62%208.73008%204.30333%208.73008V8.73341ZM2.88%204.40341C2.87667%205.20008%203.52%205.84675%204.31333%205.85008C5.10333%205.85008%205.74333%205.21341%205.75333%204.42341C5.76%203.62675%205.12333%202.98008%204.32667%202.97008C3.54%202.96008%202.88333%203.61008%202.88%204.40675V4.40341ZM10.07%204.12341C10.5867%204.12341%2011.1033%204.12341%2011.62%204.12341C11.8967%204.12341%2012.09%203.94675%2012.0933%203.69675C12.0967%203.44341%2011.9%203.26008%2011.6167%203.26008C10.5933%203.26008%209.56667%203.26008%208.54333%203.26008C8.25667%203.26008%208.06333%203.43341%208.06333%203.69341C8.06333%203.95008%208.25667%204.12341%208.54333%204.12341C9.05%204.12341%209.56%204.12341%2010.0667%204.12341H10.07ZM10.08%206.42341C10.61%206.42341%2011.14%206.42341%2011.67%206.42341C11.8767%206.42341%2012.04%206.28008%2012.0867%206.08341C12.1267%205.90675%2012.04%205.69675%2011.8667%205.62008C11.78%205.58008%2011.6767%205.56341%2011.58%205.56341C10.5767%205.56008%209.57667%205.56341%208.57333%205.56341C8.50667%205.56341%208.43667%205.56675%208.37333%205.58341C8.2%205.62675%208.07667%205.78675%208.06667%205.96675C8.05333%206.23008%208.23667%206.42341%208.51667%206.42675C9.03667%206.42675%209.56%206.42675%2010.08%206.42675V6.42341ZM10.0833%207.87008C9.57%207.87008%209.06%207.87008%208.54667%207.87008C8.46333%207.87008%208.37333%207.88341%208.3%207.91675C8.11667%207.99675%208.03%208.20675%208.07667%208.40341C8.12333%208.59675%208.3%208.73341%208.53%208.73341C9.56333%208.73341%2010.5967%208.73341%2011.63%208.73341C11.7133%208.73341%2011.8%208.71008%2011.8733%208.67341C12.0433%208.58675%2012.1267%208.38341%2012.0833%208.20341C12.0367%208.01008%2011.8767%207.87341%2011.6767%207.87341C11.1467%207.87008%2010.6167%207.87341%2010.0867%207.87341L10.0833%207.87008Z%22%20fill%3D%22%239A9A9A%22%2F%3E%0A%3C%2Fsvg%3E%0A" alt="" /></div>
+  <div class="wport-info-value">台灣</div>
+</div></div>
+      </div>
+    </div>
+  </div>
+</article>
+
+<article class="wport-card wport-card--collapse">
+  <div class="wport-card-header">
+    <h3 class="wport-card-title">個人背景</h3>
+  </div>
+  <div>
+<div class="wport-label-value-rows">
+  
+<div class="wport-label-value-row">
+  <p class="wport-label">求職狀態</p>
+  <p class="wport-value">在職中，可面談</p>
+</div>
+  
+<div class="wport-label-value-row">
+  <p class="wport-label">持有駕照</p>
+  <p class="wport-value">未填寫</p>
+</div>
+  
+<div class="wport-label-value-row">
+  <p class="wport-label">具備車輛</p>
+  <p class="wport-value">未填寫</p>
+</div>
+</div></div>
+</article>
+
+<article class="wport-card wport-card--collapse">
+  <div class="wport-card-header">
+    <h3 class="wport-card-title">自傳</h3>
+  </div>
+  <div><div class="wport-display-section"><section class="rich-content ql-snow"><div class="ql-editor"><p>我專注於高流量後端系統與資料庫效能優化，熟悉 Go、PostgreSQL 與容器化部署。在範例科技負責訂單與結帳服務，曾將核心 API P99 latency 從 800ms 降至 200ms，並建立可觀測性與 on-call 流程。</p><p>我期待加入更重視系統設計與 Kubernetes 生產維運的團隊，持續累積可量化的技術 impact。</p></div></section></div></div>
+</article>
+
+<article class="wport-card wport-card--collapse">
+  <div class="wport-card-header">
+    <h3 class="wport-card-title">經歷</h3>
+  </div>
+  <div><div class="wport-display-section">
+<div class="wport-total-years">
+  <p class="wport-total-years-label">總年資</p>
+  <p class="flex-1">3-4年</p>
+</div>
+<div class="wport-timeline-item">
+  <div class="wport-timeline-marker-col">
+    <i class="wport-timeline-marker"></i>
+    <div class="wport-timeline-connector"></div>
+  </div>
+  <div class="wport-timeline-content">
+    <p class="wport-entry-title">Backend Engineer 後端工程師</p>
+    <p class="wport-entry-subtitle">範例科技股份有限公司．正職</p>
+    <p class="wport-entry-duration">2022/06 - 至今（3年+）</p>
+    <section class="rich-content ql-snow"><div class="ql-editor"><ul><li>維護高流量訂單／結帳 API（Go + PostgreSQL + Redis），支援峰值 QPS 成長 3 倍</li><li>以 EXPLAIN ANALYZE 調校慢查詢與索引，降低 DB CPU 使用率約 35%</li><li>導入 OpenTelemetry 與結構化 log，縮短 P0 incident 定位時間</li></ul></div></section>
+  </div>
+</div>
+<div class="wport-timeline-item">
+  <div class="wport-timeline-marker-col">
+    <i class="wport-timeline-marker"></i>
+    <div class="wport-timeline-connector"></div>
+  </div>
+  <div class="wport-timeline-content">
+    <p class="wport-entry-title">Junior Backend Engineer 初級後端工程師</p>
+    <p class="wport-entry-subtitle">新創範例有限公司．正職</p>
+    <p class="wport-entry-duration">2021/01 - 2022/05（1年）</p>
+    <section class="rich-content ql-snow"><div class="ql-editor"><ul><li>開發 REST API 與背景任務，撰寫單元測試與 API 文件</li><li>協助 Docker 化與 GitHub Actions CI/CD 導入</li></ul></div></section>
+  </div>
+</div></div></div>
+</article>
+
+<article class="wport-card wport-card--collapse">
+  <div class="wport-card-header">
+    <h3 class="wport-card-title">學歷</h3>
+  </div>
+  <div><div class="wport-display-section">
+<div class="wport-timeline-item">
+  <div class="wport-timeline-marker-col">
+    <i class="wport-timeline-marker"></i>
+    <div class="wport-timeline-connector"></div>
+  </div>
+  <div class="wport-timeline-content">
+    <p class="wport-entry-title">國立範例大學</p>
+    <p class="wport-entry-subtitle">資訊工程學系</p>
+    <p class="wport-entry-duration">2017/09 - 2021/06</p>
+    
+  </div>
+</div></div></div>
+</article>
+
+<article class="wport-card wport-card--collapse">
+  <div class="wport-card-header">
+    <h3 class="wport-card-title">個人連結</h3>
+  </div>
+  <div><div class="wport-display-section"><ul class="wport-link-list">
+<li>
+  <p>GitHub</p>
+  <a href="https://github.com/example" target="_blank" rel="noopener noreferrer">https://github.com/example</a>
+</li></ul></div></div>
+</article>
+    </div>
+  </main>
+</body>
+</html>

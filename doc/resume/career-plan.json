@@ -1,0 +1,94 @@
+{
+  "type": "career-plan",
+  "title": "wport 職涯導師 — 能力差距與成長路線圖",
+  "target": {
+    "job_title": "Senior Backend Engineer @ 範例科技",
+    "current_position": "3 年後端 IC，以 CRUD API 與維運為主",
+    "gap_score": 55,
+    "gap_note": "需補 K8s 生產經驗與 system design 案例；職能方向一致",
+    "feasibility_score": 62,
+    "feasibility_note": "Mid-level 定位已足；Senior 需 18–24 個月刻意累積"
+  },
+  "capability_matrix": [
+    {
+      "dimension": "Hard skills",
+      "current": "partial",
+      "requirement": "Go/Java + K8s + DB 效能 + 系統設計",
+      "gap": "K8s production、design case 不足"
+    },
+    {
+      "dimension": "Seniority signals",
+      "current": "partial",
+      "requirement": "跨 team 技術決策、mentoring",
+      "gap": "缺少 lead 小型 initiative 的證據"
+    },
+    {
+      "dimension": "Soft skills",
+      "current": "ready",
+      "requirement": "與 PM/QA 協作",
+      "gap": "履歷可再具體化"
+    },
+    {
+      "dimension": "Industry fit",
+      "current": "ready",
+      "requirement": "B2B SaaS 後端",
+      "gap": "—"
+    }
+  ],
+  "core_gaps": [
+    {
+      "name": "生產級 Kubernetes 經驗",
+      "why": "JD 明確要求 container orchestration at scale"
+    },
+    {
+      "name": "可展示的系統設計案例",
+      "why": "Senior loop 必考 design depth"
+    }
+  ],
+  "plan_1y": [
+    {
+      "quarter": "Q1",
+      "goal": "K8s 基礎 + homelab",
+      "actions": "CKA 課程；將 side project deploy 到 GKE",
+      "metrics": "完成 3 次 rollout rollback drill 文件"
+    },
+    {
+      "quarter": "Q2",
+      "goal": "系統設計輸出",
+      "actions": "每月 1 篇 design doc（快取、queue、idempotency）",
+      "metrics": "發 2 篇公開 blog"
+    },
+    {
+      "quarter": "Q3",
+      "goal": "職場 scope 擴大",
+      "actions": "主動 lead 一個 cross-team 小專案",
+      "metrics": "retro 有 quantified outcome"
+    },
+    {
+      "quarter": "Q4",
+      "goal": "履歷與面試準備",
+      "actions": "gen-resume-optimizer + interviewer-ai",
+      "metrics": "完成 10 次 mock loop"
+    }
+  ],
+  "plan_3y": {
+    "target_role": "Senior Backend / Tech Lead track",
+    "milestones": [
+      "Year 1: K8s + design portfolio",
+      "Year 2: 主導 medium-sized system refactor",
+      "Year 3: Staff-leaning scope 或 EM 分支決策"
+    ],
+    "career_move": "若現公司無 senior scope，Year 2 轉 B2B SaaS scale-up"
+  },
+  "plan_5y": {
+    "target_role": "Staff Engineer 或 Engineering Manager（依偏好選一）",
+    "path": "IC track 需 2+ 個 cross-team architecture wins；EM track 需 people management 經驗",
+    "opportunities": "高成長團隊、on-call 成熟、允許 20% design time"
+  },
+  "immediate_actions": [
+    "更新 GitHub pinned repos，加入 K8s deploy README",
+    "跟主管對齊 Q3 可 lead 的 initiative",
+    "針對目標 enc_id 跑 gen-resume-optimizer"
+  ],
+  "mentor_tip": "最大陷阱是把「上過課」寫成「production 經驗」— Senior 面試會立刻拆穿。先把一個真實 deploy story 做扎實。"
+}

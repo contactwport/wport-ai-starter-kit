@@ -1,0 +1,36 @@
+{
+  "type": "customization",
+  "title": "wport 履歷客製化報告",
+  "target_job": {
+    "company": "範例科技股份有限公司",
+    "title": "Senior Backend Engineer"
+  },
+  "changes": [
+    {
+      "section": "工作經歷",
+      "change": "將 API 重構專案 bullet 改寫，強調 QPS 與 latency 改善數字",
+      "jd_requirement": "高流量後端系統經驗"
+    },
+    {
+      "section": "專業技能",
+      "change": "補充 PostgreSQL 索引調校與 query plan 分析",
+      "jd_requirement": "關聯式資料庫效能優化"
+    }
+  ],
+  "keywords": {
+    "jd_emphasis": ["Go", "Kubernetes", "PostgreSQL", "系統設計"],
+    "resume_matched": ["Go", "PostgreSQL", "REST API", "Docker"],
+    "genuine_gaps": ["Kubernetes 生產環境維運", "大型分散式系統設計案例"]
+  },
+  "recommendations": [
+    {
+      "gap": "Kubernetes 生產環境經驗",
+      "how_to_build": "將 side project 部署到 GKE/EKS，記錄 rollout、HPA、監控告警設定"
+    },
+    {
+      "gap": "系統設計深度",
+      "how_to_build": "每季完成 1 個 system design 練習並寫成 blog post"
+    }
+  ],
+  "footer_tip": "可接續使用 interviewer-ai 模擬面試，或 gen-career-mentor 規劃長期能力累積。"
+}

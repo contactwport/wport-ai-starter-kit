@@ -1,0 +1,244 @@
+/**
+ * Report layout — extends templates/resume/resume.css (loaded together in render.mjs)
+ */
+
+.wport-report-header {
+  padding: 24px 24px 16px;
+  border-bottom: 0.5px solid var(--wport-border);
+}
+
+.wport-report-title {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--wport-title);
+}
+
+.wport-report-subtitle {
+  margin: 8px 0 0;
+  color: var(--wport-label);
+  font-size: 0.95rem;
+}
+
+.wport-report-body {
+  padding: 16px;
+}
+
+@media (min-width: 768px) {
+  .wport-report-body {
+    padding: 28px 46px 36px;
+  }
+}
+
+.wport-report-section + .wport-report-section {
+  margin-top: 28px;
+}
+
+.wport-report-section-title {
+  margin: 0 0 12px;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--wport-title);
+}
+
+.wport-report-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.wport-report-table th,
+.wport-report-table td {
+  border: 0.5px solid var(--wport-border);
+  padding: 10px 12px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.wport-report-table th {
+  background: var(--wport-icon-bg);
+  color: var(--wport-title);
+  font-weight: 700;
+}
+
+.wport-report-list {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.wport-report-list > li + li {
+  margin-top: 8px;
+}
+
+.wport-report-kv {
+  display: grid;
+  gap: 10px;
+}
+
+.wport-report-kv-row {
+  display: grid;
+  gap: 4px;
+}
+
+@media (min-width: 768px) {
+  .wport-report-kv-row {
+    grid-template-columns: 140px 1fr;
+    gap: 16px;
+  }
+}
+
+.wport-report-kv-label {
+  color: var(--wport-label);
+  font-weight: 700;
+}
+
+.wport-report-kv-value {
+  color: var(--wport-text);
+}
+
+.wport-status-ready {
+  color: #059669;
+}
+
+.wport-status-partial {
+  color: #d97706;
+}
+
+.wport-status-missing {
+  color: #dc2626;
+}
+
+.wport-question-item {
+  padding: 16px 0;
+  border-bottom: 0.5px solid var(--wport-border);
+}
+
+.wport-question-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.wport-question-item:first-child {
+  padding-top: 0;
+}
+
+.wport-question-title {
+  margin: 0 0 10px;
+  font-weight: 700;
+  color: var(--wport-text);
+  line-height: 1.5;
+}
+
+.wport-question-meta {
+  margin: 0;
+  color: var(--wport-label);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.wport-question-meta + .wport-question-meta {
+  margin-top: 6px;
+}
+
+.wport-question-meta strong {
+  color: var(--wport-title);
+}
+
+.wport-callout {
+  margin-top: 24px;
+  padding: 16px 18px;
+  border-radius: 8px;
+  background: #f0faf9;
+  border-left: 4px solid var(--wport-primary);
+  color: var(--wport-text);
+  line-height: 1.6;
+}
+
+.wport-callout-label {
+  display: block;
+  font-weight: 700;
+  color: var(--wport-title);
+  margin-bottom: 6px;
+}
+
+.wport-gap-item + .wport-gap-item {
+  margin-top: 12px;
+}
+
+.wport-gap-name {
+  margin: 0;
+  font-weight: 700;
+  color: var(--wport-text);
+}
+
+.wport-gap-why {
+  margin: 4px 0 0;
+  color: var(--wport-label);
+}
+
+.wport-milestone-list {
+  margin: 8px 0 0;
+  padding-left: 1.25rem;
+}
+
+.wport-milestone-list > li + li {
+  margin-top: 6px;
+}
+
+.wport-score {
+  max-width: 420px;
+}
+
+.wport-score-header {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.wport-score-value {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.wport-score-scale {
+  font-size: 0.9rem;
+  color: var(--wport-label);
+}
+
+.wport-score-sublabel {
+  margin-left: auto;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.wport-score-track {
+  height: 8px;
+  border-radius: 9999px;
+  background: var(--wport-icon-bg);
+  overflow: hidden;
+}
+
+.wport-score-fill {
+  height: 100%;
+  border-radius: 9999px;
+  transition: width 0.2s ease;
+}
+
+.wport-score-note {
+  margin: 10px 0 0;
+  color: var(--wport-label);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.wport-report-kv-row--score {
+  align-items: start;
+}
+
+@media (min-width: 768px) {
+  .wport-report-kv-row--score {
+    grid-template-columns: 140px 1fr;
+  }
+}

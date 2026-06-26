@@ -1,0 +1,496 @@
+/**
+ * Source: W101-Web apps/user preview-resume + ResumeSections preview-mode.vue
+ * Sync with: W101-Web/apps/user/src/assets/styles/rich-text.scss
+ */
+:root {
+  --wport-primary: #56c7bb;
+  --wport-primary-hover: #4ebcb1;
+  --wport-title: #5d5d5d;
+  --wport-label: #9a9a9a;
+  --wport-text: #000000;
+  --wport-border: #d7d7d7;
+  --wport-page-bg: #fafafa;
+  --wport-icon-bg: #f5f5f5;
+  --wport-empty: #c0c0c0;
+  --wport-card-shadow: 0px 1px 10px #00000021;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, "Arial Rounded MT", sans-serif;
+  line-height: 1.5;
+  color: var(--wport-text);
+  background-color: var(--wport-page-bg);
+}
+
+.wport-preview-page {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 16px 40px;
+  width: 100%;
+  min-width: 0;
+}
+
+.wport-preview-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex: 1;
+  min-width: 0;
+}
+
+.wport-card {
+  position: relative;
+  height: 100%;
+  border-radius: 8px;
+  background: #fff;
+  width: 100%;
+  box-shadow: var(--wport-card-shadow);
+  break-inside: avoid;
+}
+
+.wport-card--collapse {
+  border-radius: 16px;
+}
+
+.wport-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 0.5px solid var(--wport-border);
+}
+
+.wport-card-title {
+  margin: 0;
+  font-weight: 700;
+  color: var(--wport-title);
+  font-size: 20px;
+  padding: 7px 24px 6px;
+}
+
+.wport-card-title--simple {
+  padding-top: 7px;
+  padding-bottom: 6px;
+}
+
+.wport-display-section {
+  padding: 16px;
+  max-width: 932px;
+}
+
+@media (min-width: 768px) {
+  .wport-display-section {
+    padding: 37px 46px;
+  }
+}
+
+.wport-member-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+}
+
+@media (min-width: 768px) {
+  .wport-member-layout {
+    flex-direction: row;
+  }
+}
+
+.wport-avatar-wrap {
+  flex: 0 0 auto;
+  padding-bottom: 14px;
+}
+
+@media (min-width: 768px) {
+  .wport-avatar-wrap {
+    padding-bottom: 0;
+  }
+}
+
+.wport-avatar {
+  display: block;
+  object-fit: contain;
+  margin: 0 auto;
+  border-radius: 9999px;
+  border: 1px solid var(--wport-border);
+  width: 86px;
+  height: 86px;
+  background: var(--wport-icon-bg);
+}
+
+@media (min-width: 1024px) {
+  .wport-avatar {
+    width: 140px;
+    height: 140px;
+  }
+}
+
+.wport-member-info {
+  flex: 1;
+  padding-bottom: 32px;
+}
+
+.wport-member-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.wport-member-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+@media (min-width: 768px) {
+  .wport-member-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.wport-info-row {
+  display: flex;
+  align-items: center;
+}
+
+.wport-info-icon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--wport-icon-bg);
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.wport-info-icon img {
+  width: 15px;
+  height: 15px;
+}
+
+.wport-info-value {
+  margin-left: 12px;
+}
+
+.wport-label-value-rows {
+  padding: 16px 16px;
+}
+
+@media (min-width: 768px) {
+  .wport-label-value-rows {
+    padding: 37px 46px;
+  }
+}
+
+.wport-label-value-rows > * + * {
+  margin-top: 18px;
+}
+
+.wport-label-value-row {
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .wport-label-value-row {
+    display: flex;
+    gap: 16px;
+  }
+}
+
+.wport-label {
+  color: var(--wport-label);
+  white-space: nowrap;
+}
+
+.wport-value {
+  color: var(--wport-text);
+}
+
+.wport-total-years {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.wport-total-years-label {
+  width: 94px;
+  color: var(--wport-label);
+}
+
+.wport-timeline-item {
+  display: flex;
+  gap: 14px;
+  padding-bottom: 24px;
+}
+
+.wport-timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+.wport-timeline-marker-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 15px;
+  flex-shrink: 0;
+}
+
+.wport-timeline-marker {
+  margin-top: 3px;
+  display: block;
+  border-radius: 9999px;
+  width: 15px;
+  height: 15px;
+  background: var(--wport-primary);
+  flex-shrink: 0;
+}
+
+.wport-timeline-marker--gray {
+  background: #bebebe;
+  border: 1px solid #bebebe;
+}
+
+.wport-timeline-connector {
+  margin-top: 4px;
+  flex: 1;
+  width: 2px;
+  background: var(--wport-primary);
+  min-height: 12px;
+}
+
+.wport-timeline-item:last-child .wport-timeline-connector {
+  display: none;
+}
+
+.wport-timeline-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.wport-timeline-content > * + * {
+  margin-top: 4px;
+}
+
+.wport-entry-title {
+  color: var(--wport-text);
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.wport-entry-subtitle {
+  color: var(--wport-primary);
+  margin: 0;
+}
+
+.wport-entry-duration {
+  color: var(--wport-label);
+  margin: 0;
+}
+
+.wport-skill-block + .wport-skill-block {
+  margin-top: 16px;
+}
+
+.wport-skill-label {
+  color: var(--wport-label);
+  margin: 0 0 4px;
+}
+
+.wport-language-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.wport-language-list > li + li {
+  margin-top: 16px;
+}
+
+.wport-language-name {
+  font-weight: 700;
+  margin: 0;
+}
+
+.wport-language-level {
+  color: var(--wport-label);
+}
+
+.wport-cert-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.wport-cert-name {
+  font-weight: 500;
+  color: #1f2937;
+  margin: 0;
+}
+
+.wport-cert-duration {
+  color: var(--wport-label);
+  margin: 0;
+}
+
+.wport-link-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.wport-link-list > li + li {
+  margin-top: 16px;
+}
+
+.wport-link-list a {
+  color: var(--wport-label);
+  text-decoration: none;
+  word-break: break-all;
+}
+
+.wport-link-list a:hover {
+  color: var(--wport-primary);
+  text-decoration: underline;
+}
+
+.wport-job-pref-inner {
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.wport-job-pref-inner > * + * {
+  margin-top: 18px;
+}
+
+.wport-empty {
+  color: var(--wport-empty);
+  text-align: center;
+}
+
+/* rich-text.scss — CSS vars mapped to wport tokens */
+.rich-content {
+  white-space: pre-wrap;
+  padding: 0;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  min-width: 0;
+  color: black;
+  font-size: 1rem;
+  background-color: #fff;
+}
+
+.rich-content h2 {
+  font-size: 1.5rem;
+}
+
+.rich-content .ql-editor {
+  padding: 0;
+  min-width: 0;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+.rich-content ul li[data-list='bullet'] {
+  list-style-type: disc !important;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+.rich-content ul li::before {
+  content: '\2022';
+  margin-inline-start: -1.5rem;
+  margin-inline-end: 0.3rem;
+  text-align: right;
+}
+
+.rich-content ol li[data-list='ordered'] {
+  list-style-type: decimal !important;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+.rich-content ol li {
+  counter-reset: list-1 list-2 list-3 list-4 list-5 list-6 list-7 list-8 list-9;
+  counter-increment: list-0;
+}
+
+.rich-content .ql-editor li:not(.ql-direction-rtl)::before {
+  margin-inline-start: -1.5rem;
+  margin-inline-end: 0.3rem;
+  text-align: right;
+}
+
+.rich-content .ql-editor ol li:before {
+  content: counter(list-0, decimal) '. ';
+}
+
+.rich-content li[data-list]::marker {
+  color: black;
+}
+
+.rich-content ul,
+.rich-content ol,
+.rich-content li {
+  padding-inline-start: 1.5em;
+}
+
+.rich-content img,
+.rich-content iframe,
+.rich-content video {
+  max-width: 100%;
+}
+
+.rich-content blockquote {
+  padding: 0.75rem;
+  margin: 0.5rem 0;
+  border-radius: 0.375rem;
+  background-color: #fafafa;
+  border-left: 4px solid #9de0d9;
+  color: var(--wport-label);
+}
+
+.rich-content pre {
+  white-space: unset !important;
+  background: transparent !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.rich-content code {
+  padding: 0 0.25rem;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  background-color: var(--wport-icon-bg);
+  color: var(--wport-primary);
+}
+
+.rich-content a {
+  color: var(--wport-primary) !important;
+  text-decoration: underline;
+  text-decoration-color: #9de0d9;
+}
+
+.rich-content a:hover {
+  color: var(--wport-primary-hover);
+}
+
+.rich-content hr {
+  border-color: var(--wport-border);
+  margin: 1rem 0;
+}
+
+@media print {
+  body {
+    background: #fff;
+  }
+
+  .wport-preview-page {
+    padding: 0;
+  }
+}
