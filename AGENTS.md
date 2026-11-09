@@ -6,18 +6,21 @@
 
 ## 資料在哪
 - `品牌資料.md` 和 `品牌資料/`：品牌故事、商品、客群、語氣、價格、營業資訊。**所有文案的內容都只能從這裡來**，沒寫的事不要自己編（價格、日期、地址尤其不能猜）。缺資料就先問店家，問完把答案寫回對應的筆記。
+- `品牌資料.md` 是索引，細節在 `品牌資料/` 的各份筆記：`品牌故事.md`、`客群.md`、`品牌語氣.md`、`價格與優惠.md`、`營業資訊.md`、`常見問題.md`、`客人好評.md`、`購買步驟.md`、`品牌設定.md`、`商品/<商品名>.md`。先看索引，只開用得到的那幾份。
+- 名稱固定用上面這些，不要另開 `品牌資訊.md`、`我的資料.md` 之類的新檔；要補資料就寫進現有的筆記。
 - `照片/`：店家自己拍的照片。
 - `templates/`：10 張模板（1080×1350）。
+- `my-site.html`（拆出 CSS 後還有 `style.css`）：官網。上線時複製到 `site/`（`site/index.html`），只有 `site/` 會被上傳。
 
 ## 做文圖的規則
 1. 每張模板最下面有 `<script id="data" type="application/json">`。**只改這段 JSON**，不要改 HTML、CSS、`render.js`。
-2. 要新的一張，就複製模板改檔名（例如 `templates/01-new-product-桂花.html`），再改 JSON。
+2. 要新的一張，就複製模板，檔名用 `<編號>-mine.html`（例如 `templates/01-mine.html`；同一個模板要第二張用 `01-mine-2.html`），再改 JSON。
 3. 照片欄位填相對路徑，例如 `"../照片/latte.jpg"`；沒有照片就填 `""`，不要拿網路圖。
 4. 風格只改 `templates/theme.css` 的那一行 `@import`（10 種風格在 `templates/themes/`），照 `品牌資料/品牌設定.md` 的「風格」。
    預設風格 `00-default` 用 `templates/brand.css` 的顏色、字型；其他風格自帶配色，店家想保留品牌色就在 `theme.css` 最下面加 `:root{--main:…;--accent:…}`。
    不要改 `templates/themes/` 裡的檔案。
 5. 字數：標題 12 字內、說明 40 字內；放不下就刪字，不要縮小字體。
-6. 輸出圖片：`node scripts/render.mjs 01`（數字是模板編號，不加就全部），圖在 `out/`。輸出後打開圖片確認沒有字被切掉。
+6. 輸出圖片：`node scripts/render.mjs 01`（數字是模板編號，不加就全部），圖在 `out/`，檔名跟模板一樣（`01-mine.html` → `out/01-mine.png`）。輸出後只回報圖檔路徑，不要打開圖片，店家自己看（免費模型看圖很耗額度）。
 7. 店家想先比較風格：`node scripts/render.mjs 01 --theme=all`，圖在 `out/themes/<風格>/`；只試一種用 `--theme=03`（不會改 theme.css）。
 
 ## 寫貼文文案
@@ -26,7 +29,7 @@
   - IG：3–5 行，最後 3–5 個 hashtag
   - FB：可以多講一點故事，附營業資訊
   - LinkedIn：從經營者角度講心得，不放 hashtag 堆疊
-- 每版存成 `out/<模板檔名>.fb.txt`、`.ig.txt`、`.linkedin.txt`。
+- 每版存成 `out/<圖檔名>.fb.txt`、`.ig.txt`、`.linkedin.txt`（例如 `out/01-mine.fb.txt`）。
 
 ## 發文
 - FB 粉專：`node scripts/post-fb.mjs <圖片> <文案.txt>` 先試跑；店家確認後才加 `--live`。**沒有店家明確說「發」就不要加 --live。**
