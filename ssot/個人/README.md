@@ -1,11 +1,11 @@
-# Vault（Obsidian SSOT）
+# 個人版 SSOT（Obsidian）
 
 個人敘事的單一事實來源。`gen-resume` 訪談結果寫這裡；做個人品牌站時以這裡為內容，再用 `frontend-design` 規劃視覺。
 
 ## 現況（夠用就好）
 
 ```
-vault/
+ssot/個人/
 ├── resume.md      # 履歷全文（含求職／較私密欄位）
 └── about-me.md    # 公開敘事（網站／品牌用）
 ```
@@ -17,7 +17,7 @@ vault/
 筆記變多時，用**資料夾**拆，比一堆 frontmatter 更好維護：
 
 ```
-vault/
+ssot/個人/
 ├── resume.md
 ├── about-me.md          # 總覽／hero／一句話定位（可 wiki-link 到下面）
 ├── projects/
@@ -55,5 +55,5 @@ updated: 2026-07-25
 ## 和 skills 的關係
 
 1. `gen-resume` → 更新 `resume.md` + `about-me.md`
-2. 跟 agent 說：以 `vault/about-me.md` 為內容 → 用 `frontend-design` 規劃／實作網站
+2. 跟 agent 說：以 `ssot/個人/about-me.md` 為內容 → 用 `frontend-design` 規劃／實作網站
 3. 上線 → `exec-vercel-cli`

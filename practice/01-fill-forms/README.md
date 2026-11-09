@@ -30,10 +30,10 @@ pip install python-docx openpyxl
 跟 AI 說這句就好：
 
 ```text
-用 vault/resume.md 的資料，填 practice/01-fill-forms/forms/個人資料彙整表_空白.xlsx，存到 practice/01-fill-forms/output/
+用 ssot/個人/resume.md 的資料，填 practice/01-fill-forms/forms/個人資料彙整表_空白.xlsx，存到 practice/01-fill-forms/output/
 ```
 
-（換成自己的資料，就把 `vault/resume.md` 改成你的 Obsidian 筆記路徑。）
+（換成自己的資料，就把 `ssot/個人/resume.md` 改成你的 Obsidian 筆記路徑。）
 
 **故意只給這一句。** 剩下的讓 AI 自己想：哪個欄位對應哪段筆記、沒有的欄位怎麼辦、要不要先問你。它想錯的地方，就是你要學的地方。
 

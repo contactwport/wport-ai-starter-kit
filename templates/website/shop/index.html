@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>竹籬笆咖啡｜眷村老屋裡的一杯手沖</title>
+<meta name="description" content="新竹將軍村的眷村老屋咖啡館，當週烘焙的手沖咖啡、桂花烏龍拿鐵和眷村綠豆椪。">
+<meta property="og:title" content="竹籬笆咖啡｜眷村老屋裡的一杯手沖">
+<meta property="og:description" content="新竹將軍村的眷村老屋咖啡館。">
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@500;700;900&family=Noto+Sans+TC:wght@400;500;700;900&display=swap");
+:root{--bg:#F5F5F7;--tile:#fff;--ink:#1D1D1F;--soft:#6E6E73;--accent:#1C5E57;--warm:#C8894E;--radius:28px;--gap:16px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font:17px/1.7 Inter,"Noto Sans TC",sans-serif}
+a{color:inherit}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+header{position:sticky;top:0;z-index:10;background:rgba(245,245,247,.86);backdrop-filter:blur(12px)}
+header .wrap{display:flex;align-items:center;gap:24px;height:68px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:900;font-size:20px;text-decoration:none}
+.logo i{width:30px;height:30px;border-radius:9px;background:var(--accent)}
+nav{display:flex;gap:22px;margin-left:auto;font-size:15px;color:var(--soft)}
+nav a{text-decoration:none}nav a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 22px;border-radius:999px;font-weight:700;font-size:15px;text-decoration:none;background:var(--accent);color:#fff}
+.btn.ghost{background:var(--bg);color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--gap);margin:16px 0}
+.t{background:var(--tile);border-radius:var(--radius);padding:28px;box-shadow:0 1px 2px rgba(0,0,0,.04);transition:transform .25s}
+.t:hover{transform:scale(1.02)}
+.lab{font-size:12px;font-weight:700;letter-spacing:.12em;color:var(--soft)}
+h1{font-size:clamp(40px,6vw,64px);font-weight:900;line-height:1.08;margin:10px 0 14px}
+h2{font-size:28px;font-weight:900;line-height:1.3;margin:8px 0 10px}
+h3{font-size:22px;font-weight:900;margin:6px 0 4px}
+.soft{color:var(--soft)}
+.hero{grid-column:span 7;display:flex;flex-direction:column;justify-content:flex-end;min-height:360px}
+.hero .row{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.photo{grid-column:span 5;grid-row:span 2;min-height:360px;padding:0;position:relative;overflow:hidden;
+  background:linear-gradient(160deg,#E9D7C2,#C8894E 55%,#7A4A26)}
+.photo img{width:100%;height:100%;object-fit:cover;display:block}
+.shot{min-height:240px;border-radius:20px;position:relative;overflow:hidden;background:linear-gradient(160deg,#E9D7C2,#C8894E 55%,#7A4A26)}
+.photo span,.shot span{position:absolute;left:20px;bottom:20px;background:rgba(255,255,255,.9);border-radius:999px;padding:8px 16px;font-size:14px;font-weight:700}
+.dark{grid-column:span 3;background:var(--ink);color:#fff}.dark .lab,.dark p{color:#A1A1A6}.dark b{display:block;font-size:40px;font-weight:900;line-height:1.2;margin:8px 0}
+.hours{grid-column:span 4}
+.prod{grid-column:span 4;position:relative}.prod .pr{position:absolute;right:26px;top:24px;font-size:26px;font-weight:900;color:var(--accent)}
+.prod .ph{height:120px;border-radius:18px;margin-top:16px;background:linear-gradient(120deg,#F3E3C3,#D9A86C)}
+.story{grid-column:span 8}
+.rev{grid-column:span 4;background:#EAF3F1}.rev .st{color:var(--warm);letter-spacing:2px}.rev q{display:block;font-size:18px;font-weight:700;margin:8px 0}
+.faq{grid-column:span 7}
+details{border-top:1px solid #E5E5EA;padding:14px 0}details:first-of-type{border-top:0}
+summary{cursor:pointer;font-weight:700;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::after{content:"+";color:var(--accent);font-weight:900}details[open] summary::after{content:"−"}
+details p{margin-top:8px;color:var(--soft)}
+.steps{grid-column:span 5}.steps ol{list-style:none;counter-reset:s;display:grid;gap:12px;margin-top:10px}
+.steps li{counter-increment:s;display:flex;gap:12px;align-items:baseline}
+.steps li::before{content:counter(s);flex:none;width:28px;height:28px;border-radius:50%;background:var(--accent);color:#fff;font-weight:900;display:flex;align-items:center;justify-content:center;font-size:14px}
+.contact{grid-column:span 12;display:grid;grid-template-columns:1.2fr 1fr;gap:24px;align-items:center}
+.contact dl{display:grid;grid-template-columns:90px 1fr;gap:8px 12px}.contact dt{color:var(--soft);font-weight:700}
+.contact .row{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+footer{padding:32px 0 48px;color:var(--soft);font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px}
+@media (max-width:1024px){.grid{grid-template-columns:repeat(6,1fr)}.hero,.photo,.story,.faq,.steps,.contact{grid-column:span 6}.dark,.hours,.rev{grid-column:span 3}.prod{grid-column:span 2}.photo{grid-row:auto}}
+@media (max-width:640px){.grid{grid-template-columns:1fr}.grid>*{grid-column:1/-1!important}nav{display:none}.contact{grid-template-columns:1fr}.t{padding:22px}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <a class="logo" href="#top"><i></i>竹籬笆咖啡</a>
+  <nav><a href="#story">品牌故事</a><a href="#products">招牌商品</a><a href="#faq">常見問題</a><a href="#contact">營業資訊</a></nav>
+  <a class="btn" href="https://maps.google.com/?q=新竹將軍村" target="_blank" rel="noopener">Google 地圖導航</a>
+</div></header>
+
+<main class="wrap" id="top">
+<section class="grid">
+  <div class="t hero">
+    <span class="lab">新竹將軍村 K 棟</span>
+    <h1>眷村老屋裡的<br>一杯手沖</h1>
+    <p class="soft">爺爺的老房子留下來了。我們用當週烘的豆子，請大家回來坐坐。</p>
+    <div class="row"><a class="btn" href="#products">看招牌商品</a><a class="btn ghost" href="#contact">聯絡我們</a></div>
+  </div>
+  <div class="t photo"><!-- 換成店面或招牌商品照片：<img src="images/shop.jpg" alt="竹籬笆咖啡店面"> --><span>當週烘焙・每日 30 杯</span></div>
+  <div class="t dark" id="offer"><span class="lab">本週限定</span><b>買一送一</b><p>週末手沖，同價或較低價位・11/15–11/16</p></div>
+  <div class="t hours"><span class="lab">營業時間</span><h2>11:00–19:00</h2><p class="soft">週二公休・可刷卡・寵物友善</p></div>
+</section>
+
+<section class="grid" id="products">
+  <div class="t prod"><span class="lab">秋季新品</span><span class="pr">$120</span><h3>桂花烏龍拿鐵</h3><p class="soft">新竹烏龍茶，配上桂花蜜</p><div class="ph"></div></div>
+  <div class="t prod"><span class="lab">招牌手沖</span><span class="pr">$160</span><h3>耶加雪菲</h3><p class="soft">花香、柑橘，淺焙</p><div class="ph"></div></div>
+  <div class="t prod"><span class="lab">眷村點心</span><span class="pr">$60</span><h3>眷村綠豆椪</h3><p class="soft">每天限量 20 個</p><div class="ph"></div></div>
+</section>
+
+<section class="grid" id="story">
+  <div class="t story"><span class="lab">品牌故事</span><h2>爺爺的眷村老屋，變成一間咖啡館</h2><p class="soft">小時候每個週末都在這條巷子跑來跑去。老屋要拆的那年，我們決定把它留下來，用一杯咖啡，請大家回來坐坐。</p></div>
+  <div class="t rev"><span class="st">★★★★★</span><q>坐在眷村老房子裡喝，很放鬆。</q><span class="soft">林小姐・Google 評論</span></div>
+</section>
+
+<section class="grid">
+  <div class="t faq" id="faq"><span class="lab">常見問題</span>
+    <details open><summary>可以帶狗狗來嗎？</summary><p>可以！戶外座位和一樓都歡迎，我們有準備水碗。</p></details>
+    <details><summary>有停車位嗎？</summary><p>將軍村入口有公有停車場，走路 3 分鐘。</p></details>
+    <details><summary>咖啡豆可以外帶嗎？</summary><p>可以，每支豆子都有 200 克包裝，也能幫你磨好。</p></details>
+  </div>
+  <div class="t steps"><span class="lab">怎麼買</span><h2>來店或預訂</h2>
+    <ol><li>私訊粉專說要幾杯</li><li>確認取餐時間</li><li>到店報名字取餐</li><li>現場付款，可刷卡</li></ol>
+  </div>
+</section>
+
+<section class="grid" id="contact">
+  <div class="t contact">
+    <div><span class="lab">營業資訊</span><h2>來將軍村坐坐</h2>
+      <dl><dt>地址</dt><dd>新竹市東區將軍村 K 棟</dd><dt>時間</dt><dd>11:00–19:00，週二公休</dd><dt>電話</dt><dd>03-000-0000</dd><dt>付款</dt><dd>現金、信用卡</dd></dl>
+      <div class="row"><a class="btn" href="https://maps.google.com/?q=新竹將軍村" target="_blank" rel="noopener">Google 地圖導航</a><a class="btn ghost" href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a><a class="btn ghost" href="https://www.facebook.com/" target="_blank" rel="noopener">Facebook</a></div>
+    </div>
+    <div class="shot"><!-- 換成店面照片 --><span>店面照片</span></div>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap"><span>© 2026 竹籬笆咖啡</span><span>統一編號：待確認</span><span>新竹市東區將軍村 K 棟</span></div></footer>
+</body>
+</html>

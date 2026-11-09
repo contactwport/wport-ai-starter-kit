@@ -12,7 +12,8 @@ import { pathToFileURL } from "node:url";
 import { tmpdir } from "node:os";
 
 const root = resolve(import.meta.dirname, "..");
-const tplDir = join(root, "templates");
+// 學員資料夾：模板在 templates/；老師的工具包：模板在 templates/posts/
+const tplDir = existsSync(join(root, "templates", "01-new-product.html")) ? join(root, "templates") : join(root, "templates", "posts");
 const outDir = join(root, "out");
 mkdirSync(outDir, { recursive: true });
 

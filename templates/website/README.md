@@ -1,5 +1,13 @@
 # wport Personal Website Template
 
+## 這個資料夾裡還有
+
+| 資料夾 | 是什麼 |
+|---|---|
+| [`personal/`](personal/README.md) | 個人網站範本（Vibe Coding 課，Eric 的資料當範例） |
+| [`shop/`](shop/README.md) | 店家形象官網範本（品牌行銷課，竹籬笆咖啡當範例） |
+| `examples/output/` | 用 `render.mjs` 做出來的範例成品（cute、terminal 兩種主題） |
+
 **Personal website / portfolio template** for wport-ai-starter-kit — one JSON schema, two standalone-HTML themes.
 
 | Asset | Purpose |
@@ -89,7 +97,7 @@ All fields optional except `name`. A section is rendered only when it has data.
 
 ## Workflow
 
-1. Keep `vault/about-me.md` (or equivalent Obsidian SSOT) as the source of truth. Prefer filling it via [`skills/gen-resume`](../../skills/gen-resume/SKILL.md) interview → Obsidian handoff; do **not** expect `gen-resume` to render the site.
+1. Keep `ssot/個人/about-me.md` (or equivalent Obsidian SSOT) as the source of truth. Prefer filling it via [`skills/gen-resume`](../../skills/gen-resume/SKILL.md) interview → Obsidian handoff; do **not** expect `gen-resume` to render the site.
 2. Map SSOT → `doc/website/website.json`, then render with a **website-build skill** (or manually with the commands below).
 3. Open / deploy the HTML. To publish: see [`skills/exec-vercel-cli`](../../skills/exec-vercel-cli/).
 

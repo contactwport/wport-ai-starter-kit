@@ -1,4 +1,4 @@
-# brand｜品牌大腦＋10 張社群文圖模板
+# 文圖範本｜10 張社群文圖＋10 種風格
 
 Eric Lu 盧旭熙「品牌行銷 AI 加速器」課程模板，給小店家和個人品牌用：
 先把店的資料整理成 AI 讀得懂的「品牌大腦」（Obsidian 筆記），再用 10 張寫好的模板，讓 AI 幾秒鐘填出 IG、FB、LinkedIn 都能用的圖和文案。
@@ -14,8 +14,8 @@ Eric Lu 盧旭熙「品牌行銷 AI 加速器」課程模板，給小店家和�
 
 ## 三步驟開始
 
-1. 下載：`git clone https://github.com/contactwport/wport-ai-starter-kit.git _kit`，把 `_kit/brand` 裡的東西搬到你的資料夾（例如桌面的 `my-brand`），再刪掉 `_kit`。
-2. 用 Obsidian 打開資料夾，把 `品牌資料/` 換成你的店。不知道怎麼寫，請 AI 訪問你、幫你填。
+1. 下載：`git clone https://github.com/contactwport/wport-ai-starter-kit.git _kit`，搬到你的資料夾（例如桌面的 `my-brand`）：`_kit/templates/posts/` → `templates/`、`_kit/scripts/` → `scripts/`，再加上 `_kit/照片/`、`_kit/AGENTS.md`、`_kit/.env.example`。想參考範例店的品牌資料，再搬 `_kit/ssot/店家/` 裡的東西。最後刪掉 `_kit`。
+2. 用 Obsidian 打開資料夾，把 `品牌資料/` 寫成你的店。不知道怎麼寫，請 AI 訪問你、幫你填。
 3. 叫 AI 做圖：「用模板 01，讀品牌資料，幫我做桂花烏龍拿鐵的新品文圖，輸出成圖片」。AI 會照 `AGENTS.md` 的規則做。
 
 ## 10 張模板

@@ -12,12 +12,12 @@
 pip install python-docx openpyxl
 ```
 
-**資料來源**：預設是 repo 內的 [`vault/resume.md`](../vault/README.md)（虛構人物「林小範」，可直接拿來試跑）。
+**資料來源**：預設是 repo 內的 [`ssot/個人/resume.md`](../ssot/個人/README.md)（虛構人物「林小範」，可直接拿來試跑）。
 換成你自己的，就把 Obsidian 筆記路徑告訴 AI，例如：
 
 > 用 `~/Documents/obsidian/my-vault/個人履歷.md` 的資料填 `practice/01-fill-forms/forms/補助計畫申請書_空白.docx`
 
-還沒有 Obsidian 筆記？先跑 [`gen-resume`](../skills/gen-resume/) 做一次訪談，它會幫你寫進 `vault/`。
+還沒有 Obsidian 筆記？先跑 [`gen-resume`](../skills/gen-resume/) 做一次訪談，它會幫你寫進 `ssot/個人/`。
 
 ## 三個規矩
 

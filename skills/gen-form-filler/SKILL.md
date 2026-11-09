@@ -2,7 +2,7 @@
 name: gen-form-filler
 description: >-
   Fill existing Word (.docx) and Excel (.xlsx) forms with the user's own data
-  from Obsidian (vault/*.md or an external vault path), then apply simulated
+  from Obsidian (ssot/個人/*.md or an external vault path), then apply simulated
   red seals (大章 / 小章) to the signature block. Use when the user asks to
   「幫我填這份表單／申請書」, 「用我的 Obsidian 資料填 docx/xlsx」, 「幫我蓋大小章」,
   government grant applications (含自傳、商業計畫書), 應徵資料表, 報名表, or the
@@ -14,7 +14,7 @@ description: >-
 
 把**既有的空白表單**（.docx / .xlsx）用使用者自己的資料填滿，需要時在用印欄蓋上模擬印章。
 
-資料來源永遠是 **Obsidian**：repo 內的 [`vault/`](../../vault/README.md)，或使用者指定的外部 vault 路徑（例如 `~/Documents/obsidian/.../個人履歷.md`）。
+資料來源永遠是 **Obsidian**：repo 內的 [`ssot/個人/`](../../ssot/個人/README.md)，或使用者指定的外部 vault 路徑（例如 `~/Documents/obsidian/.../個人履歷.md`）。
 
 練習素材：[`practice/01-fill-forms/`](../../practice/01-fill-forms/README.md)
 
@@ -54,12 +54,12 @@ pip install python-docx openpyxl Pillow
 ### 1. 盤點：表單要什麼、Obsidian 有什麼
 
 1. 讀空白表單，**列出所有欄位標題**（含章節標題與表頭），不要只看第一頁。
-2. 讀資料來源（預設 `vault/resume.md`；使用者給外部路徑就讀那份）。
+2. 讀資料來源（預設 `ssot/個人/resume.md`；使用者給外部路徑就讀那份）。
 3. 在聊天中輸出**對照表**：
 
 | 表單欄位 | 準備填入 | 來源 |
 |---------|---------|------|
-| 負責人／申請人姓名 | 林小範 | `vault/resume.md` §基本資料 |
+| 負責人／申請人姓名 | 林小範 | `ssot/個人/resume.md` §基本資料 |
 | 統一編號／身分證字號 | **缺** | — |
 
 4. **缺的欄位一次問完**（身分證字號、地址、金額這種 Obsidian 不會有），不要邊填邊問。
