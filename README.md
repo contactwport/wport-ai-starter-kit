@@ -1,10 +1,20 @@
 # wport-ai-starter-kit
 
-**開源 AI Skills 工具包** — 搭配 [wport 職航站](https://www.wport.me) 與常用 MCP，讓 **任何新手小白** 都能用自然語言完成履歷、求職與品牌頁操作。
+Eric Lu 盧旭熙在大學、企業和在地店家教了十多場 AI 課，發現每一場用的都是同一套模板和腳本。整理成這一包，新手不用從零開始，照著用就能更快上手。
 
-不需要 Python、不需要自己寫 prompt。裝好 Skills，跟 AI 說你想做什麼就行。
+## 這包裡有什麼
 
-> 適用對象：轉職者、在職進修、自由接案、創業者、學生 — **不限身份與年資**。
+| | 內容 | 在哪裡 |
+|---|---|---|
+| **1. CLI 和常見工具的用法** | 給 AI 讀的說明書（Skill）：WPORT CLI 查職缺、Vercel CLI 讓網站上線、GA4 報表、HypeLink 品牌頁和活動；把模板輸出成圖片、發到 FB 粉專的腳本 | [`skills/`](skills/INDEX.md)、[`brand/scripts/`](brand/scripts) |
+| **2. 文圖範本** | 10 張社群文圖（新品、優惠、好評、價目表……）加 10 種風格；官網、履歷、報告範本。AI 只要填資料，免費模型也跑得快 | [`brand/templates/`](brand/templates)、[`templates/`](templates) |
+| **3. md as SSOT 範本** | 用 Markdown（Obsidian）把資料寫成一份，官網、文圖、履歷、文章都從這份長出來。有店家版和個人版 | [`brand/品牌資料/`](brand/品牌資料)、[`vibe-coding/我的資料/`](vibe-coding/我的資料)、[`vault/`](vault) |
+
+工具（OpenCode、Obsidian、Git、Node.js）照 [WPORT 課前準備](https://wport.me/services/ai-training/prepare) 一鍵安裝。
+
+不需要 Python、不需要自己從零寫 prompt：裝好 Skills，跟 AI 說你想做什麼就行。
+
+> 適用對象：小店家、個人品牌、轉職者、在職進修、自由接案、創業者、學生，**不限身份與年資**。
 
 ## 你可以做什麼
 
