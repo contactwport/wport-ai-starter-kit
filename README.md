@@ -1,14 +1,28 @@
 # wport-ai-starter-kit
 
-Eric Lu 盧旭熙在大學、企業和在地店家教了十多場 AI 課，發現每一場用的都是同一套模板和腳本。整理成這一包，新手不用從零開始，照著用就能更快上手。
+Eric Lu 盧旭熙在大學、企業和在地店家教了十多場 AI 課，每一場都圍繞同一件事：先用 Markdown 把自己（或店）的資料寫成一份 SSOT（單一資料來源），再讓 AI 從這一份做出網站、文圖、履歷。這包把每場共用的模板和腳本整理起來，新手照著做，就能更快上手。
+
+## 核心：一份 md，長出所有東西
+
+```
+md（SSOT）：我的資料／品牌資料（Obsidian 筆記）
+  ├── 個人品牌網站（site）→ 用 Vercel CLI 上線
+  ├── 社群文圖（10 張範本、10 種風格）→ 發到 FB 粉專
+  ├── 履歷 → 用 WPORT CLI 建線上履歷、照職缺客製
+  └── 文章、報告、表單……
+```
+
+資料改一次，網站、文圖、履歷全部跟著對。
 
 ## 這包裡有什麼
 
 | | 內容 | 在哪裡 |
 |---|---|---|
-| **1. CLI 和常見工具的用法** | 給 AI 讀的說明書（Skill）：WPORT CLI 查職缺、Vercel CLI 讓網站上線、GA4 報表、HypeLink 品牌頁和活動；把模板輸出成圖片、發到 FB 粉專的腳本 | [`skills/`](skills/INDEX.md)、[`brand/scripts/`](brand/scripts) |
-| **2. 文圖範本** | 10 張社群文圖（新品、優惠、好評、價目表……）加 10 種風格；官網、履歷、報告範本。AI 只要填資料，免費模型也跑得快 | [`brand/templates/`](brand/templates)、[`templates/`](templates) |
-| **3. md as SSOT 範本** | 用 Markdown（Obsidian）把資料寫成一份，官網、文圖、履歷、文章都從這份長出來。有店家版和個人版 | [`brand/品牌資料/`](brand/品牌資料)、[`vibe-coding/我的資料/`](vibe-coding/我的資料)、[`vault/`](vault) |
+| **1. md as SSOT 範本** | 個人版「我的資料」、店家版「品牌資料」；一份筆記講一件事，AI 只讀用得到的 | [`vibe-coding/我的資料/`](vibe-coding/我的資料)、[`brand/品牌資料/`](brand/品牌資料)、[`vault/`](vault) |
+| **2. 個人品牌網站** | 從 SSOT 做出網站，再用 Vercel CLI 上線 | [`vibe-coding/`](vibe-coding)、[`templates/website/`](templates/website)、[`skills/exec-vercel-cli/`](skills/exec-vercel-cli) |
+| **3. SSOT 產生的文圖** | 10 張社群文圖加 10 種風格，AI 讀 SSOT 只填字；出圖和發 FB 粉專的腳本 | [`brand/templates/`](brand/templates)、[`brand/scripts/`](brand/scripts) |
+| **4. SSOT 做履歷** | 讀 SSOT，用 WPORT CLI 建線上履歷、照職缺客製、面試準備 | [`skills/exec-wport-cli/`](skills/exec-wport-cli)、[`skills/gen-resume/`](skills/gen-resume)、[`templates/resume/`](templates/resume) |
+| **5. CLI 和常見工具** | 給 AI 讀的說明書（Skill）：WPORT CLI、Vercel CLI、GA4、HypeLink 品牌頁和活動、填表單蓋章 | [`skills/`](skills/INDEX.md) |
 
 工具（OpenCode、Obsidian、Git、Node.js）照 [WPORT 課前準備](https://wport.me/services/ai-training/prepare) 一鍵安裝。
 
