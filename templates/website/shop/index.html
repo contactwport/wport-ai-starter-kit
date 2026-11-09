@@ -4,116 +4,237 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>竹籬笆咖啡｜眷村老屋裡的一杯手沖</title>
-<meta name="description" content="新竹將軍村的眷村老屋咖啡館，當週烘焙的手沖咖啡、桂花烏龍拿鐵和眷村綠豆椪。">
+<meta name="description" content="新竹將軍村的眷村老屋咖啡館：當週烘焙的手沖咖啡、桂花烏龍拿鐵、眷村綠豆椪。">
 <meta property="og:title" content="竹籬笆咖啡｜眷村老屋裡的一杯手沖">
 <meta property="og:description" content="新竹將軍村的眷村老屋咖啡館。">
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@500;700;900&family=Noto+Sans+TC:wght@400;500;700;900&display=swap");
-:root{--bg:#F5F5F7;--tile:#fff;--ink:#1D1D1F;--soft:#6E6E73;--accent:#1C5E57;--warm:#C8894E;--radius:28px;--gap:16px}
+:root{--bg:#F5F5F7;--tile:#fff;--ink:#1D1D1F;--soft:#6E6E73;--line:#E5E5EA;--accent:#1C5E57;--accent-2:#C8894E;--radius:28px;--gap:16px;--ease:cubic-bezier(.16,1,.3,1)}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--ink);font:17px/1.7 Inter,"Noto Sans TC",sans-serif}
-a{color:inherit}
-.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
-header{position:sticky;top:0;z-index:10;background:rgba(245,245,247,.86);backdrop-filter:blur(12px)}
-header .wrap{display:flex;align-items:center;gap:24px;height:68px}
-.logo{display:flex;align-items:center;gap:10px;font-weight:900;font-size:20px;text-decoration:none}
-.logo i{width:30px;height:30px;border-radius:9px;background:var(--accent)}
-nav{display:flex;gap:22px;margin-left:auto;font-size:15px;color:var(--soft)}
-nav a{text-decoration:none}nav a:hover{color:var(--ink)}
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 22px;border-radius:999px;font-weight:700;font-size:15px;text-decoration:none;background:var(--accent);color:#fff}
-.btn.ghost{background:var(--bg);color:var(--ink)}
-.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--gap);margin:16px 0}
-.t{background:var(--tile);border-radius:var(--radius);padding:28px;box-shadow:0 1px 2px rgba(0,0,0,.04);transition:transform .25s}
-.t:hover{transform:scale(1.02)}
-.lab{font-size:12px;font-weight:700;letter-spacing:.12em;color:var(--soft)}
-h1{font-size:clamp(40px,6vw,64px);font-weight:900;line-height:1.08;margin:10px 0 14px}
-h2{font-size:28px;font-weight:900;line-height:1.3;margin:8px 0 10px}
-h3{font-size:22px;font-weight:900;margin:6px 0 4px}
+body{background:var(--bg);color:var(--ink);font:17px/1.7 Inter,"Noto Sans TC",sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit}img{max-width:100%;display:block}
+.wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+.lab{font-size:12px;font-weight:700;letter-spacing:.14em;color:var(--soft)}
+h1{font-size:clamp(40px,7vw,72px);font-weight:900;line-height:1.05;letter-spacing:-.01em}
+h2{font-size:clamp(26px,3.4vw,36px);font-weight:900;line-height:1.25;margin:8px 0 12px}
+h3{font-size:21px;font-weight:900;margin:4px 0}
 .soft{color:var(--soft)}
-.hero{grid-column:span 7;display:flex;flex-direction:column;justify-content:flex-end;min-height:360px}
-.hero .row{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
-.photo{grid-column:span 5;grid-row:span 2;min-height:360px;padding:0;position:relative;overflow:hidden;
-  background:linear-gradient(160deg,#E9D7C2,#C8894E 55%,#7A4A26)}
-.photo img{width:100%;height:100%;object-fit:cover;display:block}
-.shot{min-height:240px;border-radius:20px;position:relative;overflow:hidden;background:linear-gradient(160deg,#E9D7C2,#C8894E 55%,#7A4A26)}
-.photo span,.shot span{position:absolute;left:20px;bottom:20px;background:rgba(255,255,255,.9);border-radius:999px;padding:8px 16px;font-size:14px;font-weight:700}
-.dark{grid-column:span 3;background:var(--ink);color:#fff}.dark .lab,.dark p{color:#A1A1A6}.dark b{display:block;font-size:40px;font-weight:900;line-height:1.2;margin:8px 0}
-.hours{grid-column:span 4}
-.prod{grid-column:span 4;position:relative}.prod .pr{position:absolute;right:26px;top:24px;font-size:26px;font-weight:900;color:var(--accent)}
-.prod .ph{height:120px;border-radius:18px;margin-top:16px;background:linear-gradient(120deg,#F3E3C3,#D9A86C)}
-.story{grid-column:span 8}
-.rev{grid-column:span 4;background:#EAF3F1}.rev .st{color:var(--warm);letter-spacing:2px}.rev q{display:block;font-size:18px;font-weight:700;margin:8px 0}
-.faq{grid-column:span 7}
-details{border-top:1px solid #E5E5EA;padding:14px 0}details:first-of-type{border-top:0}
-summary{cursor:pointer;font-weight:700;list-style:none;display:flex;justify-content:space-between;gap:12px}
-summary::after{content:"+";color:var(--accent);font-weight:900}details[open] summary::after{content:"−"}
-details p{margin-top:8px;color:var(--soft)}
-.steps{grid-column:span 5}.steps ol{list-style:none;counter-reset:s;display:grid;gap:12px;margin-top:10px}
-.steps li{counter-increment:s;display:flex;gap:12px;align-items:baseline}
-.steps li::before{content:counter(s);flex:none;width:28px;height:28px;border-radius:50%;background:var(--accent);color:#fff;font-weight:900;display:flex;align-items:center;justify-content:center;font-size:14px}
-.contact{grid-column:span 12;display:grid;grid-template-columns:1.2fr 1fr;gap:24px;align-items:center}
-.contact dl{display:grid;grid-template-columns:90px 1fr;gap:8px 12px}.contact dt{color:var(--soft);font-weight:700}
-.contact .row{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
-footer{padding:32px 0 48px;color:var(--soft);font-size:14px}
-footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px}
-@media (max-width:1024px){.grid{grid-template-columns:repeat(6,1fr)}.hero,.photo,.story,.faq,.steps,.contact{grid-column:span 6}.dark,.hours,.rev{grid-column:span 3}.prod{grid-column:span 2}.photo{grid-row:auto}}
-@media (max-width:640px){.grid{grid-template-columns:1fr}.grid>*{grid-column:1/-1!important}nav{display:none}.contact{grid-template-columns:1fr}.t{padding:22px}}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:0 22px;border-radius:999px;font-weight:700;font-size:15px;text-decoration:none;
+  background:var(--accent);color:#fff;transition:transform .3s var(--ease),box-shadow .3s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(0,0,0,.12)}
+.btn.ghost{background:var(--bg);color:var(--ink)}
+.tile{background:var(--tile);border-radius:var(--radius);padding:28px;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.ph{position:relative;overflow:hidden;background:linear-gradient(140deg,#EAD9C3,var(--accent-2) 55%,#6B3E1F)}
+.ph::after{content:attr(data-photo);position:absolute;left:16px;bottom:14px;font-size:12px;font-weight:700;color:#fff;opacity:.85}
+
+/* 頁首：捲動後變小、手機漢堡選單 */
+header{position:sticky;top:0;z-index:20;background:rgba(245,245,247,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);transition:box-shadow .3s}
+header.scrolled{box-shadow:0 1px 0 var(--line)}
+header .wrap{display:flex;align-items:center;gap:20px;height:68px;transition:height .3s var(--ease)}
+header.scrolled .wrap{height:56px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:900;font-size:19px;text-decoration:none}
+.logo i{width:30px;height:30px;border-radius:9px;background:var(--accent)}
+nav{display:flex;gap:24px;margin-left:auto;font-size:15px}
+nav a{text-decoration:none;color:var(--soft);position:relative}
+nav a::after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:2px;background:var(--accent);transform:scaleX(0);transition:transform .3s var(--ease)}
+nav a:hover{color:var(--ink)}nav a:hover::after{transform:scaleX(1)}
+#menu{display:none}.burger{display:none;margin-left:auto;width:44px;height:44px;border-radius:12px;background:var(--tile);align-items:center;justify-content:center;cursor:pointer}
+.burger span,.burger span::before,.burger span::after{display:block;width:18px;height:2px;background:var(--ink);border-radius:2px;position:relative;transition:transform .3s var(--ease),background .3s}
+.burger span::before,.burger span::after{content:"";position:absolute;left:0}.burger span::before{top:-6px}.burger span::after{top:6px}
+
+/* 主視覺 */
+.hero{display:grid;grid-template-columns:1.2fr 1fr;gap:var(--gap);margin:18px 0 var(--gap)}
+.hero .tile{display:flex;flex-direction:column;justify-content:flex-end;min-height:440px}
+.hero h1 span{display:block;opacity:0;transform:translateY(28px);animation:rise 1s var(--ease) forwards}
+.hero h1 span:nth-child(2){animation-delay:.12s}
+.hero p{max-width:520px;margin:14px 0 22px;opacity:0;animation:rise 1s var(--ease) .3s forwards}
+.hero .row{display:flex;gap:10px;flex-wrap:wrap;opacity:0;animation:rise 1s var(--ease) .45s forwards}
+.hero .ph{border-radius:var(--radius);min-height:440px}
+.hero .ph .zoom{position:absolute;inset:0;background:inherit;animation:kb 18s ease-in-out infinite alternate}
+.badge{position:absolute;right:20px;top:20px;background:#fff;border-radius:999px;padding:8px 14px;font-size:13px;font-weight:700;box-shadow:0 8px 20px rgba(0,0,0,.12);animation:float 4s ease-in-out infinite}
+.badge b{color:var(--accent)}
+
+/* 跑馬燈 */
+.marquee{overflow:hidden;border-radius:999px;background:var(--ink);color:#fff;margin-bottom:var(--gap)}
+.marquee div{display:flex;gap:40px;width:max-content;padding:12px 0;font-weight:700;font-size:15px;animation:slide 26s linear infinite}
+.marquee span::before{content:"✦";margin-right:40px;color:var(--accent-2)}
+
+/* 數字、優惠 */
+.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--gap);margin-bottom:var(--gap)}
+.stat{grid-column:span 3}.stat b{display:block;font-size:44px;font-weight:900;line-height:1.1;color:var(--accent)}
+.offer{grid-column:span 3;background:var(--ink);color:#fff;position:relative;overflow:hidden}
+.offer .lab{color:#A1A1A6}.offer b{display:block;font-size:34px;font-weight:900;margin:6px 0}.offer p{color:#A1A1A6;font-size:15px}
+.offer .pulse{position:absolute;right:20px;top:22px;width:10px;height:10px;border-radius:50%;background:#4ADE80}
+.offer .pulse::after{content:"";position:absolute;inset:0;border-radius:50%;background:#4ADE80;animation:ping 1.8s var(--ease) infinite}
+
+/* 商品 */
+.prod{grid-column:span 4;padding:0;overflow:hidden;transition:transform .4s var(--ease),box-shadow .4s}
+.prod:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(0,0,0,.10)}
+.prod .ph{height:220px;transition:transform .6s var(--ease)}.prod:hover .ph{transform:scale(1.06)}
+.prod .in{padding:20px 24px 24px;display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+.prod .pr{flex:none;font-size:22px;font-weight:900;color:var(--accent);background:var(--bg);border-radius:999px;padding:2px 14px}
+
+/* 故事 */
+.story{grid-column:span 12;display:grid;grid-template-columns:1fr 1.2fr;gap:32px;align-items:center}
+.story .ph{border-radius:20px;min-height:320px}
+.story blockquote{margin-top:16px;padding-left:16px;border-left:4px solid var(--accent-2);font-weight:700}
+
+/* 好評：手機可左右滑 */
+.reviews{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 2 * var(--gap)) / 3);gap:var(--gap);overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:6px;margin-bottom:var(--gap);scrollbar-width:none}
+.reviews::-webkit-scrollbar{display:none}
+.rev{scroll-snap-align:start}.rev .st{color:var(--accent-2);letter-spacing:3px}.rev q{display:block;font-size:18px;font-weight:700;margin:8px 0 10px}
+
+/* 問答、步驟 */
+.faq{grid-column:span 7}.steps{grid-column:span 5}
+details{border-top:1px solid var(--line)}details:first-of-type{border-top:0}
+summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:12px;padding:16px 0;font-weight:700}
+summary::-webkit-details-marker{display:none}
+summary i{flex:none;width:26px;height:26px;border-radius:50%;background:var(--bg);position:relative;transition:transform .35s var(--ease),background .3s}
+summary i::before,summary i::after{content:"";position:absolute;left:7px;right:7px;top:12px;height:2px;background:var(--ink)}summary i::after{transform:rotate(90deg)}
+details[open] summary i{transform:rotate(45deg);background:var(--accent)}details[open] summary i::before,details[open] summary i::after{background:#fff}
+details p{padding:0 0 16px;color:var(--soft);animation:fade .45s var(--ease)}
+.steps ol{list-style:none;counter-reset:s;position:relative;margin-top:8px}
+.steps ol::before{content:"";position:absolute;left:15px;top:16px;bottom:16px;width:2px;background:var(--line)}
+.steps li{counter-increment:s;position:relative;padding:8px 0 8px 48px}
+.steps li::before{content:counter(s);position:absolute;left:0;top:6px;width:32px;height:32px;border-radius:50%;background:var(--accent);color:#fff;font-weight:900;font-size:14px;display:flex;align-items:center;justify-content:center}
+
+/* 聯絡 */
+.contact{grid-column:span 12;display:grid;grid-template-columns:1fr 1.1fr;gap:28px}
+.contact dl{display:grid;grid-template-columns:72px 1fr;gap:10px 14px;margin:14px 0 20px}.contact dt{color:var(--soft);font-weight:700}
+.contact .row{display:flex;gap:10px;flex-wrap:wrap}
+.map{border-radius:20px;overflow:hidden;min-height:320px;background:var(--bg)}.map iframe{width:100%;height:100%;min-height:320px;border:0}
+footer{padding:36px 0 110px;color:var(--soft);font-size:14px}footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px}
+
+/* 手機底部按鈕列、回到頂端 */
+.dock{display:none}
+.top{position:fixed;right:20px;bottom:24px;width:46px;height:46px;border-radius:50%;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;text-decoration:none;
+  opacity:0;transform:translateY(16px);transition:.4s var(--ease);z-index:15}
+.top.show{opacity:1;transform:none}
+
+/* 捲到才浮現 */
+.js .reveal{opacity:0;transform:translateY(36px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.js .reveal.in{opacity:1;transform:none}
+.js .reveal.d1{transition-delay:.08s}.js .reveal.d2{transition-delay:.16s}.js .reveal.d3{transition-delay:.24s}
+
+@keyframes rise{to{opacity:1;transform:none}}
+@keyframes kb{from{transform:scale(1)}to{transform:scale(1.12)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes slide{to{transform:translateX(-50%)}}
+@keyframes ping{to{transform:scale(3);opacity:0}}
+@keyframes fade{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+
+@media (max-width:1024px){
+  .hero{grid-template-columns:1fr}.hero .tile,.hero .ph{min-height:340px}
+  .stat,.offer{grid-column:span 6}.prod{grid-column:span 6}.faq,.steps{grid-column:span 12}
+  .story,.contact{grid-template-columns:1fr}
+  .reviews{grid-auto-columns:70%}
+}
+@media (max-width:640px){
+  body{font-size:16px}
+  nav{position:fixed;inset:56px 0 auto 0;flex-direction:column;gap:0;background:rgba(245,245,247,.97);backdrop-filter:blur(14px);padding:8px 20px 16px;
+    transform:translateY(-120%);transition:transform .45s var(--ease);box-shadow:0 12px 24px rgba(0,0,0,.08)}
+  nav a{padding:14px 0;border-bottom:1px solid var(--line);font-size:17px;color:var(--ink)}nav a::after{display:none}
+  .burger{display:flex}header .nav-cta{display:none}
+  #menu:checked~nav{transform:none}
+  #menu:checked~.burger span{background:transparent}
+  #menu:checked~.burger span::before{transform:translateY(6px) rotate(45deg)}#menu:checked~.burger span::after{transform:translateY(-6px) rotate(-45deg)}
+  .grid{grid-template-columns:1fr 1fr}.grid>*{grid-column:1/-1!important}.grid>.stat,.grid>.offer{grid-column:auto!important}
+  .tile{padding:20px}.prod{padding:0}.stat b{font-size:32px}.offer b{font-size:26px}
+  .reviews{grid-auto-columns:86%}
+  .dock{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:25;gap:8px;padding:8px;border-radius:999px;background:rgba(29,29,31,.92);backdrop-filter:blur(10px)}
+  .dock a{flex:1;min-height:46px;border-radius:999px;display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;text-decoration:none}
+  .dock a:first-child{background:var(--accent)}
+  .top{bottom:84px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.hero h1 span,.hero p,.hero .row{opacity:1;transform:none}.js .reveal{opacity:1;transform:none}}
 </style>
 </head>
 <body>
-<header><div class="wrap">
+<header id="top"><div class="wrap">
   <a class="logo" href="#top"><i></i>竹籬笆咖啡</a>
-  <nav><a href="#story">品牌故事</a><a href="#products">招牌商品</a><a href="#faq">常見問題</a><a href="#contact">營業資訊</a></nav>
-  <a class="btn" href="https://maps.google.com/?q=新竹將軍村" target="_blank" rel="noopener">Google 地圖導航</a>
+  <input type="checkbox" id="menu" aria-label="開啟選單">
+  <nav><a href="#products">招牌商品</a><a href="#story">品牌故事</a><a href="#faq">常見問題</a><a href="#contact">營業資訊</a></nav>
+  <label class="burger" for="menu"><span></span></label>
+  <a class="btn nav-cta" href="https://maps.google.com/?q=新竹將軍村" target="_blank" rel="noopener">Google 地圖導航</a>
 </div></header>
 
-<main class="wrap" id="top">
-<section class="grid">
-  <div class="t hero">
+<main class="wrap">
+<section class="hero">
+  <div class="tile">
     <span class="lab">新竹將軍村 K 棟</span>
-    <h1>眷村老屋裡的<br>一杯手沖</h1>
+    <h1><span>眷村老屋裡的</span><span>一杯手沖</span></h1>
     <p class="soft">爺爺的老房子留下來了。我們用當週烘的豆子，請大家回來坐坐。</p>
-    <div class="row"><a class="btn" href="#products">看招牌商品</a><a class="btn ghost" href="#contact">聯絡我們</a></div>
+    <div class="row"><a class="btn" href="#products">看招牌商品</a><a class="btn ghost" href="#contact">怎麼來</a></div>
   </div>
-  <div class="t photo"><!-- 換成店面或招牌商品照片：<img src="images/shop.jpg" alt="竹籬笆咖啡店面"> --><span>當週烘焙・每日 30 杯</span></div>
-  <div class="t dark" id="offer"><span class="lab">本週限定</span><b>買一送一</b><p>週末手沖，同價或較低價位・11/15–11/16</p></div>
-  <div class="t hours"><span class="lab">營業時間</span><h2>11:00–19:00</h2><p class="soft">週二公休・可刷卡・寵物友善</p></div>
+  <div class="ph" data-photo="放店面或招牌商品照片"><div class="zoom"></div><span class="badge">今日 <b>還有 12 杯</b></span></div>
+</section>
+
+<div class="marquee" aria-hidden="true"><div>
+  <span>當週烘焙</span><span>秋季限定</span><span>寵物友善</span><span>可刷卡</span><span>眷村老屋</span><span>手沖咖啡</span>
+  <span>當週烘焙</span><span>秋季限定</span><span>寵物友善</span><span>可刷卡</span><span>眷村老屋</span><span>手沖咖啡</span>
+</div></div>
+
+<section class="grid">
+  <div class="tile stat reveal"><span class="lab">每日限量</span><b>30</b><span class="soft">杯手沖</span></div>
+  <div class="tile stat reveal d1"><span class="lab">營業時間</span><b>11–19</b><span class="soft">週二公休</span></div>
+  <div class="tile stat reveal d2"><span class="lab">Google 評分</span><b>4.9</b><span class="soft">★★★★★</span></div>
+  <div class="tile offer reveal d3" id="offer"><i class="pulse"></i><span class="lab">本週限定</span><b>買一送一</b><p>週末手沖・11/15–11/16</p></div>
 </section>
 
 <section class="grid" id="products">
-  <div class="t prod"><span class="lab">秋季新品</span><span class="pr">$120</span><h3>桂花烏龍拿鐵</h3><p class="soft">新竹烏龍茶，配上桂花蜜</p><div class="ph"></div></div>
-  <div class="t prod"><span class="lab">招牌手沖</span><span class="pr">$160</span><h3>耶加雪菲</h3><p class="soft">花香、柑橘，淺焙</p><div class="ph"></div></div>
-  <div class="t prod"><span class="lab">眷村點心</span><span class="pr">$60</span><h3>眷村綠豆椪</h3><p class="soft">每天限量 20 個</p><div class="ph"></div></div>
+  <article class="tile prod reveal"><div class="ph" data-photo="商品照片"></div><div class="in"><div><span class="lab">秋季新品</span><h3>桂花烏龍拿鐵</h3><p class="soft">新竹烏龍茶，配上桂花蜜</p></div><span class="pr">$120</span></div></article>
+  <article class="tile prod reveal d1"><div class="ph" data-photo="商品照片" style="background:linear-gradient(140deg,#EAD9C7,#9C6B45)"></div><div class="in"><div><span class="lab">招牌手沖</span><h3>耶加雪菲</h3><p class="soft">花香、柑橘，淺焙</p></div><span class="pr">$160</span></div></article>
+  <article class="tile prod reveal d2"><div class="ph" data-photo="商品照片" style="background:linear-gradient(140deg,#EEF1DE,#9BAA62)"></div><div class="in"><div><span class="lab">眷村點心</span><h3>眷村綠豆椪</h3><p class="soft">每天限量 20 個</p></div><span class="pr">$60</span></div></article>
 </section>
 
 <section class="grid" id="story">
-  <div class="t story"><span class="lab">品牌故事</span><h2>爺爺的眷村老屋，變成一間咖啡館</h2><p class="soft">小時候每個週末都在這條巷子跑來跑去。老屋要拆的那年，我們決定把它留下來，用一杯咖啡，請大家回來坐坐。</p></div>
-  <div class="t rev"><span class="st">★★★★★</span><q>坐在眷村老房子裡喝，很放鬆。</q><span class="soft">林小姐・Google 評論</span></div>
+  <div class="tile story reveal"><div class="ph" data-photo="職人或店內照片"></div>
+    <div><span class="lab">品牌故事</span><h2>爺爺的眷村老屋，變成一間咖啡館</h2>
+      <p class="soft">小時候每個週末都在這條巷子跑來跑去。老屋要拆的那年，我們決定把它留下來，用一杯咖啡，請大家回來坐坐。</p>
+      <blockquote>「一杯咖啡的時間，讓老房子繼續有人聲。」</blockquote></div></div>
+</section>
+
+<section class="reviews" aria-label="客人好評">
+  <div class="tile rev reveal"><span class="st">★★★★★</span><q>坐在眷村老房子裡喝，很放鬆。</q><span class="soft">林小姐・Google 評論</span></div>
+  <div class="tile rev reveal d1"><span class="st">★★★★★</span><q>老闆會問你今天想喝酸一點還是苦一點。</q><span class="soft">陳先生・Google 評論</span></div>
+  <div class="tile rev reveal d2"><span class="st">★★★★★</span><q>綠豆椪配手沖，下午最好的安排。</q><span class="soft">王小姐・FB 評論</span></div>
 </section>
 
 <section class="grid">
-  <div class="t faq" id="faq"><span class="lab">常見問題</span>
-    <details open><summary>可以帶狗狗來嗎？</summary><p>可以！戶外座位和一樓都歡迎，我們有準備水碗。</p></details>
-    <details><summary>有停車位嗎？</summary><p>將軍村入口有公有停車場，走路 3 分鐘。</p></details>
-    <details><summary>咖啡豆可以外帶嗎？</summary><p>可以，每支豆子都有 200 克包裝，也能幫你磨好。</p></details>
+  <div class="tile faq reveal" id="faq"><span class="lab">常見問題</span>
+    <details open><summary>可以帶狗狗來嗎？<i></i></summary><p>可以！戶外座位和一樓都歡迎，我們有準備水碗。</p></details>
+    <details><summary>有停車位嗎？<i></i></summary><p>將軍村入口有公有停車場，走路 3 分鐘。</p></details>
+    <details><summary>咖啡豆可以外帶嗎？<i></i></summary><p>可以，每支豆子都有 200 克包裝，也能幫你磨好。</p></details>
   </div>
-  <div class="t steps"><span class="lab">怎麼買</span><h2>來店或預訂</h2>
+  <div class="tile steps reveal d1"><span class="lab">怎麼買</span><h2>來店或預訂</h2>
     <ol><li>私訊粉專說要幾杯</li><li>確認取餐時間</li><li>到店報名字取餐</li><li>現場付款，可刷卡</li></ol>
   </div>
 </section>
 
 <section class="grid" id="contact">
-  <div class="t contact">
+  <div class="tile contact reveal">
     <div><span class="lab">營業資訊</span><h2>來將軍村坐坐</h2>
       <dl><dt>地址</dt><dd>新竹市東區將軍村 K 棟</dd><dt>時間</dt><dd>11:00–19:00，週二公休</dd><dt>電話</dt><dd>03-000-0000</dd><dt>付款</dt><dd>現金、信用卡</dd></dl>
       <div class="row"><a class="btn" href="https://maps.google.com/?q=新竹將軍村" target="_blank" rel="noopener">Google 地圖導航</a><a class="btn ghost" href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a><a class="btn ghost" href="https://www.facebook.com/" target="_blank" rel="noopener">Facebook</a></div>
     </div>
-    <div class="shot"><!-- 換成店面照片 --><span>店面照片</span></div>
+    <div class="map"><iframe title="地圖" loading="lazy" src="https://maps.google.com/maps?q=%E6%96%B0%E7%AB%B9%E5%B0%87%E8%BB%8D%E6%9D%91&amp;output=embed"></iframe></div>
   </div>
 </section>
 </main>
 
 <footer><div class="wrap"><span>© 2026 竹籬笆咖啡</span><span>統一編號：待確認</span><span>新竹市東區將軍村 K 棟</span></div></footer>
+
+<div class="dock"><a href="https://maps.google.com/?q=新竹將軍村" target="_blank" rel="noopener">導航</a><a href="https://m.me/" target="_blank" rel="noopener">私訊粉專</a></div>
+<a class="top" href="#top" aria-label="回到頂端">↑</a>
+
+<script>
+document.documentElement.classList.add("js");
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.15});
+document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
+const hd=document.querySelector("header"),tp=document.querySelector(".top");
+addEventListener("scroll",()=>{hd.classList.toggle("scrolled",scrollY>10);tp.classList.toggle("show",scrollY>600)},{passive:true});
+document.querySelectorAll("nav a").forEach(a=>a.addEventListener("click",()=>{document.getElementById("menu").checked=false}));
+</script>
 </body>
 </html>
