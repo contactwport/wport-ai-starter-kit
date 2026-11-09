@@ -1,0 +1,17 @@
+/* 03 可愛：粉紅奶油色、圓體（粉圓）、大圓角、點點底。 */
+@import url("https://fonts.googleapis.com/css2?family=Huninn&display=swap");
+:root{--main:#E8799A;--accent:#FFC94D;--paper:#FFF4EE;--ink:#5A3D45;--soft:#9A7A82;
+  --font-title:"Huninn",sans-serif;--font-body:"Huninn",sans-serif}
+.post:not(.dark){background:var(--paper) radial-gradient(circle,rgba(232,121,154,.16) 4px,transparent 5px) 0 0/44px 44px}
+.title{font-weight:400;letter-spacing:.04em}
+.photo{border-radius:56px;border:10px solid #fff;box-shadow:0 10px 0 color-mix(in srgb,var(--main) 35%,#fff)}
+.photo.small{border-radius:50%}
+.pill{font-weight:400;box-shadow:0 6px 0 color-mix(in srgb,var(--accent) 60%,#000 10%);transform:rotate(-2deg)}
+.price{font-weight:400;color:var(--main)}
+.tags span{border-radius:999px;background:#fff;border:3px dotted var(--main)}
+.card,.qa li,.steps li{border-radius:44px!important}
+.steps li{border-top:none;border:4px dashed var(--main)}
+.date{border-radius:50%;width:260px;height:260px;padding-top:42px}
+.when,.box{border-radius:999px}
+.photo.full{border:0;transform:none;box-shadow:none;border-radius:0;clip-path:none;filter:none}
+.photo.full::before{display:none}

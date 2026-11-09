@@ -1,0 +1,17 @@
+/* 08 手作牛皮紙：牛皮紙底、手寫字（芫荽）、照片用紙膠帶貼上、印章標籤。 */
+@import url("https://fonts.googleapis.com/css2?family=Iansui&display=swap");
+:root{--main:#4A3426;--accent:#2F6B4F;--paper:#D9C29C;--ink:#3A2A1F;--soft:#5E4A3A;
+  --font-title:"Iansui",serif;--font-body:"Iansui",serif}
+.post:not(.dark){background:var(--paper) repeating-radial-gradient(circle at 30% 20%,rgba(74,52,38,.05) 0 2px,transparent 2px 7px)}
+.title{font-weight:400;letter-spacing:.04em}
+.photo{border:14px solid #FBF6EC;box-shadow:0 10px 20px rgba(58,42,31,.25);transform:rotate(-1.2deg);overflow:visible}
+.photo::before{content:"";position:absolute;z-index:2;left:50%;top:-26px;width:200px;height:52px;margin-left:-100px;background:rgba(255,255,255,.55);transform:rotate(-3deg)}
+.photo.small::before{width:90px;height:30px;margin-left:-45px;top:-16px}
+.pill{background:none;color:var(--accent);border:4px dashed var(--accent);border-radius:12px;transform:rotate(-3deg);font-weight:400}
+.price{color:var(--accent);font-weight:400}
+.tags span{border-style:dashed;border-radius:10px;color:var(--ink);border-color:var(--ink)}
+.card,.qa li,.steps li{background:#FBF6EC!important;border-radius:6px;box-shadow:0 8px 16px rgba(58,42,31,.18)}
+.steps li{border-top-color:var(--accent)}
+.date{border-radius:6px;transform:rotate(2deg)}
+.photo.full{border:0;transform:none;box-shadow:none;border-radius:0;clip-path:none;filter:none}
+.photo.full::before{display:none}

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <!-- 1. Viewport 設定 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>個人簡介 - Eric Lu 盧旭熙</title>
+  <style>
+    /* 
+      配色方案 (白底 + 紫色溫馨系)：
+      底色: #ffffff (純白)
+      主配色 (Primary): #7c3aed (溫暖紫 - 溫馨且有氣場)
+      次配色 (Accent): #f5f3ff (淡薰衣草 - 背景區塊與邊框)
+      文字色: #1f2937 (深灰，確保閱讀舒適度)
+      輔助文字: #6b7280 (中灰)
+    */
+
+    /* 基本重設與邊界控制 (防止左右捲動) */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden; /* 防止左右捲動 */
+      background-color: #ffffff;
+      color: #1f2937;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      /* 4. 內文至少 16px、行距 1.6 */
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* 2. 手機優先 (Mobile First - 預設 375px 寬度適應)，768px 以上限制 max-width 720px 並置中 */
+    .container {
+      width: 100%;
+      padding: 24px 20px;
+      margin: 0 auto;
+    }
+
+    @media (min-width: 768px) {
+      .container {
+        max-width: 720px;
+        padding: 40px 20px;
+      }
+    }
+
+    /* 通用標題樣式 - 4. 標題 24px 以上 */
+    h1 {
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 1.3;
+      color: #7c3aed;
+      margin-bottom: 8px;
+    }
+
+    h2 {
+      font-size: 24px;
+      font-weight: 600;
+      color: #7c3aed;
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #f5f3ff;
+    }
+
+    /* 各區塊外距 */
+    section {
+      margin-bottom: 36px;
+    }
+
+    /* 3. 順序：名字＋一句介紹 */
+    .hero {
+      text-align: center;
+      padding: 32px 16px;
+      background: linear-gradient(135deg, #f5f3ff 0%, #faf7ff 100%);
+      border-radius: 12px;
+      margin-bottom: 36px;
+      box-shadow: 0 4px 12px rgba(124, 58, 237, 0.05);
+    }
+
+    .hero .tag {
+      display: inline-block;
+      font-size: 14px;
+      background-color: #ffffff;
+      color: #7c3aed;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-weight: 500;
+      margin-bottom: 12px;
+      border: 1px solid #c4b5fd;
+    }
+
+    .hero p.tagline {
+      font-size: 18px;
+      color: #6b7280;
+      margin-top: 8px;
+    }
+
+    /* 關於我 (About) */
+    .about-info {
+      background-color: #ffffff;
+      border: 1px solid #f5f3ff;
+      border-left: 4px solid #7c3aed;
+      padding: 16px 20px;
+      border-radius: 4px;
+    }
+
+    /* 會的東西 (Skills) */
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      list-style: none;
+    }
+
+    .skill-item {
+      background-color: #f5f3ff;
+      color: #6d28d9;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-weight: 500;
+      font-size: 16px;
+    }
+
+    /* 做過的事 (Experience) - 手機版單欄 */
+    .experience-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    /* 2. 螢幕 768px 以上，經歷改兩欄 */
+    @media (min-width: 768px) {
+      .experience-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .exp-card {
+      border: 1px solid #f5f3ff;
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(124, 58, 237, 0.04);
+      transition: box-shadow 0.2s ease, transform 0.2s ease;
+    }
+
+    .exp-card:hover {
+      box-shadow: 0 4px 12px rgba(124, 58, 237, 0.08);
+      transform: translateY(-2px);
+    }
+
+    .exp-card h3 {
+      font-size: 18px;
+      color: #7c3aed;
+      margin-bottom: 6px;
+    }
+
+    .exp-card .exp-desc {
+      color: #6b7280;
+      font-size: 16px;
+    }
+
+    /* 5. 按鈕至少 44px 高、聯絡我區塊 */
+    .contact-section {
+      text-align: center;
+      margin-top: 40px;
+      margin-bottom: 20px;
+    }
+
+    .btn-contact {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px; /* 規格規定至少 44px 高 */
+      padding: 0 32px;
+      background: linear-gradient(135deg, #7c3aed 0%, #8b5cf6 100%);
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      width: 100%;
+      max-width: 280px;
+      transition: opacity 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 4px 10px rgba(124, 58, 237, 0.15);
+    }
+
+    .btn-contact:hover, .btn-contact:active {
+      opacity: 0.95;
+      box-shadow: 0 6px 14px rgba(124, 58, 237, 0.2);
+    }
+
+    /* 圖片與媒體控制，確保不超出螢幕 */
+    img, video {
+      max-width: 100%;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <main class="container">
+    
+    <!-- 順序 1: 名字 ＋ 一句話介紹 -->
+    <header class="hero">
+      <!-- 請在此填寫：科系年級 -->
+      <span class="tag">政大教育系畢業｜熱火數碼資訊 執行長</span>
+      <!-- 請在此填寫：名字 -->
+      <h1>Eric Lu 盧旭熙</h1>
+      <!-- 請在此填寫：一句話介紹自己 -->
+      <p class="tagline">「很多當下看起來不相關的點，會在未來連成線。」</p>
+    </header>
+
+    <!-- 順序 2: 關於我 -->
+    <section>
+      <h2>關於我</h2>
+      <div class="about-info">
+        <!-- 請在此填寫詳細自我介紹 -->
+        <p>科系：國立政治大學 教育學系（輔系日文），2014 年畢業</p>
+        <p>自我介紹：我是 WPORT 職航站的創辦人，做給在台外籍人才的求職平台。大學在教育系把哲學、外交、經濟、西文、日文都修了一輪，後來跑去修資科系的課，從此跟軟體分不開。在錫諾系統做了八年 B2B 專案，現在也在大學和企業教 AI 工作流與 Vibe Coding。</p>
+      </div>
+    </section>
+
+    <!-- 順序 3: 會的東西 -->
+    <section>
+      <h2>會的東西</h2>
+      <ul class="skills-list">
+        <!-- 請在此修改或新增您的技能標籤 -->
+        <li class="skill-item">n8n 自動化</li>
+        <li class="skill-item">B2B 業務開發</li>
+        <li class="skill-item">日文 N2</li>
+        <li class="skill-item">AI 工作流設計</li>
+        <li class="skill-item">Obsidian SSOT</li>
+        <li class="skill-item">Cursor／Claude Code</li>
+      </ul>
+    </section>
+
+    <!-- 順序 4: 做過的事 (手機單欄，768px 以上兩欄) -->
+    <section>
+      <h2>做過的事</h2>
+      <div class="experience-grid">
+        <!-- 經歷 1 -->
+        <div class="exp-card">
+          <h3>1. WPORT 職航站 創辦人</h3>
+          <p class="exp-desc">從零做到 1,060 間合作企業，幫在台外籍人才與僑外生找工作。</p>
+        </div>
+        <!-- 經歷 2 -->
+        <div class="exp-card">
+          <h3>2. 大學與企業 AI 講師</h3>
+          <p class="exp-desc">醒吾、開南、靜宜、精立數位等，帶零基礎學員做出個人網站、AI 工作流與 n8n 自動化。</p>
+        </div>
+        <!-- 經歷 3 -->
+        <div class="exp-card">
+          <h3>3. 台北扶輪青年服務團 團長</h3>
+          <p class="exp-desc">帶 20 人團隊完成 24 項專案，參與 2019 年尼泊爾 AED 計畫。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 順序 5: 聯絡我按鈕 -->
+    <section class="contact-section">
+      <!-- 請在 href 填寫您的 Email (例如: mailto:your@email.com) 或通訊軟體連結 -->
+      <a href="mailto:ericlu@wport.me" class="btn-contact">聯絡我</a>
+    </section>
+
+    <p style="margin-top:32px;text-align:center;color:#6b7280;font-size:14px;">模板來自 <a href="https://sup-eric.com" style="color:#7c3aed;">Eric Lu 盧旭熙</a>｜<a href="https://github.com/ericlu-sys/teaching_template" style="color:#7c3aed;">teaching_template</a></p>
+
+  </main>
+
+</body>
+</html>

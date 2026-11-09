@@ -1,0 +1,18 @@
+/* 01 文青：米白紙、霧橄欖綠、楷體手寫感，照片加白邊像沖洗相片。 */
+@import url("https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC:wght@400;700&display=swap");
+:root{--main:#5B6B4E;--accent:#B9875A;--paper:#F3EEE4;--ink:#3A352E;--soft:#7D766B;
+  --font-title:"LXGW WenKai TC",serif;--font-body:"LXGW WenKai TC",serif}
+.post:not(.dark){background:var(--paper) repeating-linear-gradient(0deg,rgba(58,53,46,.035) 0 1px,transparent 1px 46px)}
+.title{font-weight:700;letter-spacing:.08em}
+.photo{border:18px solid #fff;box-shadow:0 14px 30px rgba(58,53,46,.14)}
+.photo.small{border-width:10px}
+.pill{background:transparent;color:var(--main);border:2px solid var(--main);font-weight:400;letter-spacing:.2em}
+.price{color:var(--main);font-weight:700}
+.tags span{border-style:dashed}
+.brandbar{font-weight:400;letter-spacing:.2em}
+.card,.qa li,.steps li{border-radius:4px;box-shadow:none;border:1.5px solid color-mix(in srgb,var(--main) 30%,transparent)}
+.steps li{border-top-width:1.5px}
+.date{border-radius:4px;box-shadow:none}
+.dot{opacity:.18}
+.photo.full{border:0;transform:none;box-shadow:none;border-radius:0;clip-path:none;filter:none}
+.photo.full::before{display:none}

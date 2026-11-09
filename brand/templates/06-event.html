@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<title>06 活動公告</title>
+<!-- 模板 06｜06 活動公告：市集、課程、講座、快閃活動
+     AI 只改最下面 <script id="data"> 的 JSON；版型（HTML／CSS）不要動。
+     照片放在 ../照片/，填相對路徑，例如 "../照片/latte.jpg"；沒有照片就留 ""。 -->
+<link rel="stylesheet" href="brand.css">
+<link rel="stylesheet" href="base.css">
+<style>
+.photo{height:620px}
+.date{position:absolute;left:64px;top:520px;width:250px;background:var(--accent);border-radius:28px;padding:26px 0;text-align:center;box-shadow:0 18px 40px rgba(0,0,0,.18)}
+.date .m{font:700 34px/1 var(--font-body)}
+.date .d{font:900 120px/1.05 var(--font-title)}
+.date .w{font:700 30px/1 var(--font-body)}
+.info{position:absolute;left:350px;right:64px;top:660px}
+.info .title{font-size:72px;color:var(--main);margin-bottom:22px}
+.kv{list-style:none;font-size:32px;line-height:1.5;display:grid;gap:10px}
+.kv b{color:var(--main);margin-right:14px}
+.desc{position:absolute;left:64px;right:64px;top:1030px;font-size:31px;line-height:1.55;color:var(--soft)}
+.cta{position:absolute;right:64px;top:1150px}
+.brandbar{color:var(--main)}
+</style>
+<link rel="stylesheet" href="theme.css">
+</head>
+<body>
+<div class="post">
+  <div class="photo"><img data-k="photo" alt=""></div>
+  <div class="date"><div class="m" data-k="month"></div><div class="d" data-k="day"></div><div class="w" data-k="weekday"></div></div>
+  <div class="info"><h1 class="title" data-k="title"></h1>
+    <ul class="kv"><li><b>時間</b><span data-k="time"></span></li><li><b>地點</b><span data-k="place"></span></li></ul></div>
+  <p class="desc" data-k="desc"></p>
+  <div class="cta"><span class="pill" data-k="cta"></span></div>
+  <div class="brandbar"><span data-k="shop"></span><span class="tag" data-k="handle" data-optional></span></div>
+</div>
+<script id="data" type="application/json">
+{
+  "shop": "竹籬笆咖啡",
+  "handle": "@bamboo.fence.cafe",
+  "photo": "",
+  "month": "11 月",
+  "day": "22",
+  "weekday": "星期六",
+  "title": "手沖咖啡入門小教室",
+  "time": "14:00 – 16:00",
+  "place": "新竹將軍村 K 棟",
+  "desc": "一次學會磨豆、水溫和注水，帶走一包當週烘的豆子。",
+  "cta": "限 12 人・私訊報名"
+}
+</script>
+<script src="render.js"></script>
+</body>
+</html>

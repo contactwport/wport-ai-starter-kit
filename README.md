@@ -22,6 +22,24 @@
 
 完整 skill 清單見 [`skills/INDEX.md`](skills/INDEX.md)。動手練習見 [`practice/`](practice/README.md)。
 
+## 課程資料夾
+
+上 Eric Lu 盧旭熙的 AI 課程，從這裡拿模板。每個資料夾自己就是一份完整的專案，搬出來就能用。
+
+| 資料夾 | 課程 | 裡面有什麼 |
+|---|---|---|
+| [`brand/`](brand/README.md) | 品牌行銷 AI 加速器（小店家、個人品牌） | 品牌資料（Obsidian）、10 張社群文圖模板、10 種風格、出圖和發 FB 的腳本 |
+| [`vibe-coding/`](vibe-coding/README.md) | Vibe Coding 工作坊（大學生、求職者） | 我的資料（Obsidian）範例、一頁式個人網站 |
+
+只要其中一個資料夾：
+
+```bash
+git clone https://github.com/contactwport/wport-ai-starter-kit.git _kit
+# 把 _kit/brand（或 _kit/vibe-coding）裡的東西搬到你的專案資料夾，再刪掉 _kit
+```
+
+以前的 `ericlu-sys/brand_template`、`ericlu-sys/teaching_template` 已經合併到這裡，之後只更新這一份。改了什麼見 [`CHANGELOG.md`](CHANGELOG.md)。
+
 ## 運作方式
 
 ```
@@ -145,6 +163,8 @@ wport-ai-starter-kit/
 ├── templates/
 │   ├── resume/
 │   └── report/
+├── brand/                    # 品牌行銷 AI 加速器（原 brand_template）
+├── vibe-coding/              # Vibe Coding 工作坊（原 teaching_template）
 ├── doc/
 │   └── resume/               # 預設輸出（範例資料）
 └── practice/                 # 動手練習

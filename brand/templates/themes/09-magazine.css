@@ -1,0 +1,17 @@
+/* 09 雜誌：明體大標、黑白＋一點紅、粗細線分欄，像雜誌內頁。 */
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;900&family=Noto+Sans+TC:wght@400;700&display=swap");
+:root{--main:#141414;--accent:#C8102E;--paper:#FAF8F5;--ink:#141414;--soft:#5C5C5C;
+  --font-title:"Noto Serif TC",serif;--font-body:"Noto Sans TC",sans-serif}
+.post{border-top:16px solid var(--ink)}
+.title{letter-spacing:-.01em;border-top:3px solid var(--ink);padding-top:18px}
+.photo,.photo.small{border-radius:0!important}
+.pill{border-radius:0;background:none;color:var(--accent);padding:0;font-weight:700;letter-spacing:.35em}
+.price{color:var(--accent);font-family:var(--font-title)}
+.tags span{border-radius:0;border-width:0 0 2px;padding:6px 0;margin-right:18px;color:var(--ink);border-color:var(--accent)}
+.qa li,.steps li{border-radius:0;box-shadow:none;background:transparent!important;border-top:2px solid var(--ink)}
+.card{border-radius:0;box-shadow:none;border-top:8px solid var(--accent)}
+.date{border-radius:0;box-shadow:none;background:var(--accent);color:#fff}
+.brandbar{border-top:1px solid currentColor;padding-top:18px;font-family:var(--font-title)}
+.burst,.dot{opacity:.15}
+.photo.full{border:0;transform:none;box-shadow:none;border-radius:0;clip-path:none;filter:none}
+.photo.full::before{display:none}

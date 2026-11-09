@@ -1,0 +1,17 @@
+/* 07 潮流霓虹：黑底、螢光粉綠、發光字，斜切標籤。 */
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500;700;900&display=swap");
+:root{--main:#00D6B4;--accent:#FF3EA5;--paper:#121214;--ink:#F4F4F6;--soft:#A7A7B3;
+  --font-title:"Noto Sans TC",sans-serif;--font-body:"Noto Sans TC",sans-serif}
+.post:not(.dark){background:var(--paper) linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px) 0 0/100% 54px}
+.title{letter-spacing:-.01em;text-shadow:0 0 22px color-mix(in srgb,var(--main) 70%,transparent)}
+.photo{border-radius:0;clip-path:polygon(0 0,100% 0,100% 88%,88% 100%,0 100%);border:none}
+.photo.small{clip-path:none;border-radius:50%;box-shadow:0 0 0 6px var(--accent),0 0 40px var(--accent)}
+.pill{border-radius:0;transform:skewX(-12deg);background:var(--accent);color:#fff;box-shadow:0 0 24px var(--accent)}
+.price{color:var(--accent);text-shadow:0 0 24px var(--accent)}
+.tags span{border-radius:0;border-color:var(--main);color:var(--main)}
+.card,.qa li,.steps li{background:#1D1D22!important;color:var(--ink);border-radius:0;border:2px solid var(--main);box-shadow:0 0 30px rgba(0,214,180,.25)}
+.list b,.qa b,.steps b{color:var(--ink)}
+.date{border-radius:0;transform:skewX(-8deg);box-shadow:0 0 30px var(--accent)}
+.photo.full{border:0;transform:none;box-shadow:none;border-radius:0;clip-path:none;filter:none}
+.photo.full::before{display:none}
+.post.dark{background:#1A1A1F}

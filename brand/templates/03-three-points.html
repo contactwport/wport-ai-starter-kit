@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<title>03 三個賣點</title>
+<!-- 模板 03｜03 三個賣點：介紹一個商品或服務為什麼值得買
+     AI 只改最下面 <script id="data"> 的 JSON；版型（HTML／CSS）不要動。
+     照片放在 ../照片/，填相對路徑，例如 "../照片/latte.jpg"；沒有照片就留 ""。 -->
+<link rel="stylesheet" href="brand.css">
+<link rel="stylesheet" href="base.css">
+<style>
+.top{padding:80px 64px 40px}
+.top .pill{margin-bottom:24px}
+.top .title{font-size:76px;color:var(--main)}
+.photo{height:430px;margin:0 64px;border-radius:28px}
+.pts{list-style:none;padding:44px 64px 0;display:grid;gap:26px}
+.pts li{display:grid;grid-template-columns:96px 1fr;gap:24px;align-items:start}
+.pts .n{font:900 64px/1 var(--font-title);color:var(--accent)}
+.pts b{display:block;font:700 40px/1.3 var(--font-body);color:var(--ink)}
+.pts span{font-size:29px;line-height:1.5;color:var(--soft)}
+.brandbar{color:var(--main)}
+</style>
+<link rel="stylesheet" href="theme.css">
+</head>
+<body>
+<div class="post">
+  <div class="top"><span class="pill" data-k="badge"></span><h1 class="title" data-k="title"></h1></div>
+  <div class="photo"><img data-k="photo" alt=""></div>
+  <ol class="pts" data-list="points"><template><li><div class="n" data-n></div><div><b data-k="head"></b><span data-k="text"></span></div></li></template></ol>
+  <div class="brandbar"><span data-k="shop"></span><span class="tag" data-k="handle" data-optional></span></div>
+</div>
+<script id="data" type="application/json">
+{
+  "shop": "竹籬笆咖啡",
+  "handle": "@bamboo.fence.cafe",
+  "photo": "",
+  "badge": "為什麼選我們",
+  "title": "一杯手沖，三個講究",
+  "points": [
+    {
+      "head": "豆子當週烘",
+      "text": "每週一烘豆，七天內喝完，香氣最完整。"
+    },
+    {
+      "head": "水溫分豆調",
+      "text": "淺焙 92 度、深焙 88 度，每支豆子有自己的配方。"
+    },
+    {
+      "head": "杯子先溫過",
+      "text": "冬天也不會一倒進杯就涼掉。"
+    }
+  ]
+}
+</script>
+<script src="render.js"></script>
+</body>
+</html>

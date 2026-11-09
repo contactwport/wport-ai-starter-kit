@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<title>01 新品上市</title>
+<!-- 模板 01｜01 新品上市：新商品、新口味、季節限定上架時用
+     AI 只改最下面 <script id="data"> 的 JSON；版型（HTML／CSS）不要動。
+     照片放在 ../照片/，填相對路徑，例如 "../照片/latte.jpg"；沒有照片就留 ""。 -->
+<link rel="stylesheet" href="brand.css">
+<link rel="stylesheet" href="base.css">
+<style>
+.photo{height:700px}
+.info{padding:50px 64px 0}
+.info .pill{margin-bottom:26px}
+.info .title{font-size:88px;color:var(--main);margin-bottom:18px}
+.info p{font-size:34px;line-height:1.55;color:var(--soft);max-width:900px}
+.row{display:flex;justify-content:space-between;align-items:flex-end;margin-top:30px}
+.tags{display:flex;gap:12px;flex-wrap:wrap}
+.tags span{font:500 26px/1 var(--font-body);padding:12px 20px;border-radius:999px;border:2px solid var(--main);color:var(--main)}
+.brandbar{color:var(--main)}
+</style>
+<link rel="stylesheet" href="theme.css">
+</head>
+<body>
+<div class="post">
+  <div class="photo"><img data-k="photo" alt=""></div>
+  <div class="info">
+    <span class="pill" data-k="badge"></span>
+    <h1 class="title" data-k="name"></h1>
+    <p data-k="desc"></p>
+    <div class="row">
+      <div class="tags" data-list="tags"><template><span data-k="text"></span></template></div>
+      <div class="price"><span data-k="price"></span><small data-k="unit"></small></div>
+    </div>
+  </div>
+  <div class="brandbar"><span data-k="shop"></span><span class="tag" data-k="handle" data-optional></span></div>
+</div>
+<script id="data" type="application/json">
+{
+  "shop": "竹籬笆咖啡",
+  "handle": "@bamboo.fence.cafe",
+  "photo": "",
+  "badge": "新品上市",
+  "name": "桂花烏龍拿鐵",
+  "desc": "新竹在地烏龍茶，配上秋天的桂花蜜，奶香裡有一點茶的回甘。",
+  "tags": [
+    "秋季限定",
+    "可做無糖",
+    "每日 30 杯"
+  ],
+  "price": "120",
+  "unit": "元"
+}
+</script>
+<script src="render.js"></script>
+</body>
+</html>
