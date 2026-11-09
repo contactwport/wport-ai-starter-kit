@@ -12,3 +12,15 @@ practice/01-fill-forms/output/*
 
 # 課程資料夾裡的設定範例要留著
 !**/.env.example
+
+# 文圖輸出的圖片（要分享再自己挑）
+out/
+
+# Obsidian 的個人狀態
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/cache
+
+# 編輯器暫存
+*.swp
+*~

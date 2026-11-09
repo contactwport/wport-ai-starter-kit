@@ -1,4 +1,4 @@
-# vibe-coding｜Vibe Coding 課程模板
+# 個人網站範本｜Vibe Coding 課程
 
 Eric Lu 盧旭熙 的 Vibe Coding 課程模板。裡面放的是 Eric 自己的資料當範例，上一堂課還沒把作品傳上 GitHub 的同學，直接從這裡開始就好。
 
@@ -8,7 +8,7 @@ Eric Lu 盧旭熙 的 Vibe Coding 課程模板。裡面放的是 Eric 自己的�
 
 ## 三步驟拿到自己的版本
 
-1. 下載：`git clone https://github.com/contactwport/wport-ai-starter-kit.git _kit`，把 `_kit/vibe-coding` 裡的東西搬到新資料夾（例如 `my-site`），再刪掉 `_kit`。要放上 GitHub，就在資料夾裡跑 `gh repo create my-site --public --source=. --push`。
+1. 下載：`git clone https://github.com/contactwport/wport-ai-starter-kit.git _kit`，建一個新資料夾（例如 `my-site`），把 `_kit/templates/website/personal/` 裡的東西和 `_kit/ssot/個人/我的資料.md`、`_kit/ssot/個人/我的資料/` 搬進去，再刪掉 `_kit`。要放上 GitHub，就在資料夾裡跑 `gh repo create my-site --public --source=. --push`。
 2. 用 Obsidian 打開這個資料夾，把 `我的資料.md` 和 `我的資料/` 裡每一份筆記換成你自己的內容。不知道怎麼寫，就把整個資料夾交給 AI，請它訪問你、幫你填。
 3. 請 AI 照 `我的資料` 改寫 `code_artifact.html`，上傳回 GitHub，再到 **Settings → Pages** 選 `main` 分支，網站就會出現在 `https://你的帳號.github.io/repo名稱/`。
 

@@ -5,8 +5,8 @@ description: >-
   preview. Acts as a resume consultant: when the user has little or no material,
   ask 10 guided interview questions first; when they provide a CV, URL, or notes,
   analyze and ask 10 tailored questions, then synthesize into resume.json,
-  resume.html, and Obsidian vault notes (vault/resume.md; public story also into
-  vault/about-me.md for a later website-build skill). Use for building, updating,
+  resume.html, and Obsidian vault notes (ssot/個人/resume.md; public story also into
+  ssot/個人/about-me.md for a later website-build skill). Use for building, updating,
   or converting resumes for wport job matching or local preview identical to
   wport online — not for rendering a personal website.
 ---
@@ -15,7 +15,7 @@ description: >-
 
 Build a wport-standard resume and deliver **`resume.html`** — the user-facing output that matches the wport website preview.
 
-Interview answers are also written into **Obsidian** (`vault/`) so the same story can later feed a **separate website-build skill**. This skill does **not** render a personal site.
+Interview answers are also written into **Obsidian** (`ssot/個人/`) so the same story can later feed a **separate website-build skill**. This skill does **not** render a personal site.
 
 Read the format contract first: [`templates/resume/README.md`](../../templates/resume/README.md)
 
@@ -25,23 +25,23 @@ Read the format contract first: [`templates/resume/README.md`](../../templates/r
 |------|--------------|---------|
 | **`resume.html`** | **User** | Open in browser, print to PDF, email to employers — **same look as wport GUI** |
 | `resume.json` | Agent / other skills | Structured data for `gen-resume-optimizer`, `interviewer-ai`, `gen-career-mentor`, future wport import |
-| `vault/resume.md` | Obsidian SSOT | 履歷單一事實來源；之後改履歷應先改這裡再映射 JSON |
-| `vault/about-me.md` | Obsidian SSOT（公開敘事） | 給**之後的網站 build skill**用；本 skill 只寫入／更新素材，**不**跑 `templates/website/render.mjs` |
+| `ssot/個人/resume.md` | Obsidian SSOT | 履歷單一事實來源；之後改履歷應先改這裡再映射 JSON |
+| `ssot/個人/about-me.md` | Obsidian SSOT（公開敘事） | 給**之後的網站 build skill**用；本 skill 只寫入／更新素材，**不**跑 `templates/website/render.mjs` |
 
-**Tell the user:** their resume is ready in `doc/resume/resume.html`. They do **not** need to open or edit JSON unless they want to chain other skills or sync to wport later. Obsidian notes under `vault/` are for long-term editing and future site generation.
+**Tell the user:** their resume is ready in `doc/resume/resume.html`. They do **not** need to open or edit JSON unless they want to chain other skills or sync to wport later. Obsidian notes under `ssot/個人/` are for long-term editing and future site generation.
 
-Agent workflow: interview → synthesize → write `vault/*.md` + `doc/resume/resume.json` → run `render.mjs` → hand off **`doc/resume/resume.html`**.
+Agent workflow: interview → synthesize → write `ssot/個人/*.md` + `doc/resume/resume.json` → run `render.mjs` → hand off **`doc/resume/resume.html`**.
 
 ## Output directory
 
-**Default:** resume artifacts under **`doc/resume/`**；Obsidian under **`vault/`**（缺資料夾就建立）。
+**Default:** resume artifacts under **`doc/resume/`**；Obsidian under **`ssot/個人/`**（缺資料夾就建立）。
 
 | File | Path |
 |------|------|
 | Base JSON (internal) | `doc/resume/resume.json` |
 | Base HTML (user) | `doc/resume/resume.html` |
-| Resume SSOT (Obsidian) | `vault/resume.md` |
-| Public / site-oriented SSOT (Obsidian) | `vault/about-me.md` |
+| Resume SSOT (Obsidian) | `ssot/個人/resume.md` |
+| Public / site-oriented SSOT (Obsidian) | `ssot/個人/about-me.md` |
 | Optimized JSON (internal) | `doc/resume/resume-optimized.json` |
 | Optimized HTML (user) | `doc/resume/resume-optimized.html` |
 | Customization report JSON (internal) | `doc/resume/resume-customization.json` |
@@ -62,7 +62,7 @@ Use a different path only when the user explicitly specifies one.
 
 For **job-specific tailoring**, use `gen-resume-optimizer` after you have a base resume and target `enc_id`.
 For **long-term career planning**, use `gen-career-mentor`.
-For **personal website HTML**, use the dedicated website-build skill (reads `vault/about-me.md` / website template) — **not** this skill.
+For **personal website HTML**, use the dedicated website-build skill (reads `ssot/個人/about-me.md` / website template) — **not** this skill.
 
 ## Rules
 
@@ -71,7 +71,7 @@ For **personal website HTML**, use the dedicated website-build skill (reads `vau
 3. **Rich text = HTML** — convert prose to Quill-compatible HTML (`<p>`, `<ul>`, `<li>`). Never store Markdown in `autobiography`, `job_description`, or `education.experience`.
 4. **Section order** — follow the 10-section order in `templates/resume/README.md`.
 5. **Skip empty sections** — when rendering preview, omit sections with no data.
-6. **Obsidian first for longevity** — after a full interview pass, update `vault/resume.md` and the overlapping public fields in `vault/about-me.md`. Do not invent a second biography.
+6. **Obsidian first for longevity** — after a full interview pass, update `ssot/個人/resume.md` and the overlapping public fields in `ssot/個人/about-me.md`. Do not invent a second biography.
 7. **No website render here** — never run `templates/website/render.mjs` or write `doc/website/*` from this skill. Theme choice (cute / terminal) belongs to the website-build skill.
 
 ## Are the 10 questions enough for a personal site later?
@@ -109,8 +109,8 @@ For **personal website HTML**, use the dedicated website-build skill (reads `vau
 | User has **no material**, says「從零做履歷」「幫我做履歷」等 | → **Cold-start interview**（§1A） |
 | User provides **reference material**（現有履歷、個人網址、LinkedIn、筆記、口述背景）但尚未完成訪談 | → **Tailored interview**（§1B） |
 | User already answered the 10 questions | → **Synthesize**（§2）→ vault + JSON（§3）→ render（§4） |
-| User provides `resume.json` or asks to **edit one section only** | → Skip interview; go straight to §3；同步更新對應的 `vault/` 段落 |
-| User asks to **build a personal website** | → 說明建站是另一個 skill；若 `vault/about-me.md` 尚未有素材，可先跑本 skill 的訪談補齊，再交給網站 skill |
+| User provides `resume.json` or asks to **edit one section only** | → Skip interview; go straight to §3；同步更新對應的 `ssot/個人/` 段落 |
+| User asks to **build a personal website** | → 說明建站是另一個 skill；若 `ssot/個人/about-me.md` 尚未有素材，可先跑本 skill 的訪談補齊，再交給網站 skill |
 
 **Iron rule:** Do **not** write `resume.json` or render HTML until the consultant interview is done **or** the user explicitly skips it (e.g.「直接做，不用問」) or supplied enough structured data to proceed.
 
@@ -136,7 +136,7 @@ For **personal website HTML**, use the dedicated website-build skill (reads `vau
 
 ### 1B. Tailored interview（有參考資料）
 
-1. **先仔細閱讀**使用者提供的所有資料：`resume.json`、`vault/*.md`、舊履歷、個人網址、LinkedIn、Obsidian 筆記、聊天口述等。若為網址且可讀取，擷取關鍵內容後分析。
+1. **先仔細閱讀**使用者提供的所有資料：`resume.json`、`ssot/個人/*.md`、舊履歷、個人網址、LinkedIn、Obsidian 筆記、聊天口述等。若為網址且可讀取，擷取關鍵內容後分析。
 2. 針對資料中的 **亮點、模糊處、可深挖的專案細節、公開敘事缺口**（缺 tagline、缺專案連結、缺可量化亮點等），精選 **10 個**最能挖掘素材的問題。
 3. **分點列出 10 題**，語氣專業且具引導性；每題應明顯對應參考資料中的具體線索（例如「您在 XX 專案提到優化效能，能否說明前後指標？」），避免通用空泛題。
 4. **等待使用者回覆**這 10 題後，再進入 §2。未完成訪談前不要產出履歷檔案。
@@ -160,8 +160,8 @@ For **personal website HTML**, use the dedicated website-build skill (reads `vau
 
 **3a. Obsidian（建議在寫 JSON 前後更新，保持 SSOT）**
 
-- 更新 [`vault/resume.md`](../../vault/resume.md)：基本資料、關於我、經歷、學歷、技能、語言／證照、連結等履歷全文。
-- 更新 [`vault/about-me.md`](../../vault/about-me.md) 的**公開子集**：name、handle、tagline、location、about、highlights、skills、projects、experience 摘要、links。求職條件、私人電話等預設不要寫進 `about-me`，除非使用者明確說可以公開。
+- 更新 [`ssot/個人/resume.md`](../../ssot/個人/resume.md)：基本資料、關於我、經歷、學歷、技能、語言／證照、連結等履歷全文。
+- 更新 [`ssot/個人/about-me.md`](../../ssot/個人/about-me.md) 的**公開子集**：name、handle、tagline、location、about、highlights、skills、projects、experience 摘要、links。求職條件、私人電話等預設不要寫進 `about-me`，除非使用者明確說可以公開。
 - 對齊現有 vault 標題／區塊風格；不要刪使用者手寫、與本次無關的段落。
 
 **3b. `resume.json`**
@@ -195,7 +195,7 @@ Validate:
 - [ ] Rich text fields contain HTML, not Markdown
 - [ ] No fabricated data — only what the user provided
 - [ ] `*_display` fields used for human-readable values
-- [ ] `vault/resume.md`（及有公開素材時的 `vault/about-me.md`）已與本次內容對齊
+- [ ] `ssot/個人/resume.md`（及有公開素材時的 `ssot/個人/about-me.md`）已與本次內容對齊
 
 ### 5. Render and deliver `resume.html` (user deliverable)
 
@@ -217,7 +217,7 @@ Tell the user (Traditional Chinese):
 
 > 履歷已產生在 **`doc/resume/resume.html`**，用瀏覽器開啟即可預覽，版面與 wport 網站履歷 preview 相同；列印可另存 PDF 寄送。
 >
-> 訪談內容已寫入 Obsidian：**`vault/resume.md`**（履歷 SSOT）。公開敘事也更新在 **`vault/about-me.md`**，之後若要做個人網站，用網站 build skill 讀這份即可（本流程不產生網站 HTML）。
+> 訪談內容已寫入 Obsidian：**`ssot/個人/resume.md`**（履歷 SSOT）。公開敘事也更新在 **`ssot/個人/about-me.md`**，之後若要做個人網站，用網站 build skill 讀這份即可（本流程不產生網站 HTML）。
 >
 > 同目錄的 `doc/resume/resume.json` 是給系統用的資料檔，您不必開啟。若之後要接 **履歷客製化**、**面試模擬** 或 **職涯導師**，agent 會自動使用它。
 
@@ -246,5 +246,5 @@ Tell the user (Traditional Chinese):
 ## Additional resources
 
 - Full schema and example: [`templates/resume/README.md`](../../templates/resume/README.md)
-- Obsidian examples: [`vault/resume.md`](../../vault/resume.md), [`vault/about-me.md`](../../vault/about-me.md)
+- Obsidian examples: [`ssot/個人/resume.md`](../../ssot/個人/resume.md), [`ssot/個人/about-me.md`](../../ssot/個人/about-me.md)
 - Website template (consumed by website-build skill, not this one): [`templates/website/README.md`](../../templates/website/README.md)

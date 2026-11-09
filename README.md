@@ -18,9 +18,9 @@ md（SSOT）：我的資料／品牌資料（Obsidian 筆記）
 
 | | 內容 | 在哪裡 |
 |---|---|---|
-| **1. md as SSOT 範本** | 個人版「我的資料」、店家版「品牌資料」；一份筆記講一件事，AI 只讀用得到的 | [`vibe-coding/我的資料/`](vibe-coding/我的資料)、[`brand/品牌資料/`](brand/品牌資料)、[`vault/`](vault) |
-| **2. 個人品牌網站** | 從 SSOT 做出網站，再用 Vercel CLI 上線 | [`vibe-coding/`](vibe-coding)、[`templates/website/`](templates/website)、[`skills/exec-vercel-cli/`](skills/exec-vercel-cli) |
-| **3. SSOT 產生的文圖** | 10 張社群文圖加 10 種風格，AI 讀 SSOT 只填字；出圖和發 FB 粉專的腳本 | [`brand/templates/`](brand/templates)、[`brand/scripts/`](brand/scripts) |
+| **1. md as SSOT 範本** | 個人版「我的資料」、店家版「品牌資料」；一份筆記講一件事，AI 只讀用得到的 | [`ssot/`](ssot/README.md) |
+| **2. 個人品牌網站** | 從 SSOT 做出網站：個人版、店家形象官網、JSON 產網站；再用 Vercel CLI 上線 | [`templates/website/`](templates/website/README.md)、[`skills/exec-vercel-cli/`](skills/exec-vercel-cli) |
+| **3. SSOT 產生的文圖** | 10 張社群文圖加 10 種風格，AI 讀 SSOT 只填字；出圖和發 FB 粉專的腳本 | [`templates/posts/`](templates/posts/README.md)、[`scripts/`](scripts) |
 | **4. SSOT 做履歷** | 讀 SSOT，用 WPORT CLI 建線上履歷、照職缺客製、面試準備 | [`skills/exec-wport-cli/`](skills/exec-wport-cli)、[`skills/gen-resume/`](skills/gen-resume)、[`templates/resume/`](templates/resume) |
 | **5. CLI 和常見工具** | 給 AI 讀的說明書（Skill）：WPORT CLI、Vercel CLI、GA4、HypeLink 品牌頁和活動、填表單蓋章 | [`skills/`](skills/INDEX.md) |
 
@@ -46,21 +46,14 @@ md（SSOT）：我的資料／品牌資料（Obsidian 筆記）
 
 完整 skill 清單見 [`skills/INDEX.md`](skills/INDEX.md)。動手練習見 [`practice/`](practice/README.md)。
 
-## 課程資料夾
+## 上課怎麼拿
 
-上 Eric Lu 盧旭熙的 AI 課程，從這裡拿模板。每個資料夾自己就是一份完整的專案，搬出來就能用。
+先 `git clone https://github.com/contactwport/wport-ai-starter-kit.git _kit`，再把需要的搬到你自己的資料夾，最後刪掉 `_kit`。
 
-| 資料夾 | 課程 | 裡面有什麼 |
+| 課程 | 搬這些 | 搬到你資料夾後叫 |
 |---|---|---|
-| [`brand/`](brand/README.md) | 品牌行銷 AI 加速器（小店家、個人品牌） | 品牌資料（Obsidian）、10 張社群文圖模板、10 種風格、出圖和發 FB 的腳本 |
-| [`vibe-coding/`](vibe-coding/README.md) | Vibe Coding 工作坊（大學生、求職者） | 我的資料（Obsidian）範例、一頁式個人網站 |
-
-只要其中一個資料夾：
-
-```bash
-git clone https://github.com/contactwport/wport-ai-starter-kit.git _kit
-# 把 _kit/brand（或 _kit/vibe-coding）裡的東西搬到你的專案資料夾，再刪掉 _kit
-```
+| 品牌行銷 AI 加速器（小店家、個人品牌） | `templates/posts/`、`scripts/`、`照片/`、`AGENTS.md`、`.env.example` | `templates/`、`scripts/`、`照片/`、`AGENTS.md`、`.env.example` |
+| Vibe Coding 工作坊（大學生、求職者） | `templates/website/personal/` 裡的東西、`ssot/個人/我的資料.md`、`ssot/個人/我的資料/` | 放在資料夾最上層 |
 
 以前的 `ericlu-sys/brand_template`、`ericlu-sys/teaching_template` 已經合併到這裡，之後只更新這一份。改了什麼見 [`CHANGELOG.md`](CHANGELOG.md)。
 
@@ -159,7 +152,7 @@ Agent 會套用 `gen-resume`，產出 `resume.html`（給你看）與 `resume.js
 ## 履歷與報告格式
 
 - 履歷：wport preview JSON → [`templates/resume/`](templates/resume/README.md)
-- Obsidian SSOT：[`vault/`](vault/README.md)（`resume.md`／`about-me.md`；長大再用資料夾分類）
+- Obsidian SSOT：[`ssot/個人/`](ssot/個人/README.md)（`resume.md`／`about-me.md`；長大再用資料夾分類）
 - 個人網站視覺：[`skills/frontend-design`](skills/frontend-design/)（內容讀 vault，不取代訪談）
 - 輕量靜態模板（可選）：[`templates/website/`](templates/website/README.md)
 - 報告：共用 report JSON → [`templates/report/`](templates/report/README.md)
@@ -177,23 +170,26 @@ node templates/report/render.mjs doc/resume/interview-prep.json doc/resume/inter
 
 ```
 wport-ai-starter-kit/
-├── README.md
-├── skills/
-│   ├── INDEX.md              # 人類快查索引
-│   ├── exec-wport-cli/
-│   ├── gen-resume/
-│   ├── hypelink-brand-page-mcp/
+├── README.md、CHANGELOG.md
+├── AGENTS.md                 # 給 AI 的工作規則（文圖、發文）
+├── ssot/                     # ① md as SSOT（Obsidian 打開這裡）
+│   ├── 個人/                 #    我的資料、resume.md、about-me.md
+│   └── 店家/                 #    品牌資料（範例店）
+├── templates/                # 所有範本都在這
+│   ├── website/              # ② 網站：personal/、shop/、JSON 產生器
+│   ├── posts/                # ③ 文圖：10 張範本、10 種風格
+│   ├── resume/               # ④ 履歷
+│   ├── report/               #    職涯、客製化、面試報告
+│   └── shared/
+├── scripts/                  # 文圖出圖、發 FB
+├── 照片/                     # 自己拍的照片放這
+├── skills/                   # ⑤ CLI 和常見工具（給 AI 讀的 Skill）
+│   ├── INDEX.md
 │   └── ...
-├── templates/
-│   ├── resume/
-│   └── report/
-├── brand/                    # 品牌行銷 AI 加速器（原 brand_template）
-├── vibe-coding/              # Vibe Coding 工作坊（原 teaching_template）
-├── doc/
-│   └── resume/               # 預設輸出（範例資料）
-└── practice/                 # 動手練習
-    └── 01-fill-forms/        # Word／Excel 表單 + 大小章
+└── practice/                 # 動手練習：填表單、蓋大小章
 ```
+
+執行 Skill 產出的履歷、報告、網站會寫到 `doc/`（不進 repo）。
 
 ## 貢獻
 
