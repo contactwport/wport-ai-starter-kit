@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<title>05 價目表</title>
+<!-- 模板 05｜05 價目表：菜單、服務價目、課程方案
+     AI 只改最下面 <script id="data"> 的 JSON；版型（HTML／CSS）不要動。
+     照片放在 ../照片/，填相對路徑，例如 "../照片/latte.jpg"；沒有照片就留 ""。 -->
+<link rel="stylesheet" href="brand.css">
+<link rel="stylesheet" href="base.css">
+<style>
+.post{background:var(--main);color:#fff}
+.card{position:absolute;left:56px;right:56px;top:220px;bottom:150px;background:var(--paper);color:var(--ink);border-radius:36px;padding:60px 64px}
+.head{position:absolute;left:64px;top:84px}
+.head .title{font-size:84px}
+.list{list-style:none;display:grid;gap:8px}
+.list li{display:grid;grid-template-columns:1fr auto;align-items:baseline;gap:20px;padding:22px 0;border-bottom:2px dashed color-mix(in srgb,var(--main) 30%,transparent)}
+.list b{font:700 42px/1.25 var(--font-body)}
+.list span{display:block;font-size:26px;color:var(--soft);margin-top:6px}
+.list em{font:900 50px/1 var(--font-body);font-style:normal;color:var(--main)}
+.note{margin-top:28px;font-size:27px;color:var(--soft)}
+.brandbar{color:#fff}
+</style>
+<link rel="stylesheet" href="theme.css">
+</head>
+<body>
+<div class="post dark">
+  <div class="head"><h1 class="title" data-k="title"></h1></div>
+  <div class="card">
+    <ul class="list" data-list="items"><template><li><div><b data-k="name"></b><span data-k="desc" data-optional></span></div><em data-k="price"></em></li></template></ul>
+    <p class="note" data-k="note"></p>
+  </div>
+  <div class="brandbar"><span data-k="shop"></span><span class="tag" data-k="handle" data-optional></span></div>
+</div>
+<script id="data" type="application/json">
+{
+  "shop": "竹籬笆咖啡",
+  "handle": "@bamboo.fence.cafe",
+  "title": "今日手沖",
+  "items": [
+    {
+      "name": "耶加雪菲",
+      "desc": "花香、柑橘、淺焙",
+      "price": "160"
+    },
+    {
+      "name": "曼特寧",
+      "desc": "可可、草本、深焙",
+      "price": "150"
+    },
+    {
+      "name": "桂花烏龍拿鐵",
+      "desc": "秋季限定",
+      "price": "120"
+    },
+    {
+      "name": "眷村綠豆椪",
+      "desc": "每天限量 20 個",
+      "price": "60"
+    },
+    {
+      "name": "熱美式",
+      "desc": "",
+      "price": "90"
+    }
+  ],
+  "note": "內用低消一杯飲品・可刷卡・寵物友善"
+}
+</script>
+<script src="render.js"></script>
+</body>
+</html>

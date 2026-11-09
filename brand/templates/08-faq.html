@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<title>08 常見問答</title>
+<!-- 模板 08｜08 常見問答：客人最常私訊問的三個問題
+     AI 只改最下面 <script id="data"> 的 JSON；版型（HTML／CSS）不要動。
+     照片放在 ../照片/，填相對路徑，例如 "../照片/latte.jpg"；沒有照片就留 ""。 -->
+<link rel="stylesheet" href="brand.css">
+<link rel="stylesheet" href="base.css">
+<style>
+.post{background:var(--paper)}
+.top{padding:90px 64px 40px}
+.top .title{font-size:84px;color:var(--main)}
+.top p{font-size:32px;color:var(--soft);margin-top:14px}
+.qa{list-style:none;padding:10px 64px;display:grid;gap:26px}
+.qa li{background:#fff;border-radius:28px;padding:34px 40px;box-shadow:0 10px 30px rgba(0,0,0,.06)}
+.qa b{display:flex;gap:18px;font:700 40px/1.35 var(--font-body);color:var(--ink)}
+.qa b::before{content:"Q";color:var(--accent);font-family:var(--font-title);font-weight:900}
+.qa span{display:flex;gap:18px;margin-top:14px;font-size:31px;line-height:1.55;color:var(--soft)}
+.qa span::before{content:"A";color:var(--main);font:900 40px/1.2 var(--font-title)}
+.brandbar{color:var(--main)}
+</style>
+<link rel="stylesheet" href="theme.css">
+</head>
+<body>
+<div class="post">
+  <div class="top"><h1 class="title" data-k="title"></h1><p data-k="sub"></p></div>
+  <ul class="qa" data-list="faq"><template><li><b data-k="q"></b><span data-k="a"></span></li></template></ul>
+  <div class="brandbar"><span data-k="shop"></span><span class="tag" data-k="handle" data-optional></span></div>
+</div>
+<script id="data" type="application/json">
+{
+  "shop": "竹籬笆咖啡",
+  "handle": "@bamboo.fence.cafe",
+  "title": "大家最常問的 3 件事",
+  "sub": "私訊之前，先看這裡",
+  "faq": [
+    {
+      "q": "可以帶狗狗來嗎？",
+      "a": "可以！戶外座位和一樓都歡迎，我們有準備水碗。"
+    },
+    {
+      "q": "有停車位嗎？",
+      "a": "將軍村入口有公有停車場，走路 3 分鐘。"
+    },
+    {
+      "q": "咖啡豆可以外帶嗎？",
+      "a": "可以，每支豆子都有 200 克包裝，也能幫你磨好。"
+    }
+  ]
+}
+</script>
+<script src="render.js"></script>
+</body>
+</html>

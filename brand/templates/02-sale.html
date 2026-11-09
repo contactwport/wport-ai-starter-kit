@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<title>02 限時優惠</title>
+<!-- 模板 02｜02 限時優惠：折扣、買一送一、會員日、週年慶
+     AI 只改最下面 <script id="data"> 的 JSON；版型（HTML／CSS）不要動。
+     照片放在 ../照片/，填相對路徑，例如 "../照片/latte.jpg"；沒有照片就留 ""。 -->
+<link rel="stylesheet" href="brand.css">
+<link rel="stylesheet" href="base.css">
+<style>
+.post{background:var(--main);color:#fff}
+.burst{position:absolute;right:-160px;top:-160px;width:760px;height:760px;border-radius:50%;background:color-mix(in srgb,var(--accent) 85%,#fff)}
+.photo{position:absolute;right:70px;top:120px;width:400px;height:400px;border-radius:50%;border:12px solid #fff}
+.head{position:absolute;left:64px;top:110px;font:700 40px/1 var(--font-body);letter-spacing:.1em}
+.big{position:absolute;left:56px;top:590px;font:900 230px/1 var(--font-title);color:var(--accent)}
+.sub{position:absolute;left:64px;top:850px;font:700 60px/1.25 var(--font-title);max-width:950px}
+.when{position:absolute;left:64px;top:1010px;font:700 38px/1 var(--font-body);background:#fff;color:var(--main);padding:18px 30px;border-radius:14px}
+.rules{position:absolute;left:64px;top:1100px;list-style:none;font-size:28px;line-height:1.6;opacity:.9}
+.rules li::before{content:"・"}
+.brandbar{color:#fff}
+</style>
+<link rel="stylesheet" href="theme.css">
+</head>
+<body>
+<div class="post dark">
+  <div class="burst"></div>
+  <div class="photo small"><img data-k="photo" alt=""></div>
+  <div class="head" data-k="label"></div>
+  <div class="big" data-k="deal"></div>
+  <div class="sub" data-k="item"></div>
+  <div class="when" data-k="date"></div>
+  <ul class="rules" data-list="rules"><template><li data-k="text"></li></template></ul>
+  <div class="brandbar"><span data-k="shop"></span><span class="tag" data-k="handle" data-optional></span></div>
+</div>
+<script id="data" type="application/json">
+{
+  "shop": "竹籬笆咖啡",
+  "handle": "@bamboo.fence.cafe",
+  "photo": "",
+  "label": "週末限定",
+  "deal": "買一送一",
+  "item": "全品項手沖咖啡",
+  "date": "11/15（六）– 11/16（日）",
+  "rules": [
+    "內用外帶都可以",
+    "送一杯同價或較低價位",
+    "每人限用一次"
+  ]
+}
+</script>
+<script src="render.js"></script>
+</body>
+</html>

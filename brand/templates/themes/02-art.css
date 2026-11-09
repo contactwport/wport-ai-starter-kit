@@ -1,0 +1,17 @@
+/* 02 藝術：畫廊感，黑白高反差＋朱紅色塊，照片後面錯位色塊。 */
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@900&family=Noto+Sans+TC:wght@400;700;900&display=swap");
+:root{--main:#1B1B1B;--accent:#E4572E;--paper:#F2F0EB;--ink:#1B1B1B;--soft:#5E5B55;
+  --font-title:"Noto Serif TC",serif;--font-body:"Noto Sans TC",sans-serif}
+.title{letter-spacing:-.02em;line-height:1.05}
+.photo{border-radius:0!important;box-shadow:24px 24px 0 var(--accent)}
+.photo.small{box-shadow:12px 12px 0 var(--accent)}
+.pill{border-radius:0;background:var(--main);color:#fff;letter-spacing:.3em;font-weight:400}
+.price{color:var(--main);border-bottom:10px solid var(--accent)}
+.tags span{border-radius:0;border-color:var(--ink);color:var(--ink)}
+.card,.qa li,.steps li{border-radius:0;box-shadow:12px 12px 0 var(--main)}
+.steps li{border-top-color:var(--accent)}
+.date{border-radius:0;box-shadow:12px 12px 0 var(--main);color:#fff}
+.burst,.dot{border-radius:0!important;transform:rotate(12deg)}
+.brandbar{letter-spacing:.3em;text-transform:uppercase}
+.photo.full{border:0;transform:none;box-shadow:none;border-radius:0;clip-path:none;filter:none}
+.photo.full::before{display:none}

@@ -1,0 +1,16 @@
+/* 04 極簡：純白、黑字、細線、沒有圓角，留很多白。 */
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&display=swap");
+:root{--main:#111111;--accent:#111111;--paper:#FFFFFF;--ink:#111111;--soft:#777777;
+  --font-title:"Noto Sans TC",sans-serif;--font-body:"Noto Sans TC",sans-serif}
+.title{font-weight:300;letter-spacing:.06em}
+.photo,.photo.small{border-radius:0!important;box-shadow:none}
+.pill{background:none;color:var(--ink);padding:0 0 10px;border-radius:0;border-bottom:2px solid var(--ink);font-weight:400;letter-spacing:.3em}
+.price{font-weight:300}
+.tags span{border-radius:0;border-width:1px;font-weight:300}
+.card,.qa li,.steps li,.date,.when,.box{border-radius:0!important;box-shadow:none!important;border:1px solid #111}
+.steps li{border-top:1px solid #111}
+.burst,.dot{display:none}
+.brandbar{font-weight:400;letter-spacing:.3em;border-top:1px solid currentColor;padding-top:20px}
+.photo.full{border:0;transform:none;box-shadow:none;border-radius:0;clip-path:none;filter:none}
+.photo.full::before{display:none}
+.date{color:#fff}

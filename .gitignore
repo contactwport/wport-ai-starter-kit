@@ -9,3 +9,6 @@ dist/
 .env*
 practice/01-fill-forms/output/*
 !practice/01-fill-forms/output/.gitkeep
+
+# 課程資料夾裡的設定範例要留著
+!**/.env.example

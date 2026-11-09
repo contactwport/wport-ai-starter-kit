@@ -1,0 +1,19 @@
+/* 共用版型：一張 1080×1350（4:5），IG、FB、LinkedIn 都能直接用。
+   這份是骨架，不用改；要換顏色、字型請改 brand.css。 */
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@600;900&display=swap");
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1080px;height:1350px;overflow:hidden;background:#ddd}
+body{font-family:var(--font-body);color:var(--ink);-webkit-font-smoothing:antialiased}
+.post{position:relative;width:1080px;height:1350px;overflow:hidden;background:var(--paper)}
+.photo{position:relative;overflow:hidden;background:
+  repeating-linear-gradient(45deg,color-mix(in srgb,var(--main) 14%,#fff) 0 22px,color-mix(in srgb,var(--main) 8%,#fff) 22px 44px)}
+.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.photo.noimg::after{content:"把照片放進「照片」資料夾，填到 photo 欄位";position:absolute;inset:auto 0 50% 0;text-align:center;font:500 30px/1.4 var(--font-body);color:var(--main);opacity:.6}
+.photo.noimg img{display:none}
+.photo.small.noimg::after{content:"照片";font-size:26px}
+.brandbar{position:absolute;left:64px;right:64px;bottom:48px;display:flex;justify-content:space-between;align-items:center;font:700 30px/1 var(--font-body);letter-spacing:.04em}
+.brandbar .tag{font-weight:500;font-size:26px;opacity:.8}
+.pill{display:inline-block;font:700 30px/1 var(--font-body);padding:16px 30px;border-radius:999px;background:var(--accent);color:var(--ink)}
+.title{font-family:var(--font-title);font-weight:900;line-height:1.15;letter-spacing:.01em}
+.price{font:900 84px/1 var(--font-body);color:var(--accent);font-variant-numeric:tabular-nums}
+.price small{font-size:.42em;font-weight:700;margin-left:6px}

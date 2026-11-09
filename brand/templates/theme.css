@@ -1,0 +1,6 @@
+/* 風格：只改下面這一行的檔名，10 張模板一起換風格。
+   00-default 預設（用 brand.css 的品牌色）
+   01-literary 文青｜02-art 藝術｜03-cute 可愛｜04-minimal 極簡｜05-retro 復古
+   06-fresh 日系清新｜07-neon 潮流霓虹｜08-handmade 手作牛皮紙｜09-magazine 雜誌｜10-oriental 東方國潮
+   想保留自己的品牌色：在最下面加一行 :root{--main:#你的主色;--accent:#你的強調色} */
+@import url("themes/00-default.css");

@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<title>07 品牌故事</title>
+<!-- 模板 07｜07 品牌故事：創業故事、職人日常、幕後花絮
+     AI 只改最下面 <script id="data"> 的 JSON；版型（HTML／CSS）不要動。
+     照片放在 ../照片/，填相對路徑，例如 "../照片/latte.jpg"；沒有照片就留 ""。 -->
+<link rel="stylesheet" href="brand.css">
+<link rel="stylesheet" href="base.css">
+<style>
+.photo{position:absolute;inset:0}
+.shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 30%,rgba(0,0,0,.78) 75%)}
+.txt{position:absolute;left:64px;right:64px;bottom:170px;color:#fff}
+.txt .pill{margin-bottom:28px}
+.txt .title{font-size:76px;margin-bottom:26px}
+.txt p{font-size:34px;line-height:1.65;opacity:.95}
+.sign{margin-top:24px;font:600 32px/1 var(--font-title);color:var(--accent)}
+.brandbar{color:#fff}
+</style>
+<link rel="stylesheet" href="theme.css">
+</head>
+<body>
+<div class="post">
+  <div class="photo full"><img data-k="photo" alt=""></div>
+  <div class="shade"></div>
+  <div class="txt"><span class="pill" data-k="badge"></span><h1 class="title" data-k="title"></h1><p data-k="story"></p><div class="sign" data-k="sign"></div></div>
+  <div class="brandbar"><span data-k="shop"></span><span class="tag" data-k="handle" data-optional></span></div>
+</div>
+<script id="data" type="application/json">
+{
+  "shop": "竹籬笆咖啡",
+  "handle": "@bamboo.fence.cafe",
+  "photo": "",
+  "badge": "我們的故事",
+  "title": "爺爺的眷村老屋，變成一間咖啡館",
+  "story": "小時候每個週末都在這條巷子跑來跑去。老屋要拆的那年，我們決定把它留下來，用一杯咖啡，請大家回來坐坐。",
+  "sign": "— 店長 阿哲"
+}
+</script>
+<script src="render.js"></script>
+</body>
+</html>

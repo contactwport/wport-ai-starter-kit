@@ -1,0 +1,11 @@
+# macOS
+.DS_Store
+
+# Obsidian workspace state (local settings)
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/cache
+
+# Editor / OS junk
+*.swp
+*~

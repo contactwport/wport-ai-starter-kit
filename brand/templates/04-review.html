@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<title>04 客人好評</title>
+<!-- 模板 04｜04 客人好評：把客人的真實評論做成圖（記得先問客人同意）
+     AI 只改最下面 <script id="data"> 的 JSON；版型（HTML／CSS）不要動。
+     照片放在 ../照片/，填相對路徑，例如 "../照片/latte.jpg"；沒有照片就留 ""。 -->
+<link rel="stylesheet" href="brand.css">
+<link rel="stylesheet" href="base.css">
+<style>
+.post{background:var(--paper)}
+.q{position:absolute;left:52px;top:40px;font:900 360px/1 var(--font-title);color:color-mix(in srgb,var(--accent) 55%,transparent)}
+.stars{position:absolute;left:64px;top:300px;font-size:64px;letter-spacing:6px;color:var(--accent)}
+.quote{position:absolute;left:64px;right:64px;top:400px;font:700 62px/1.45 var(--font-title);color:var(--ink)}
+.who{position:absolute;left:64px;bottom:200px;display:flex;align-items:center;gap:26px}
+.who .photo{width:150px;height:150px;border-radius:50%}
+.who b{display:block;font:700 40px/1.3 var(--font-body)}
+.who span{font-size:28px;color:var(--soft)}
+.src{position:absolute;right:64px;bottom:220px;font:500 26px/1 var(--font-body);color:var(--soft)}
+.brandbar{color:var(--main)}
+</style>
+<link rel="stylesheet" href="theme.css">
+</head>
+<body>
+<div class="post">
+  <div class="q">“</div>
+  <div class="stars" data-stars></div>
+  <p class="quote" data-k="quote"></p>
+  <div class="who"><div class="photo small"><img data-k="photo" alt=""></div><div><b data-k="name"></b><span data-k="item"></span></div></div>
+  <div class="src" data-k="source"></div>
+  <div class="brandbar"><span data-k="shop"></span><span class="tag" data-k="handle" data-optional></span></div>
+</div>
+<script id="data" type="application/json">
+{
+  "shop": "竹籬笆咖啡",
+  "handle": "@bamboo.fence.cafe",
+  "photo": "",
+  "stars": 5,
+  "quote": "老闆會問你今天想喝酸一點還是苦一點，再幫你挑豆子。坐在眷村老房子裡喝，很放鬆。",
+  "name": "林小姐",
+  "item": "點了：耶加雪菲手沖",
+  "source": "Google 評論"
+}
+</script>
+<script src="render.js"></script>
+</body>
+</html>

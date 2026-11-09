@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<title>10 節日與公告</title>
+<!-- 模板 10｜10 節日與公告：節日問候、公休、營業時間異動
+     AI 只改最下面 <script id="data"> 的 JSON；版型（HTML／CSS）不要動。
+     照片放在 ../照片/，填相對路徑，例如 "../照片/latte.jpg"；沒有照片就留 ""。 -->
+<link rel="stylesheet" href="brand.css">
+<link rel="stylesheet" href="base.css">
+<style>
+.post{background:var(--main);color:#fff}
+.dot{position:absolute;border-radius:50%;background:var(--accent);opacity:.9}
+.d1{width:420px;height:420px;left:-120px;top:-100px}
+.d2{width:200px;height:200px;right:90px;top:180px;opacity:.6}
+.d3{width:640px;height:640px;right:-260px;bottom:-200px;opacity:.25}
+.label{position:absolute;left:64px;top:430px;font:700 38px/1 var(--font-body);letter-spacing:.12em;color:var(--accent)}
+.big{white-space:pre-line;position:absolute;left:64px;right:64px;top:500px;font:900 120px/1.15 var(--font-title)}
+.sub{position:absolute;left:64px;right:120px;top:800px;font-size:36px;line-height:1.6;opacity:.95}
+.box{position:absolute;left:64px;top:1010px;background:#fff;color:var(--main);border-radius:24px;padding:26px 36px;font:700 34px/1.5 var(--font-body)}
+.brandbar{color:#fff}
+</style>
+<link rel="stylesheet" href="theme.css">
+</head>
+<body>
+<div class="post dark">
+  <div class="dot d1"></div><div class="dot d2"></div><div class="dot d3"></div>
+  <div class="label" data-k="label"></div>
+  <div class="big" data-k="title"></div>
+  <p class="sub" data-k="message"></p>
+  <div class="box" data-k="notice"></div>
+  <div class="brandbar"><span data-k="shop"></span><span class="tag" data-k="handle" data-optional></span></div>
+</div>
+<script id="data" type="application/json">
+{
+  "shop": "竹籬笆咖啡",
+  "handle": "@bamboo.fence.cafe",
+  "label": "公休公告",
+  "title": "休息一下，\n下週見",
+  "message": "店長要去南部找新的咖啡豆，回來第一週，每杯手沖折 20 元。",
+  "notice": "11/25（二）– 11/27（四）公休"
+}
+</script>
+<script src="render.js"></script>
+</body>
+</html>

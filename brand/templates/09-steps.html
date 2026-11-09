@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<title>09 使用步驟</title>
+<!-- 模板 09｜09 使用步驟：教學、預約流程、怎麼用、怎麼買
+     AI 只改最下面 <script id="data"> 的 JSON；版型（HTML／CSS）不要動。
+     照片放在 ../照片/，填相對路徑，例如 "../照片/latte.jpg"；沒有照片就留 ""。 -->
+<link rel="stylesheet" href="brand.css">
+<link rel="stylesheet" href="base.css">
+<style>
+.top{padding:84px 64px 30px;display:grid;grid-template-columns:1fr 300px;gap:30px;align-items:center}
+.top .title{font-size:78px;color:var(--main)}
+.top p{font-size:31px;color:var(--soft);margin-top:16px;line-height:1.5}
+.top .photo{width:300px;height:300px;border-radius:50%}
+.steps{list-style:none;padding:20px 64px;display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.steps li{background:#fff;border-radius:28px;padding:36px 34px;min-height:330px;border-top:12px solid var(--main)}
+.steps .n{font:900 70px/1 var(--font-title);color:var(--accent)}
+.steps b{display:block;font:700 40px/1.3 var(--font-body);margin:14px 0 10px}
+.steps span{font-size:29px;line-height:1.5;color:var(--soft)}
+.brandbar{color:var(--main)}
+</style>
+<link rel="stylesheet" href="theme.css">
+</head>
+<body>
+<div class="post">
+  <div class="top"><div><h1 class="title" data-k="title"></h1><p data-k="sub"></p></div><div class="photo small"><img data-k="photo" alt=""></div></div>
+  <ol class="steps" data-list="steps"><template><li><div class="n" data-n></div><b data-k="head"></b><span data-k="text"></span></li></template></ol>
+  <div class="brandbar"><span data-k="shop"></span><span class="tag" data-k="handle" data-optional></span></div>
+</div>
+<script id="data" type="application/json">
+{
+  "shop": "竹籬笆咖啡",
+  "handle": "@bamboo.fence.cafe",
+  "photo": "",
+  "title": "在家沖出一杯好咖啡",
+  "sub": "買了豆子回家？照這四步就對了",
+  "steps": [
+    {
+      "head": "秤 15 克豆子",
+      "text": "磨成像砂糖一樣的粗細。"
+    },
+    {
+      "head": "水燒到 90 度",
+      "text": "沒有溫度計？滾了放 1 分鐘。"
+    },
+    {
+      "head": "先悶 30 秒",
+      "text": "倒一點水讓粉膨脹、排氣。"
+    },
+    {
+      "head": "慢慢繞圈",
+      "text": "總共 240 毫升，2 分半內倒完。"
+    }
+  ]
+}
+</script>
+<script src="render.js"></script>
+</body>
+</html>
