@@ -34,7 +34,8 @@ const astroBin = path.join(root, 'node_modules', 'astro', 'bin', 'astro.mjs');
 
 // 第 1 堂的一頁式網站：放在 dist-themes/00-one-page/
 const ONE = '00-one-page';
-const onePage = ['code_artifact.html', '../code_artifact.html'].map((f) => path.join(root, f)).find((f) => fs.existsSync(f));
+// 上一層的是學生第 1 堂自己做的（網站放在 site/ 子資料夾時），優先用；沒有才用這裡的（範例或學生蓋掉的）
+const onePage = ['../code_artifact.html', 'code_artifact.html'].map((f) => path.join(root, f)).find((f) => fs.existsSync(f));
 if (!serveOnly && onePage) {
   fs.rmSync(path.join(out, ONE), { recursive: true, force: true });
   fs.mkdirSync(path.join(out, ONE), { recursive: true });
