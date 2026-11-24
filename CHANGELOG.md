@@ -1,5 +1,15 @@
 # 更新紀錄
 
+## 2026-11-24　個人網站只留 astro 一套，README 重寫
+
+學生說「做個人網站」時，AI 可能拿到舊範本，或用舊 prompt 的範例人物「林小安」（英文名 An Lin，頭像縮寫變成 AL）。
+
+- 拿掉 `templates/website/personal/`（一頁式＋eric-personal-site）、`templates/website/render.mjs`、`cute.css`、`terminal.css`、`examples/`（JSON 產網站），以及只給它用的 `ssot/個人/about-me.md`。一頁式 `code_artifact.html` 已在 astro 裡。
+- `templates/website/README.md` 改成分流：個人網站只用 `astro/`，店家官網用 `shop/`。
+- `skills/gen-resume`、`skills/INDEX.md`、`ssot/` 的 README 把「做網站」都指到 `templates/website/astro/`；`frontend-design` 只用來改視覺。
+- 根目錄 `AGENTS.md` 註明只管店家文圖。
+- 根目錄 README 重寫：每種成品只有一套範本的對照表、容易搞混的地方、兩種課怎麼拿、資料夾、Skills。
+
 ## 2026-11-24　第 1 堂的一頁式併進 astro，總覽變 11 個版本
 
 - `templates/website/astro/code_artifact.html`：第 1 堂用聊天 AI 做的一頁式網站（範例是老師的，學生換成自己的）。

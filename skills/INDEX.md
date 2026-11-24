@@ -33,13 +33,13 @@
 
 ---
 
-## 設計與個人品牌站
+## 設計
 
 | Skill | 來源 | 你可以這樣說 |
 |-------|------|-------------|
-| [`frontend-design`](frontend-design/) | [anthropics/skills](https://github.com/anthropics/skills) | 「用 ssot/個人/about-me 規劃個人品牌站視覺」「這一頁不要長得像 AI 模板」 |
+| [`frontend-design`](frontend-design/) | [anthropics/skills](https://github.com/anthropics/skills) | 「這一頁不要長得像 AI 模板」（只用在改範本的視覺，不用來從零做個人網站） |
 
-內容 SSOT：[`ssot/個人/README.md`](../ssot/個人/README.md)。`frontend-design` 管視覺，不管訪談與履歷 JSON。
+**個人網站只有一套：[`templates/website/astro/`](../templates/website/astro/README.md)**，照它的 README 做，不要用 `frontend-design` 另外做一個。
 
 ---
 
@@ -60,7 +60,7 @@
 | 轉職規劃 | `gen-career-mentor` → `gen-resume-optimizer` |
 | 活動 + 品牌頁 | `hypelink-event-mcp` + `hypelink-brand-page-mcp` |
 | 履歷上線 | `gen-resume` → `exec-vercel-cli` |
-| 個人品牌站 | `gen-resume`（寫入 `ssot/個人/`）→ `frontend-design`（依 `about-me` 規劃／實作）→ 可選 `exec-vercel-cli` |
+| 個人網站 | `gen-resume`（補 `ssot/個人/我的資料/`）→ [`templates/website/astro/`](../templates/website/astro/README.md)（網頁版 AI 寫內容、`npm run import`、選風格、上線） |
 | 表單與申請案 | `gen-resume`（建 SSOT）→ `gen-form-filler`（填 docx／xlsx＋蓋章） |
 
 ---
