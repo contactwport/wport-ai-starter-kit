@@ -34,11 +34,15 @@ const astroBin = path.join(root, 'node_modules', 'astro', 'bin', 'astro.mjs');
 
 // 第 1 堂的一頁式網站：放在 dist-themes/00-one-page/
 const ONE = '00-one-page';
-const onePage = ['code_artifact.html', '../code_artifact.html'].map((f) => path.join(root, f)).find((f) => fs.existsSync(f));
+// 上一層的是學生第 1 堂自己做的（網站放在 site/ 子資料夾時），優先用；沒有才用這裡的（範例或學生蓋掉的）
+const onePage = ['../code_artifact.html', 'code_artifact.html'].map((f) => path.join(root, f)).find((f) => fs.existsSync(f));
 if (!serveOnly && onePage) {
   fs.rmSync(path.join(out, ONE), { recursive: true, force: true });
   fs.mkdirSync(path.join(out, ONE), { recursive: true });
   fs.copyFileSync(onePage, path.join(out, ONE, 'index.html'));
+  // 一頁式用 images/ 的照片：帶上 public/images（學生自己的照片也放這裡）
+  const imgs = path.join(root, 'public', 'images');
+  if (fs.existsSync(imgs)) fs.cpSync(imgs, path.join(out, ONE, 'images'), { recursive: true });
   console.log(`一頁式 ${path.relative(root, onePage)} … 完成`);
 }
 
@@ -60,6 +64,7 @@ const types = { '.html': 'text/html; charset=utf-8', '.css': 'text/css', '.js': 
 const server = http.createServer((req, res) => {
   let p = decodeURIComponent(new URL(req.url, 'http://x').pathname);
   if (p === '/') p = '/index.html';
+  if (p === '/_root') { res.writeHead(200); return res.end(root); }
   if (p === '/_frame') {
     // 手機截圖：headless Chrome 視窗最小約 500px，用 390px 寬的 iframe 模擬手機
     const src = new URL(req.url, 'http://x').searchParams.get('u');
@@ -72,9 +77,15 @@ const server = http.createServer((req, res) => {
   res.writeHead(200, { 'content-type': types[path.extname(f)] || 'application/octet-stream' });
   fs.createReadStream(f).pipe(res);
 });
-// 4400 已經被上一次的預覽佔用就沿用它（讀的是同一個資料夾）
-const listening = await new Promise((ok) => { server.once('error', () => ok(false)); server.listen(4400, () => ok(true)); });
-const origin = 'http://localhost:4400';
+// 從 4400 開始找空的 port。被佔用時：是同一個資料夾的預覽就沿用，別的資料夾的就換下一個 port
+let port = 4400, listening = false;
+for (; port < 4420; port++) {
+  listening = await new Promise((ok) => { server.once('error', () => ok(false)); server.listen(port, () => ok(true)); });
+  if (listening) break;
+  const other = await fetch(`http://localhost:${port}/_root`).then((r) => r.text()).catch(() => '');
+  if (other === root) break;
+}
+const origin = `http://localhost:${port}`;
 
 // 找 Chrome／Edge
 function findBrowser() {

@@ -1,59 +1,23 @@
 # 個人版 SSOT（Obsidian）
 
-個人敘事的單一事實來源。`gen-resume` 訪談結果寫這裡；做個人品牌站時以這裡為內容，再用 `frontend-design` 規劃視覺。
+用 Obsidian「開啟資料夾作為保管庫」打開這裡。範例是 Eric 盧旭熙 的公開資料，全部換成你的。
 
-## 現況（夠用就好）
+| 檔案 | 是什麼 | 誰會用 |
+|---|---|---|
+| `我的資料.md` | 索引，連到 `我的資料/` 每一份筆記 | 個人網站、履歷、填表單 |
+| `我的資料/` | 基本資料、求職方向、技能與證照、特質和例子、興趣、公開聯絡方式，每段經歷一份 | 同上 |
+| `resume.md` | 虛構人物「林小範」的履歷全文 | 只給 `gen-resume`、`gen-form-filler` 和 `practice/` 試跑；**不是**個人網站的範例 |
 
-```
-ssot/個人/
-├── resume.md      # 履歷全文（含求職／較私密欄位）
-└── about-me.md    # 公開敘事（網站／品牌用）
-```
+## 做個人網站
 
-對 AI 來說：**清楚的標題階層 + 固定檔名** 就夠，不必先上複雜 YAML。
+個人網站只有一套範本：[`templates/website/astro/`](../../templates/website/astro/README.md)。
 
-## 長大以後再分類（可選）
+1. 把 `我的資料.md`、`我的資料/` 交給網頁版 AI（Gemini／ChatGPT），貼上 `templates/website/astro/網頁版AI-prompt.md`，它會寫出 `網站內容.md`。
+2. OpenCode 跑 `npm run import` 把內容放進網站，`npm run themes` 比較風格。
 
-筆記變多時，用**資料夾**拆，比一堆 frontmatter 更好維護：
+網站範例人物是「盧小熙」（老師本人資料改的），不是林小範。
 
-```
-ssot/個人/
-├── resume.md
-├── about-me.md          # 總覽／hero／一句話定位（可 wiki-link 到下面）
-├── projects/
-│   ├── order-service.md
-│   └── obs-stack.md
-├── experience/          # 可選：每份工作一則
-└── writing/             # 可選：文章、演講
-```
+## 規則
 
-`about-me.md` 保持短總覽；細節用 `[[projects/order-service]]` 連過去。建站時 agent 先讀 `about-me`，再按需展開連結。
-
-## 要不要 YAML？
-
-| | 建議 |
-|--|------|
-| **現在（2～3 份 SSOT）** | **不需要**。Markdown 標題就好。 |
-| **之後（很多專案／要篩選）** | 可加**極薄** frontmatter，方便 Obsidian Bases／Dataview，不是為了「AI 才看懂」。 |
-
-若要加，保持短：
-
-```yaml
----
-type: project          # about | resume | project | writing
-status: public         # public | private
-updated: 2026-07-25
----
-```
-
-原則：
-
-- **真相在正文**，YAML 只做分類／可見性，不要把經歷全文塞進 properties。
-- 公開站只吃 `status: public`（或只讀 `about-me` + `projects/`）。
-- 不要為了 AI 維護第二套 schema；AI 讀標題與列表通常比讀 YAML 更穩。
-
-## 和 skills 的關係
-
-1. `gen-resume` → 更新 `resume.md` + `about-me.md`
-2. 跟 agent 說：以 `ssot/個人/about-me.md` 為內容 → 用 `frontend-design` 規劃／實作網站
-3. 上線 → `exec-vercel-cli`
+- 一份筆記講一件事，索引連到每份筆記；沒有的資料寫「待確認」，不要編。
+- 手機、地址、身分證、生日、銀行帳號不要放進公開 repo。
