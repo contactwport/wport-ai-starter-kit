@@ -1,278 +1,348 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8">
-  <!-- 1. Viewport 設定 -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>個人簡介 - Eric Lu 盧旭熙</title>
-  <style>
-    /* 
-      配色方案 (白底 + 紫色溫馨系)：
-      底色: #ffffff (純白)
-      主配色 (Primary): #7c3aed (溫暖紫 - 溫馨且有氣場)
-      次配色 (Accent): #f5f3ff (淡薰衣草 - 背景區塊與邊框)
-      文字色: #1f2937 (深灰，確保閱讀舒適度)
-      輔助文字: #6b7280 (中灰)
-    */
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>盧小熙 Eric Lu｜WPORT 職航站創辦人</title>
+<meta name="description" content="幫在台灣的外籍人才找到工作，也教大家把 AI 用進工作裡。">
+<!--
+  第 1 堂的一頁式網站（範例是老師的，換成你自己的整份蓋掉）。
+  整份只有這一個檔案：直接用瀏覽器打開就能看。
+  要改的地方都標了「改這裡」。顏色只改 :root 的 --h（色相 0–360）。
+  圖片放在旁邊的 images/ 資料夾；沒有圖片也能正常顯示。
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@600;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --h: 218;                                   /* 改這裡：主色色相，218＝深藍 */
+    --ink: hsl(var(--h) 45% 12%);
+    --ink-2: hsl(var(--h) 18% 38%);
+    --line: hsl(var(--h) 30% 88%);
+    --bg: hsl(var(--h) 40% 98%);
+    --card: #fff;
+    --tint: hsl(var(--h) 70% 95%);
+    --brand: hsl(var(--h) 70% 40%);
+    --brand-2: hsl(var(--h) 75% 58%);
+    --deep: hsl(var(--h) 55% 14%);
+    --r: 22px;
+    --sans: "Noto Sans TC", system-ui, -apple-system, "PingFang TC", "Microsoft JhengHei", sans-serif;
+    --serif: "Noto Serif TC", "Songti TC", serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font:16px/1.75 var(--sans);color:var(--ink);background:var(--bg);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+  img{display:block;max-width:100%}
+  a{color:inherit}
+  .wrap{width:min(1120px,100% - 32px);margin-inline:auto}
+  .eyebrow{font-size:13px;font-weight:700;letter-spacing:.18em;color:var(--brand);text-transform:uppercase}
+  h2{font:900 clamp(30px,5vw,52px)/1.15 var(--serif);letter-spacing:-.01em;margin:10px 0 28px}
+  section{padding:clamp(72px,10vw,128px) 0}
 
-    /* 基本重設與邊界控制 (防止左右捲動) */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+  /* 導覽列 */
+  .nav{position:fixed;inset:14px 0 auto;z-index:50;pointer-events:none}
+  .nav .bar{pointer-events:auto;display:flex;align-items:center;gap:6px;width:max-content;max-width:calc(100% - 32px);margin-inline:auto;padding:6px;border-radius:999px;background:hsl(0 0% 100% / .72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid var(--line);box-shadow:0 8px 30px hsl(var(--h) 40% 20% / .08)}
+  .nav .me{display:flex;align-items:center;gap:8px;padding:0 10px 0 4px;font-weight:700;text-decoration:none;white-space:nowrap}
+  .nav .me i{width:30px;height:30px;border-radius:50%;background:var(--brand);color:#fff;display:grid;place-items:center;font:700 13px var(--sans);font-style:normal}
+  .nav .links{display:flex;gap:2px}
+  .nav .links a{padding:7px 12px;border-radius:999px;font-size:14px;text-decoration:none;color:var(--ink-2);white-space:nowrap}
+  .nav .links a:hover{background:var(--tint);color:var(--brand)}
+  .nav .cta{padding:8px 16px;border-radius:999px;background:var(--ink);color:#fff;font-size:14px;font-weight:700;text-decoration:none;white-space:nowrap}
+  @media (max-width:720px){.nav .links{display:none}}
 
-    html, body {
-      width: 100%;
-      max-width: 100%;
-      overflow-x: hidden; /* 防止左右捲動 */
-      background-color: #ffffff;
-      color: #1f2937;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      /* 4. 內文至少 16px、行距 1.6 */
-      font-size: 16px;
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
+  /* 首屏 */
+  .hero{min-height:min(100svh,900px);display:grid;align-items:center;padding:120px 0 64px;position:relative;isolation:isolate}
+  .hero::before{content:"";position:absolute;inset:-20% -10% auto auto;width:70vmax;height:70vmax;border-radius:50%;background:radial-gradient(closest-side,hsl(var(--h) 90% 75% / .35),transparent);z-index:-1;filter:blur(10px)}
+  .hero .grid{display:grid;grid-template-columns:1.25fr .9fr;gap:clamp(32px,6vw,80px);align-items:center}
+  .status{display:inline-flex;align-items:center;gap:10px;padding:6px 14px 6px 10px;border-radius:999px;background:var(--card);border:1px solid var(--line);font-size:14px;color:var(--ink-2)}
+  .status b{width:9px;height:9px;border-radius:50%;background:var(--brand-2);box-shadow:0 0 0 0 hsl(var(--h) 75% 58% / .6);animation:ping 2s infinite}
+  @keyframes ping{70%{box-shadow:0 0 0 10px hsl(var(--h) 75% 58% / 0)}100%{box-shadow:0 0 0 0 hsl(var(--h) 75% 58% / 0)}}
+  .hero h1{font:900 clamp(52px,10vw,124px)/1 var(--serif);letter-spacing:-.02em;margin:22px 0 10px}
+  .hero h1 .en{display:block;font:700 clamp(16px,2vw,20px)/1.4 var(--sans);letter-spacing:.3em;color:var(--brand);margin-top:16px;text-transform:uppercase}
+  .hero .role{font-size:clamp(17px,2vw,20px);font-weight:700;margin-top:18px}
+  .hero .tag{font-size:clamp(17px,2vw,20px);color:var(--ink-2);margin-top:8px;max-width:30em}
+  .hero .btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 24px;border-radius:999px;font-weight:700;text-decoration:none;transition:transform .25s,box-shadow .25s,background .25s}
+  .btn.p{background:var(--brand);color:#fff;box-shadow:0 10px 30px hsl(var(--h) 70% 40% / .35)}
+  .btn.s{background:var(--card);border:1px solid var(--line)}
+  .btn:hover{transform:translateY(-3px)}
+  .btn svg{width:18px;height:18px}
+  .portrait{position:relative;aspect-ratio:4/5;border-radius:calc(var(--r) * 1.6);overflow:hidden;background:linear-gradient(150deg,var(--brand-2),var(--deep));box-shadow:0 40px 80px -30px hsl(var(--h) 60% 20% / .5)}
+  .portrait img{width:100%;height:100%;object-fit:cover}
+  .portrait .mono{position:absolute;inset:0;display:grid;place-items:center;font:900 30vmin/1 var(--serif);color:hsl(0 0% 100% / .14)}
+  .portrait .chip{position:absolute;left:16px;bottom:16px;right:16px;padding:14px 16px;border-radius:16px;background:hsl(0 0% 100% / .86);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);font-size:14px;line-height:1.5}
+  .portrait .chip b{display:block;font-size:15px}
+  .scroll{position:absolute;left:50%;bottom:22px;translate:-50% 0;font-size:12px;letter-spacing:.2em;color:var(--ink-2)}
+  @media (max-width:860px){.hero .grid{grid-template-columns:1fr}.portrait{max-width:420px;width:100%}.scroll{display:none}}
 
-    /* 2. 手機優先 (Mobile First - 預設 375px 寬度適應)，768px 以上限制 max-width 720px 並置中 */
-    .container {
-      width: 100%;
-      padding: 24px 20px;
-      margin: 0 auto;
-    }
+  /* 數字 */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);border-block:1px solid var(--line)}
+  .stat{padding:34px 18px;text-align:center}
+  .stat + .stat{border-left:1px solid var(--line)}
+  .stat .v{font:900 clamp(36px,5vw,60px)/1 var(--serif);color:var(--brand)}
+  .stat .l{margin-top:10px;font-size:14px;color:var(--ink-2)}
+  @media (max-width:720px){.stats{grid-template-columns:repeat(2,1fr)}.stat:nth-child(3){border-left:0}.stat:nth-child(n+3){border-top:1px solid var(--line)}}
 
-    @media (min-width: 768px) {
-      .container {
-        max-width: 720px;
-        padding: 40px 20px;
-      }
-    }
+  /* 關於 */
+  .about .grid{display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(32px,6vw,80px);align-items:start}
+  .about .lead{font:600 clamp(22px,2.6vw,30px)/1.6 var(--serif)}
+  .about .body p{color:var(--ink-2);font-size:17px}
+  .about .body p + p{margin-top:16px}
+  .photos{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:32px}
+  .photos figure{border-radius:var(--r);overflow:hidden;aspect-ratio:3/4;background:var(--tint)}
+  .photos figure:nth-child(2){margin-top:40px}
+  .photos img{width:100%;height:100%;object-fit:cover;transition:transform .8s}
+  .photos figure:hover img{transform:scale(1.05)}
+  .traits{display:grid;gap:14px;margin-top:36px}
+  .trait{padding:22px 24px;border-radius:var(--r);background:var(--card);border:1px solid var(--line)}
+  .trait b{display:block;font-size:17px;margin-bottom:4px}
+  .trait span{color:var(--ink-2);font-size:15px}
+  @media (max-width:860px){.about .grid{grid-template-columns:1fr}}
 
-    /* 通用標題樣式 - 4. 標題 24px 以上 */
-    h1 {
-      font-size: 28px;
-      font-weight: 700;
-      line-height: 1.3;
-      color: #7c3aed;
-      margin-bottom: 8px;
-    }
+  /* 作品 */
+  .work{background:var(--deep);color:#fff;border-radius:clamp(28px,4vw,48px);margin-inline:clamp(0px,1.5vw,16px)}
+  .work .eyebrow{color:var(--brand-2)}
+  .work .list{display:grid;gap:22px}
+  .proj{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(20px,4vw,48px);align-items:center;padding:clamp(16px,2vw,22px);border-radius:calc(var(--r) * 1.3);background:hsl(var(--h) 45% 20%);border:1px solid hsl(var(--h) 40% 28%);text-decoration:none;transition:transform .4s,border-color .4s}
+  .proj:hover{transform:translateY(-4px);border-color:var(--brand-2)}
+  .proj .cover{aspect-ratio:16/10;border-radius:var(--r);overflow:hidden;background:linear-gradient(135deg,var(--brand),var(--brand-2))}
+  .proj .cover img{width:100%;height:100%;object-fit:cover;object-position:top;transition:transform 1s}
+  .proj:hover .cover img{transform:scale(1.04)}
+  .proj .meta{font-size:13px;color:hsl(var(--h) 60% 80%);letter-spacing:.06em}
+  .proj h3{font:900 clamp(24px,3vw,34px)/1.3 var(--serif);margin:8px 0 10px}
+  .proj p{color:hsl(var(--h) 25% 80%)}
+  .proj ul{list-style:none;margin-top:16px;display:grid;gap:8px}
+  .proj li{padding-left:22px;position:relative;font-size:15px;color:hsl(var(--h) 25% 88%)}
+  .proj li::before{content:"";position:absolute;left:0;top:.7em;width:10px;height:2px;background:var(--brand-2)}
+  .proj .go{display:inline-flex;gap:6px;margin-top:18px;font-weight:700;color:var(--brand-2)}
+  .proj:nth-child(even) .cover{order:2}
+  @media (max-width:860px){.proj{grid-template-columns:1fr}.proj:nth-child(even) .cover{order:0}}
 
-    h2 {
-      font-size: 24px;
-      font-weight: 600;
-      color: #7c3aed;
-      margin-bottom: 16px;
-      padding-bottom: 8px;
-      border-bottom: 2px solid #f5f3ff;
-    }
+  /* 經歷 */
+  .tl{position:relative;display:grid;gap:8px}
+  .tl::before{content:"";position:absolute;left:7px;top:10px;bottom:10px;width:2px;background:var(--line)}
+  .tl .fill{position:absolute;left:7px;top:10px;width:2px;height:0;background:var(--brand)}
+  .job{position:relative;display:grid;grid-template-columns:200px 1fr;gap:24px;padding:22px 0 22px 40px}
+  .job::before{content:"";position:absolute;left:0;top:30px;width:16px;height:16px;border-radius:50%;background:var(--bg);border:3px solid var(--brand)}
+  .job .when{font-weight:700;color:var(--brand);font-size:15px;padding-top:4px}
+  .job h3{font-size:20px;line-height:1.4}
+  .job .org{color:var(--ink-2);font-size:15px;margin-bottom:6px}
+  .job p{color:var(--ink-2);font-size:15px}
+  @media (max-width:720px){.job{grid-template-columns:1fr;gap:4px}}
 
-    /* 各區塊外距 */
-    section {
-      margin-bottom: 36px;
-    }
+  /* 技能 */
+  .skills{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+  .sk{padding:26px;border-radius:var(--r);background:var(--card);border:1px solid var(--line)}
+  .sk h3{font-size:15px;color:var(--brand);letter-spacing:.08em;margin-bottom:14px}
+  .sk ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+  .sk li{padding:6px 14px;border-radius:999px;background:var(--tint);font-size:14px;font-weight:500;color:hsl(var(--h) 50% 28%)}
+  @media (max-width:720px){.skills{grid-template-columns:1fr}}
 
-    /* 3. 順序：名字＋一句介紹 */
-    .hero {
-      text-align: center;
-      padding: 32px 16px;
-      background: linear-gradient(135deg, #f5f3ff 0%, #faf7ff 100%);
-      border-radius: 12px;
-      margin-bottom: 36px;
-      box-shadow: 0 4px 12px rgba(124, 58, 237, 0.05);
-    }
+  /* 一句話 */
+  .quote{text-align:center;padding:clamp(80px,12vw,150px) 0}
+  .quote q{display:block;font:900 clamp(30px,5.4vw,64px)/1.35 var(--serif);quotes:"「" "」";max-width:14em;margin-inline:auto}
+  .quote q .w{display:inline-block}
+  .quote small{display:block;margin-top:20px;color:var(--ink-2)}
 
-    .hero .tag {
-      display: inline-block;
-      font-size: 14px;
-      background-color: #ffffff;
-      color: #7c3aed;
-      padding: 4px 12px;
-      border-radius: 20px;
-      font-weight: 500;
-      margin-bottom: 12px;
-      border: 1px solid #c4b5fd;
-    }
+  /* 聯絡 */
+  .contact{padding-bottom:40px}
+  .contact .box{border-radius:clamp(28px,4vw,48px);padding:clamp(40px,7vw,88px) clamp(24px,6vw,72px);background:linear-gradient(140deg,var(--brand),var(--deep));color:#fff;position:relative;overflow:hidden;isolation:isolate}
+  .contact .box::after{content:"";position:absolute;right:-12%;top:-40%;width:60%;aspect-ratio:1;border-radius:50%;border:1px solid hsl(0 0% 100% / .18);box-shadow:0 0 0 60px hsl(0 0% 100% / .04),0 0 0 120px hsl(0 0% 100% / .03);z-index:-1}
+  .contact h2{margin:10px 0 14px}
+  .contact .eyebrow{color:hsl(var(--h) 90% 85%)}
+  .contact p{color:hsl(var(--h) 60% 90%);max-width:34em}
+  .contact .btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+  .contact .btn.p{background:#fff;color:var(--brand);box-shadow:none}
+  .contact .btn.s{background:transparent;border-color:hsl(0 0% 100% / .35);color:#fff}
+  footer{padding:28px 0 40px;text-align:center;font-size:14px;color:var(--ink-2)}
 
-    .hero p.tagline {
-      font-size: 18px;
-      color: #6b7280;
-      margin-top: 8px;
-    }
-
-    /* 關於我 (About) */
-    .about-info {
-      background-color: #ffffff;
-      border: 1px solid #f5f3ff;
-      border-left: 4px solid #7c3aed;
-      padding: 16px 20px;
-      border-radius: 4px;
-    }
-
-    /* 會的東西 (Skills) */
-    .skills-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      list-style: none;
-    }
-
-    .skill-item {
-      background-color: #f5f3ff;
-      color: #6d28d9;
-      padding: 8px 16px;
-      border-radius: 8px;
-      font-weight: 500;
-      font-size: 16px;
-    }
-
-    /* 做過的事 (Experience) - 手機版單欄 */
-    .experience-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 16px;
-    }
-
-    /* 2. 螢幕 768px 以上，經歷改兩欄 */
-    @media (min-width: 768px) {
-      .experience-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    .exp-card {
-      border: 1px solid #f5f3ff;
-      background-color: #ffffff;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(124, 58, 237, 0.04);
-      transition: box-shadow 0.2s ease, transform 0.2s ease;
-    }
-
-    .exp-card:hover {
-      box-shadow: 0 4px 12px rgba(124, 58, 237, 0.08);
-      transform: translateY(-2px);
-    }
-
-    .exp-card h3 {
-      font-size: 18px;
-      color: #7c3aed;
-      margin-bottom: 6px;
-    }
-
-    .exp-card .exp-desc {
-      color: #6b7280;
-      font-size: 16px;
-    }
-
-    /* 5. 按鈕至少 44px 高、聯絡我區塊 */
-    .contact-section {
-      text-align: center;
-      margin-top: 40px;
-      margin-bottom: 20px;
-    }
-
-    .btn-contact {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 44px; /* 規格規定至少 44px 高 */
-      padding: 0 32px;
-      background: linear-gradient(135deg, #7c3aed 0%, #8b5cf6 100%);
-      color: #ffffff;
-      font-size: 16px;
-      font-weight: 600;
-      text-decoration: none;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      width: 100%;
-      max-width: 280px;
-      transition: opacity 0.2s ease, box-shadow 0.2s ease;
-      box-shadow: 0 4px 10px rgba(124, 58, 237, 0.15);
-    }
-
-    .btn-contact:hover, .btn-contact:active {
-      opacity: 0.95;
-      box-shadow: 0 6px 14px rgba(124, 58, 237, 0.2);
-    }
-
-    /* 圖片與媒體控制，確保不超出螢幕 */
-    img, video {
-      max-width: 100%;
-      height: auto;
-    }
-  </style>
+  /* 動畫：沒載入 GSAP、或使用者關掉動畫時，內容照樣顯示 */
+  .js .rv{opacity:0;transform:translateY(28px)}
+  @media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none}.status b{animation:none}}
+</style>
 </head>
 <body>
+<script>if(!/[?&]shot/.test(location.search)&&!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('js')</script>
 
-  <main class="container">
-    
-    <!-- 順序 1: 名字 ＋ 一句話介紹 -->
-    <header class="hero">
-      <!-- 請在此填寫：科系年級 -->
-      <span class="tag">政大教育系畢業｜熱火數碼資訊 執行長</span>
-      <!-- 請在此填寫：名字 -->
-      <h1>Eric Lu 盧旭熙</h1>
-      <!-- 請在此填寫：一句話介紹自己 -->
-      <p class="tagline">「很多當下看起來不相關的點，會在未來連成線。」</p>
-    </header>
+<nav class="nav"><div class="bar">
+  <a class="me" href="#top"><i>熙</i>盧小熙</a>
+  <div class="links"><a href="#about">關於</a><a href="#work">作品</a><a href="#exp">經歷</a><a href="#skills">技能</a></div>
+  <a class="cta" href="#contact">聯絡我</a>
+</div></nav>
 
-    <!-- 順序 2: 關於我 -->
-    <section>
-      <h2>關於我</h2>
-      <div class="about-info">
-        <!-- 請在此填寫詳細自我介紹 -->
-        <p>科系：國立政治大學 教育學系（輔系日文），2014 年畢業</p>
-        <p>自我介紹：我是 WPORT 職航站的創辦人，做給在台外籍人才的求職平台。大學在教育系把哲學、外交、經濟、西文、日文都修了一輪，後來跑去修資科系的課，從此跟軟體分不開。在錫諾系統做了八年 B2B 專案，現在也在大學和企業教 AI 工作流與 Vibe Coding。</p>
+<main id="top">
+  <!-- 首屏：改這裡（名字、職稱、一句話、狀態） -->
+  <header class="hero"><div class="wrap grid">
+    <div>
+      <span class="status rv"><b></b>歡迎洽談 AI 工作坊與企業內訓</span>
+      <h1 class="rv">盧小熙<span class="en">Eric Lu</span></h1>
+      <p class="role rv">WPORT 職航站創辦人｜AI 工作流講師</p>
+      <p class="tag rv">幫在台灣的外籍人才找到工作，也教大家把 AI 用進工作裡。</p>
+      <div class="btns rv">
+        <a class="btn p" href="#work">看我的作品 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn s" href="#contact">聯絡我</a>
       </div>
-    </section>
+    </div>
+    <div class="portrait rv">
+      <span class="mono">熙</span>
+      <img onload="this.previousElementSibling.remove()" src="images/me.webp" alt="盧小熙" data-fallback="public/images/me.webp">
+      <div class="chip"><b>台北，台灣</b>中文母語・英文流利・日文 N2</div>
+    </div>
+  </div><span class="scroll">SCROLL</span></header>
 
-    <!-- 順序 3: 會的東西 -->
-    <section>
-      <h2>會的東西</h2>
-      <ul class="skills-list">
-        <!-- 請在此修改或新增您的技能標籤 -->
-        <li class="skill-item">n8n 自動化</li>
-        <li class="skill-item">B2B 業務開發</li>
-        <li class="skill-item">日文 N2</li>
-        <li class="skill-item">AI 工作流設計</li>
-        <li class="skill-item">Obsidian SSOT</li>
-        <li class="skill-item">Cursor／Claude Code</li>
-      </ul>
-    </section>
+  <!-- 數字：改這裡 -->
+  <div class="wrap stats">
+    <div class="stat rv"><div class="v" data-n="1060">1,060</div><div class="l">WPORT 合作企業</div></div>
+    <div class="stat rv"><div class="v" data-n="90" data-s="+">90+</div><div class="l">做過軟體提案的企業</div></div>
+    <div class="stat rv"><div class="v" data-n="24">24</div><div class="l">扶青團團長任內專案</div></div>
+    <div class="stat rv"><div class="v">N2</div><div class="l">日文檢定</div></div>
+  </div>
 
-    <!-- 順序 4: 做過的事 (手機單欄，768px 以上兩欄) -->
-    <section>
-      <h2>做過的事</h2>
-      <div class="experience-grid">
-        <!-- 經歷 1 -->
-        <div class="exp-card">
-          <h3>1. WPORT 職航站 創辦人</h3>
-          <p class="exp-desc">從零做到 1,060 間合作企業，幫在台外籍人才與僑外生找工作。</p>
-        </div>
-        <!-- 經歷 2 -->
-        <div class="exp-card">
-          <h3>2. 大學與企業 AI 講師</h3>
-          <p class="exp-desc">醒吾、開南、靜宜、精立數位等，帶零基礎學員做出個人網站、AI 工作流與 n8n 自動化。</p>
-        </div>
-        <!-- 經歷 3 -->
-        <div class="exp-card">
-          <h3>3. 台北扶輪青年服務團 團長</h3>
-          <p class="exp-desc">帶 20 人團隊完成 24 項專案，參與 2019 年尼泊爾 AED 計畫。</p>
-        </div>
+  <!-- 關於我：改這裡 -->
+  <section class="about" id="about"><div class="wrap grid">
+    <div>
+      <span class="eyebrow rv">About</span>
+      <h2 class="rv">關於我</h2>
+      <p class="lead rv">我在做 WPORT 職航站，一個給在台外籍人才的求職平台，從零到 1,060 間合作企業。</p>
+      <div class="photos">
+        <figure class="rv"><img src="images/me-talk.webp" alt="演講中的盧小熙" data-fallback="public/images/me-talk.webp"></figure>
+        <figure class="rv"><img src="images/me-lifeguard.webp" alt="擔任救生教練的盧小熙" data-fallback="public/images/me-lifeguard.webp"></figure>
       </div>
-    </section>
+    </div>
+    <div class="body">
+      <p class="rv">大學在教育系，修了哲學、外交、經濟、西文、日文，大概把想學的都學了一遍。後來被同學慫恿去修資科系的課，從此跟軟體分不開，雖然當時連巴斯卡三角形都寫不出來。</p>
+      <p class="rv">在錫諾系統做了八年 B2B 專案，服務過 O 型環、牙科器材、FMCG、文創、自行車零件。業態不同，背後的邏輯卻很像。之後到 WPORT 帶團隊，短影片、雇主品牌、軟體架構都碰過；現在也在大學和企業教 AI 工作流。</p>
+      <div class="traits">
+        <div class="trait rv"><b>把卡關的流程收斂成表單</b><span>僑外生找工作最容易卡在文件。WPORT 把流程整理成表單，資料填一次，需要的文件自動產生。</span></div>
+        <div class="trait rv"><b>用工具管專案，不靠記性</b><span>扶青團團長那年，20 個人跑 24 項專案。導入 Trello，誰負責、做到哪，打開就看得到。</span></div>
+        <div class="trait rv"><b>需要什麼，就學什麼</b><span>PS、GA4、GTM、Google Script、OBS，都是因為某件事非做不可才學會。</span></div>
+      </div>
+    </div>
+  </div></section>
 
-    <!-- 順序 5: 聯絡我按鈕 -->
-    <section class="contact-section">
-      <!-- 請在 href 填寫您的 Email (例如: mailto:your@email.com) 或通訊軟體連結 -->
-      <a href="mailto:ericlu@wport.me" class="btn-contact">聯絡我</a>
-    </section>
+  <!-- 作品：改這裡（一個 a.proj 是一個作品） -->
+  <section class="work" id="work"><div class="wrap">
+    <span class="eyebrow rv">Selected work</span>
+    <h2 class="rv">做過的作品</h2>
+    <div class="list">
+      <a class="proj rv" href="https://wport.me" target="_blank" rel="noopener">
+        <div class="cover"><img src="images/projects/wport.webp" alt="WPORT 職航站網站" loading="lazy" data-fallback="public/images/projects/wport.webp"></div>
+        <div><div class="meta">2024 – ・創辦人／執行長</div><h3>WPORT 職航站</h3>
+          <p>專為在台外籍人才設計的求職平台。</p>
+          <ul><li>從零累積到 1,060 間合作企業</li><li>僑外生最容易卡關的文件流程，收斂成表單自動產生</li><li>開發與營運全面導入 AI 工作流與 SSOT 知識管理</li></ul>
+          <span class="go">wport.me →</span></div>
+      </a>
+      <a class="proj rv" href="https://youth7.sup-eric.com/" target="_blank" rel="noopener">
+        <div class="cover"><img src="images/projects/youth7.webp" alt="青年諮詢委員會成果網站" loading="lazy" data-fallback="public/images/projects/youth7.webp"></div>
+        <div><div class="meta">第七屆・國際展望組組長</div><h3>桃園市青年諮詢委員會</h3>
+          <p>提出僑外生留台職涯暨生活支持計畫，並建置成果網站。</p>
+          <ul><li>設計法規→生活→產業→共融→媒合五階段留才 SOP</li><li>訪談民政、經發、勞動三個局處，加上中越雙語問卷</li></ul>
+          <span class="go">成果網站 →</span></div>
+      </a>
+      <a class="proj rv" href="https://sup-eric.com/work/youth-growth/#game" target="_blank" rel="noopener">
+        <div class="cover"><img src="images/projects/startup-life.webp" alt="創業人生遊戲畫面" loading="lazy" data-fallback="public/images/projects/startup-life.webp"></div>
+        <div><div class="meta">2026・企劃與開發</div><h3>創業人生</h3>
+          <p>像素風創業模擬遊戲，邊玩邊認識中央與地方的創業資源。</p>
+          <ul><li>12 種產業、14 個縣市，每項都附政策或新聞來源</li><li>上線後已有 8,361 人玩過</li></ul>
+          <span class="go">線上玩 →</span></div>
+      </a>
+      <a class="proj rv" href="https://nodullardsclub.com" target="_blank" rel="noopener">
+        <div class="cover"><img src="images/projects/nodullards.webp" alt="無白丁會所網站" loading="lazy" data-fallback="public/images/projects/nodullards.webp"></div>
+        <div><div class="meta">2025 –・共同創辦人</div><h3>無白丁會所</h3>
+          <p>台北小型策展式沙龍，15–20 人圍坐，一位講者起頭，接著整桌深度對話。</p>
+          <span class="go">網站 →</span></div>
+      </a>
+    </div>
+  </div></section>
 
-    <p style="margin-top:32px;text-align:center;color:#6b7280;font-size:14px;">模板來自 <a href="https://sup-eric.com" style="color:#7c3aed;">Eric Lu 盧旭熙</a>｜<a href="https://github.com/ericlu-sys/teaching_template" style="color:#7c3aed;">teaching_template</a></p>
+  <!-- 經歷：改這裡（一個 .job 是一段） -->
+  <section id="exp"><div class="wrap">
+    <span class="eyebrow rv">Experience</span>
+    <h2 class="rv">經歷</h2>
+    <div class="tl"><span class="fill"></span>
+      <div class="job rv"><div class="when">2024 – 現在</div><div><h3>執行長</h3><div class="org">熱火數碼資訊</div><p>創立 WPORT 職航站，統籌產品、開發與行銷團隊。</p></div></div>
+      <div class="job rv"><div class="when">2016 – 2018</div><div><h3>團長／副團長</h3><div class="org">台北扶輪青年服務團</div><p>帶 20 人團隊完成 24 項專案，參與尼泊爾 AED 計畫。</p></div></div>
+      <div class="job rv"><div class="when">2015 – 2024</div><div><h3>業務 → 專案經理 → 業務開發經理</h3><div class="org">錫諾系統 Xinosys</div><p>向 90 多家企業做 B2B 軟體提案，採購系統導入 10 家以上客戶。</p></div></div>
+      <div class="job rv"><div class="when">2014 – 2015</div><div><h3>教育替代役</h3><div class="org">台東延平鄉武陵國小</div><p>在布農族部落小學教英文，幫棒球隊做粉絲專頁。</p></div></div>
+      <div class="job rv"><div class="when">2011 – 2014</div><div><h3>英文課教學助教</h3><div class="org">國立政治大學</div><p>協助 3 個班、每班 40 人的備課與批改。</p></div></div>
+    </div>
+  </div></section>
 
-  </main>
+  <!-- 技能：改這裡 -->
+  <section id="skills" style="padding-top:0"><div class="wrap">
+    <span class="eyebrow rv">Skills</span>
+    <h2 class="rv">會的東西</h2>
+    <div class="skills">
+      <div class="sk rv"><h3>AI 與自動化</h3><ul><li>AI 工作流設計</li><li>Cursor／AI IDE</li><li>PRD</li><li>Obsidian SSOT</li><li>n8n</li><li>Vercel</li><li>Cloudflare</li><li>Apps Script</li></ul></div>
+      <div class="sk rv"><h3>職能</h3><ul><li>B2B 業務開發</li><li>專案管理</li><li>客戶提案簡報</li><li>Agile</li><li>跨部門協調</li><li>數位轉型顧問</li></ul></div>
+      <div class="sk rv"><h3>行銷與工具</h3><ul><li>GA4</li><li>Google Ads</li><li>Facebook Ads</li><li>Search Console</li><li>WordPress</li><li>Photoshop</li><li>Premiere</li></ul></div>
+      <div class="sk rv"><h3>語言</h3><ul><li>中文（母語）</li><li>英文（流利）</li><li>日文 JLPT N2</li></ul></div>
+    </div>
+  </div></section>
 
+  <!-- 一句話：改這裡 -->
+  <div class="wrap quote"><q id="q">很多當下看起來不相關的點，會在未來連成線。</q><small>盧小熙</small></div>
+
+  <!-- 聯絡：改這裡（email 與社群連結） -->
+  <section class="contact" id="contact"><div class="wrap"><div class="box">
+    <span class="eyebrow rv">Contact</span>
+    <h2 class="rv">一起做點什麼吧</h2>
+    <p class="rv">AI 工作坊、企業內訓、外籍人才招募，或只是想聊聊，都歡迎寫信給我。</p>
+    <div class="btns rv">
+      <a class="btn p" href="mailto:hello@example.com">寄信給我</a>
+      <a class="btn s" href="https://www.linkedin.com/in/xu-xi-lu-922823b9/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn s" href="https://github.com/ericlu-sys" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn s" href="https://www.instagram.com/eric_rookie_ceo/" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </div></div></section>
+</main>
+<footer>© 2026 盧小熙・一頁式網站</footer>
+
+<script>
+  // 圖片：先找 images/，找不到換 public/images/，再找不到就藏起來（留下底色）
+  document.querySelectorAll('img[data-fallback]').forEach(function(img){
+    img.addEventListener('error',function(){
+      if(img.dataset.fallback){var f=img.dataset.fallback;img.dataset.fallback='';img.src=f}else{img.style.display='none'}
+    });
+  });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+(function(){
+  var root=document.documentElement;
+  if(!root.classList.contains('js'))return;
+  if(!window.gsap||!window.ScrollTrigger){root.classList.remove('js');return}
+  gsap.registerPlugin(ScrollTrigger);
+
+  // 首屏依序進場
+  gsap.to('.hero .rv',{opacity:1,y:0,duration:1,ease:'power3.out',stagger:.09,delay:.1});
+  gsap.from('.portrait img',{scale:1.15,duration:1.6,ease:'power3.out'});
+
+  // 其他區塊捲到才進場
+  ScrollTrigger.batch('main > :not(.hero) .rv',{start:'top 88%',once:true,
+    onEnter:function(els){gsap.to(els,{opacity:1,y:0,duration:.9,ease:'power3.out',stagger:.08})}});
+
+  // 數字從 0 跑上去
+  document.querySelectorAll('.stat .v[data-n]').forEach(function(el){
+    var n=+el.dataset.n,s=el.dataset.s||'',o={v:0};
+    ScrollTrigger.create({trigger:el,start:'top 90%',once:true,onEnter:function(){
+      gsap.to(o,{v:n,duration:1.6,ease:'power2.out',onUpdate:function(){el.textContent=Math.round(o.v).toLocaleString('en-US')+s}});
+    }});
+  });
+
+  // 首屏照片視差
+  gsap.to('.portrait img',{yPercent:8,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+
+  // 經歷時間軸跟著捲動畫線
+  gsap.to('.tl .fill',{height:'calc(100% - 20px)',ease:'none',scrollTrigger:{trigger:'.tl',start:'top 70%',end:'bottom 70%',scrub:true}});
+
+  // 一句話逐字浮現
+  var q=document.getElementById('q');
+  q.innerHTML=q.textContent.split('').map(function(c){return '<span class="w">'+c+'</span>'}).join('');
+  gsap.from('#q .w',{opacity:.12,stagger:.04,ease:'none',scrollTrigger:{trigger:'.quote',start:'top 75%',end:'bottom 60%',scrub:true}});
+})();
+</script>
 </body>
 </html>
